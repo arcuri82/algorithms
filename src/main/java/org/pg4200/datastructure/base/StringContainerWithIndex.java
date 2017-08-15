@@ -1,4 +1,4 @@
-package org.pg4200.datastructure;
+package org.pg4200.datastructure.base;
 
 /**
  * In most programs, we need to store data, and then being able to retrieve it later on.

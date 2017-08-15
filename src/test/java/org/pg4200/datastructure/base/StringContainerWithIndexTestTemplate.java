@@ -1,7 +1,8 @@
-package org.pg4200.datastructure;
+package org.pg4200.datastructure.base;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pg4200.datastructure.base.StringContainerWithIndex;
 
 import static org.junit.Assert.*;
 

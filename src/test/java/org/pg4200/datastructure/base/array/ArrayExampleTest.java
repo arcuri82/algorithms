@@ -1,4 +1,4 @@
-package org.pg4200.datastructure.array;
+package org.pg4200.datastructure.base.array;
 
 import org.junit.Test;
 

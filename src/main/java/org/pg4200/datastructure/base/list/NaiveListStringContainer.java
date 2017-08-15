@@ -1,6 +1,6 @@
-package org.pg4200.datastructure.list;
+package org.pg4200.datastructure.base.list;
 
-import org.pg4200.datastructure.StringContainerWithIndex;
+import org.pg4200.datastructure.base.StringContainerWithIndex;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
