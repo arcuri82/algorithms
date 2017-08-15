@@ -20,6 +20,7 @@ public class ArrayStringContainerTestFailing extends StringContainerWithIndexTes
         has size 4.
 
         So, couldn't we just choose a starting size of 1_000_000_000 to solve this problem???
-        Of course we could, but then this trivial example would take 1GB of RAM...
+        Of course we could, but then this trivial example would take 1GB of RAM for each single
+        container class...
      */
 }
