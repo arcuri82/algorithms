@@ -1,20 +1,24 @@
-package org.pg4200.sorting;
+package org.pg4200.exercise.ex03;
+
+import java.util.Comparator;
 
 /**
  * Created by arcuri82 on 21-Aug-17.
  */
-public class BubbleSort implements MySort {
+public class OptimizedBubbleSort {
 
 
-    @Override
-    public <T extends Comparable<T>> void sort(T[] array) {
+    public <T> int sort(T[] array, Comparator<T> comparator, boolean optimized) {
 
         if (array == null) {
-            return;
+            return 0;
         }
+
+        int counter = 0;
 
         //make sure we enter into first loop of the "while"
         boolean swapped = true;
+        int lastSwap = array.length-1;
 
         while (swapped) {
 
@@ -25,7 +29,13 @@ public class BubbleSort implements MySort {
 
             swapped = false;
 
-            for (int i = 0; i < array.length - 1; i++) {
+            int limit = array.length - 1;
+
+            if(optimized){
+                limit = lastSwap;
+            }
+
+            for (int i = 0; i < limit; i++) {
                 int j = i + 1;
                 /*
                     if current element is greater than next,
@@ -33,22 +43,19 @@ public class BubbleSort implements MySort {
                     Like a bubble, the highest value will fly up.
                  */
 
-                if (array[i].compareTo(array[j]) > 0) {
+                counter++;
+
+                if (comparator.compare(array[i], array[j]) > 0) {
                     T tmp = array[i];
                     array[i] = array[j];
                     array[j] = tmp;
 
                     swapped = true;
+                    lastSwap = i;
                 }
             }
         }
 
-        /*
-            In best case, we still need to traverse the array once: Omega(n)
-
-            Worst case (inverted array), we need an iteration for each element
-            at least once: O(n^2)
-         */
+        return counter;
     }
 }
-
