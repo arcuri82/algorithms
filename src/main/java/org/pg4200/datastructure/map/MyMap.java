@@ -23,7 +23,7 @@ public interface MyMap<K extends Comparable<K>, V> {
     V get(K key);
 
     /**
-     *  The number of elements in the contaner
+     *  The number of elements in the container
      */
     int size();
 

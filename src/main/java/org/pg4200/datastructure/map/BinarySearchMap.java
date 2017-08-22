@@ -51,7 +51,7 @@ public class BinarySearchMap<K extends Comparable<K>,V> implements MyMap<K,V> {
                     /*
                         this means that the current element
                         at position i is greater than new key.
-                        So, to keep the list sored, we need to insert
+                        So, to keep the list sorted, we need to insert
                         before it
                      */
 
@@ -64,7 +64,7 @@ public class BinarySearchMap<K extends Comparable<K>,V> implements MyMap<K,V> {
                 }
             }
             /*
-                if we arrive here, the for loop completed with no break.
+                if we arrive here, then the for loop completed with no break.
                 so add at the end.
              */
             sortedData.add(entry);
@@ -106,7 +106,7 @@ public class BinarySearchMap<K extends Comparable<K>,V> implements MyMap<K,V> {
     @Override
     public V get(K key) {
 
-        //O(log n) compexity
+        //O(log n) complexity
         int index = Search.findInSorted(sortedData, new Entry<>(key, null));
 
         if(index < 0){
