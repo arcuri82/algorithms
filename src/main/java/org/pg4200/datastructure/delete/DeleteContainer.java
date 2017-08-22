@@ -5,7 +5,7 @@ package org.pg4200.datastructure.delete;
  *  But what if I need to store more complex objects, like an hypothetical
  *  Song, PurchaseOrder, etc?
  *
- *  As the "type" of what we store is not important, we use
+ *  As the "type" of what we store is not important, we use Java "Generics"
  *
  * Created by arcuri82 on 15-Aug-17.
  */
