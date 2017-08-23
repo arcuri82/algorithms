@@ -70,4 +70,25 @@ public abstract class MyMapTestTemplate {
         assertEquals(y, res);
     }
 
+
+    @Test
+    public void testAddSeveral(){
+
+        map.put("a",0);
+        map.put("a",0);
+        map.put("b",1);
+        map.put("b",1);
+        map.put("c",2);
+
+        map.put("a",0);
+        map.put("a",0);
+        map.put("b",1);
+        map.put("b",1);
+        map.put("c",2);
+
+        assertEquals(3, map.size());
+        assertEquals(0, map.get("a").intValue());
+        assertEquals(1, map.get("b").intValue());
+        assertEquals(2, map.get("c").intValue());
+    }
 }
