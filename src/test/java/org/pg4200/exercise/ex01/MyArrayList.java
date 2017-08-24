@@ -21,7 +21,7 @@ public class MyArrayList<T> extends ArrayDeleteContainer<T> {
         if(size == data.length){
             /*
                 array is full, need to create new, bigger one.
-                Note: for simiplicity I am not adding code to check
+                Note: for simplicity I am not adding code to check
                 if new size does not overflow.
                 If you want to see how to do it properly, look at the source
                 code of java.lang.ArrayList
