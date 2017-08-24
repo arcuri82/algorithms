@@ -75,7 +75,7 @@ public abstract class MyMapTestTemplate {
     }
 
     @Test
-    public void testDelete(){
+    public void testDelete() {
 
         int n = map.size();
 
@@ -85,7 +85,7 @@ public abstract class MyMapTestTemplate {
         map.put(key, x);
 
         assertEquals(x, map.get(key).intValue());
-        assertEquals(n+1, map.size());
+        assertEquals(n + 1, map.size());
 
         map.delete(key);
 
@@ -118,7 +118,7 @@ public abstract class MyMapTestTemplate {
     @Test
     public void testRandom() {
 
-        int n = 100;
+        int n = 100; //if you get failures, you can use lower number to help debugging, eg 5
         List<String> keys = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             keys.add("" + i);
@@ -138,12 +138,38 @@ public abstract class MyMapTestTemplate {
             }
 
             int size = keys.size();
-            for(String key: keys){
+            Collections.shuffle(keys);
+
+            for (String key : keys) {
                 map.delete(key);
                 assertNull(map.get(key));
                 size--;
-                assertEquals(size, map.size());
+                assertEquals("" + keys, size, map.size());
             }
         }
     }
+
+    /*
+        Once you get some random key sequences failing in previous test,
+        then you can create specific tests for them to help debugging
+     */
+    @Test
+    public void test_2_1_3_0_4() {
+
+        String[] keys = {"2", "1", "3", "0", "4"};
+        for (String key : keys) {
+            map.put(key, 0);
+        }
+
+        int size = keys.length;
+
+        for (String key : keys) {
+            map.delete(key);
+            assertNull(map.get(key));
+            size--;
+            assertEquals(size, map.size());
+        }
+    }
+
+
 }
