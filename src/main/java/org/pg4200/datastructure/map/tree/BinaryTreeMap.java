@@ -115,31 +115,25 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
     @Override
     public V get(K key) {
 
-        TreeNode node = find(key, root);
-        if (node != null) {
-            return node.value;
-        }
-
-        return null;
+        return get(key, root);
     }
 
-    private TreeNode find(K key, TreeNode subtreeRoot) {
+    private V get(K key, TreeNode subtreeRoot) {
 
         if (subtreeRoot == null) {
             return null;
         }
 
-
         int cmp = key.compareTo(subtreeRoot.key);
 
         if (cmp == 0) {
-            return subtreeRoot;
+            return subtreeRoot.value;
         } else if (cmp > 0 && subtreeRoot.right != null) {
             //look at greater values in the right subtree
-            return find(key, subtreeRoot.right);
+            return get(key, subtreeRoot.right);
         } else if (cmp < 0 && subtreeRoot.left != null) {
             //look at smaller values in the left subtree
-            return find(key, subtreeRoot.left);
+            return get(key, subtreeRoot.left);
         }
 
         return null;
