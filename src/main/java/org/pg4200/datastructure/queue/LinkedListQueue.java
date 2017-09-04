@@ -1,7 +1,5 @@
 package org.pg4200.datastructure.queue;
 
-import org.pg4200.datastructure.stack.LinkedListStack;
-
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
@@ -35,11 +33,14 @@ public class LinkedListQueue<T> implements MyQueue<T> {
             return;
         }
 
+        /*
+            We insert the new element after the tail.
+         */
         BiDirectionalNode oldTail = tail;
         tail = node;
 
-        tail.next = oldTail;
-        oldTail.previous = tail;
+        tail.previous = oldTail;
+        oldTail.next = tail;
     }
 
     @Override
@@ -54,8 +55,8 @@ public class LinkedListQueue<T> implements MyQueue<T> {
             head = null;
             tail = null;
         } else {
-            head = head.previous;
-            head.next = null;
+            head = head.next;
+            head.previous = null;
         }
 
         size--;

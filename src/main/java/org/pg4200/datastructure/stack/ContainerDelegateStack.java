@@ -2,6 +2,7 @@ package org.pg4200.datastructure.stack;
 
 import org.pg4200.datastructure.delete.ArrayDeleteContainer;
 import org.pg4200.datastructure.delete.DeleteContainer;
+import org.pg4200.datastructure.delete.ListDeleteContainer;
 
 public class ContainerDelegateStack<T> implements MyStack<T> {
 
@@ -22,7 +23,7 @@ public class ContainerDelegateStack<T> implements MyStack<T> {
 
     public static <T> ContainerDelegateStack<T> backedByList(Class<T> klass){
         ContainerDelegateStack<T> container =  new ContainerDelegateStack<>();
-        container.delegate = new ArrayDeleteContainer<>();
+        container.delegate = new ListDeleteContainer<>();
         return container;
     }
 

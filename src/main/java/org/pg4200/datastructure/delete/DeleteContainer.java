@@ -23,13 +23,17 @@ public interface DeleteContainer<T> {
         Here, we use the "size()" method.
         How to use "size()" to implement "isEmpty()"
         is independent of how size itself is implemented.
+
+        Note: the implementing class could override this
+        method if there is a more efficient way to check
+        for emptiness (eg if "size()" is expensive)
      */
     default boolean isEmpty(){
         return size() == 0;
     }
 
     /**
-     * Get the string stored in position defined by "index".
+     * Get the value stored in position defined by "index".
      *
      * Throw an exception if index is invalid
      */
