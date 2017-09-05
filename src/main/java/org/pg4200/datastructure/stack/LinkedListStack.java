@@ -4,21 +4,20 @@ package org.pg4200.datastructure.stack;
 
 public class LinkedListStack<T> implements MyStack<T>{
 
-    private class BiDirectionalNode{
+    private class StackNode {
         T value;
-        BiDirectionalNode next;
-        BiDirectionalNode previous;
+        StackNode previous;
     }
 
     //Note: for a stack, we don't need a head
-    private BiDirectionalNode tail;
+    private StackNode tail;
 
     private int size;
 
     @Override
     public void push(T value) {
 
-        BiDirectionalNode node = new BiDirectionalNode();
+        StackNode node = new StackNode();
         node.value = value;
         size++;
 
@@ -28,7 +27,6 @@ public class LinkedListStack<T> implements MyStack<T>{
             return;
         }
 
-        tail.next = node;
         node.previous = tail;
         tail = node;
     }
@@ -50,10 +48,6 @@ public class LinkedListStack<T> implements MyStack<T>{
 
         T value = tail.value;
         tail = tail.previous;
-
-        if(tail != null) {
-            tail.next = null;
-        }
 
         size--;
 
