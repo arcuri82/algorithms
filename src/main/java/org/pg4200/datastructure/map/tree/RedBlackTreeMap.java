@@ -46,8 +46,6 @@ public class RedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedM
             subtreeRoot.value = value;
         }
 
-        //FIXME: check and explain if following are mutually exclusive if statements
-
         if (isRed(subtreeRoot.right) && !isRed(subtreeRoot.left)) {
             subtreeRoot = rotateLeft(subtreeRoot);
         }
@@ -55,7 +53,7 @@ public class RedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedM
             subtreeRoot = rotateRight(subtreeRoot);
         }
         if (isRed(subtreeRoot.left) && isRed(subtreeRoot.right)) {
-            setRedWithBlackChildren(subtreeRoot);
+            flipColors(subtreeRoot);
         }
 
         return subtreeRoot;
@@ -68,14 +66,14 @@ public class RedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedM
         return node.is_red;
     }
 
-    private void setRedWithBlackChildren(TreeNode subtreeRoot) {
+    private void flipColors(TreeNode subtreeRoot) {
 
-        subtreeRoot.is_red = true;
+        subtreeRoot.is_red = !subtreeRoot.is_red;
         if (subtreeRoot.left != null) {
-            subtreeRoot.left.is_red = false;
+            subtreeRoot.left.is_red = ! subtreeRoot.left.is_red;
         }
         if (subtreeRoot.right != null) {
-            subtreeRoot.right.is_red = false;
+            subtreeRoot.right.is_red = ! subtreeRoot.right.is_red;
         }
     }
 
@@ -101,7 +99,116 @@ public class RedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedM
 
     @Override
     public void delete(K key) {
-        // TODO
+        if (!isRed(root.left) && !isRed(root.right)) {
+            root.is_red = true;
+        }
+
+        root = delete(root, key);
+
+        if (!isEmpty()){
+            root.is_red = false;
+        }
+    }
+
+
+    private TreeNode delete(TreeNode subtreeRoot, K key) {
+
+        if (key.compareTo(subtreeRoot.key) < 0)  {
+            if (!isRed(subtreeRoot.left) && !isRed(subtreeRoot.left.left)) {
+                subtreeRoot = moveRedLeft(subtreeRoot);
+            }
+            subtreeRoot.left = delete(subtreeRoot.left, key);
+        } else {
+
+            if (isRed(subtreeRoot.left)) {
+                subtreeRoot = rotateRight(subtreeRoot);
+            }
+
+            if (key.compareTo(subtreeRoot.key) == 0 && (subtreeRoot.right == null)) {
+                size--;
+                return null;
+            }
+
+            if (!isRed(subtreeRoot.right) && !isRed(subtreeRoot.right.left)) {
+                subtreeRoot = moveRedRight(subtreeRoot);
+            }
+
+            if (key.compareTo(subtreeRoot.key) == 0) {
+                TreeNode x = min(subtreeRoot.right);
+                subtreeRoot.key = x.key;
+                subtreeRoot.value = x.value;
+                subtreeRoot.right = deleteMin(subtreeRoot.right);
+            } else{
+                subtreeRoot.right = delete(subtreeRoot.right, key);
+            }
+        }
+        return balance(subtreeRoot);
+    }
+
+    private TreeNode min(TreeNode subtreeRoot) {
+
+        if (subtreeRoot.left == null){
+            return subtreeRoot;
+        }
+
+        return min(subtreeRoot.left);
+    }
+
+    private TreeNode deleteMin(TreeNode subtreeRoot) {
+        if (subtreeRoot.left == null) {
+            size--;
+            return null;
+        }
+
+        if (!isRed(subtreeRoot.left) && !isRed(subtreeRoot.left.left)){
+            subtreeRoot = moveRedLeft(subtreeRoot);
+        }
+
+        subtreeRoot.left = deleteMin(subtreeRoot.left);
+        return balance(subtreeRoot);
+    }
+
+    private TreeNode moveRedLeft(TreeNode subtreeRoot) {
+
+        flipColors(subtreeRoot);
+
+        if (isRed(subtreeRoot.right.left)) {
+            subtreeRoot.right = rotateRight(subtreeRoot.right);
+            subtreeRoot = rotateLeft(subtreeRoot);
+            flipColors(subtreeRoot);
+        }
+
+        return subtreeRoot;
+    }
+
+    private TreeNode moveRedRight(TreeNode subtreeRoot) {
+
+        flipColors(subtreeRoot);
+
+        if (isRed(subtreeRoot.left.left)) {
+            subtreeRoot = rotateRight(subtreeRoot);
+            flipColors(subtreeRoot);
+        }
+
+        return subtreeRoot;
+    }
+
+    private TreeNode balance(TreeNode subtreeRoot) {
+
+
+        if (isRed(subtreeRoot.right))    {
+            subtreeRoot = rotateLeft(subtreeRoot);
+        }
+
+        if (isRed(subtreeRoot.left) && isRed(subtreeRoot.left.left)) {
+            subtreeRoot = rotateRight(subtreeRoot);
+        }
+
+        if (isRed(subtreeRoot.left) && isRed(subtreeRoot.right)){
+            flipColors(subtreeRoot);
+        }
+
+        return subtreeRoot;
     }
 
     @Override
