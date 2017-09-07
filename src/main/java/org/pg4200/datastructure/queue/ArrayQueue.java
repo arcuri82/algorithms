@@ -7,6 +7,23 @@ public class ArrayQueue<T> implements MyQueue<T>{
 
     protected Object[] data;
 
+    /*
+        When the queue is empty, we need that the "head"
+        and "tail" represent invalid values.
+        If they were objects, we could use "null".
+        But if we use "int", then we need to use something
+        equivalent to "null", as primitive values (int, double,
+        boolean, etc.) do not have null.
+        So, an option is  to just represent invalid values with
+        negative int, because anyway negative values would never
+        be valid indices in an array.
+
+        Note: another option would be to use Integer instead of int,
+        as being an object it has null. However, being Integer just
+        a wrapper around int, using them as indices would not
+        be efficient.
+     */
+
     private int head = -1;
     private int tail = -1;
 
