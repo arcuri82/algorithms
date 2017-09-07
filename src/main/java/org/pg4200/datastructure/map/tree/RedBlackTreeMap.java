@@ -5,15 +5,15 @@ package org.pg4200.datastructure.map.tree;
  */
 public class RedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
 
-    private class TreeNode {
-        K key;
-        V value;
-        TreeNode left;
-        TreeNode right;
-        boolean is_red; //false means 'black'
+    protected class TreeNode {
+        public K key;
+        public V value;
+        public TreeNode left;
+        public TreeNode right;
+        public boolean is_red; //false means 'black'
     }
 
-    private TreeNode root;
+    protected TreeNode root;
 
     private int size;
 
