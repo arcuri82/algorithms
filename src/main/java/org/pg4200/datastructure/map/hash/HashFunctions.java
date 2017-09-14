@@ -3,39 +3,39 @@ package org.pg4200.datastructure.map.hash;
 /**
  * A "hash" function "h" is used to map data of arbitrary size (eg string text) to
  * to a value of fixed size (eg, a 32-bit integer).
- *
+ * <p>
  * Main properties:
- *
+ * <p>
  * 1) deterministic: h(x) should always return same value
- *
+ * <p>
  * 2) uniform: given the domain X, values x in X should be spread
- *             as uniform as possible when hashed.
- *             In other words, if x!=y, we would like h(x)!=h(y).
- *             This in general not possible as the size of the domain
- *             X would be (much, much) larger than the one of hashed
- *             values Z. However, we want the number of "collision" to
- *             be as uniform as possible, ie for each z in Z, we would
- *             like on average just |X|/|Z| values in X mapping to z.
- *
+ * as uniform as possible when hashed.
+ * In other words, if x!=y, we would like h(x)!=h(y).
+ * This in general not possible as the size of the domain
+ * X would be (much, much) larger than the one of hashed
+ * values Z. However, we want the number of "collision" to
+ * be as uniform as possible, ie for each z in Z, we would
+ * like on average just |X|/|Z| values in X mapping to z.
+ * <p>
  * 3) performance: either the h() should be very FAST (eg when used in
- *                 data structures), or very SLOW (eg in security).
- *                 We will not cover security in this course, but it
- *                 is something we will see when dealing with web/enterprise
- *                 programming in the next semesters.
- *
- *
+ * data structures), or very SLOW (eg in security).
+ * We will not cover security in this course, but it
+ * is something we will see when dealing with web/enterprise
+ * programming in the next semesters.
+ * <p>
+ * <p>
  * Considerations:
- *
+ * <p>
  * - when computing h(x)=z, in general from the z value we cannot recompute
- *   x, as there are many different values in X that maps to the same z.
- *   This is because |X|>>|Z|, ie the cardinality of the input space is
- *   usually much larger than the the cardinality of the set of hashed
- *   values.
- *
+ * x, as there are many different values in X that maps to the same z.
+ * This is because |X|>>|Z|, ie the cardinality of the input space is
+ * usually much larger than the the cardinality of the set of hashed
+ * values.
+ * <p>
  * - the input x can be considered as a sequence of bits. When computing
- *   an hash, such should be based on all the bits of the inputs, and not
- *   just a subset. This help in avoiding collisions.
- *
+ * an hash, such should be based on all the bits of the inputs, and not
+ * just a subset. This help in avoiding collisions.
+ * <p>
  * Created by arcuri82 on 07-Sep-17.
  */
 public class HashFunctions {
@@ -45,7 +45,7 @@ public class HashFunctions {
         The input could be anything, even custom objects.
      */
 
-    public static int nonUniformHash(int x){
+    public static int nonUniformHash(int x) {
         /*
             Returning a constant is still a valid hash, because
             deterministic.
@@ -55,7 +55,7 @@ public class HashFunctions {
         return 1;
     }
 
-    public static int identityHash(int x ){
+    public static int identityHash(int x) {
         /*
             The input and the output is of the same size (in their bits representation).
             So perfectly fine to just return it.
@@ -63,7 +63,7 @@ public class HashFunctions {
         return x;
     }
 
-    public static int shiftedHash(int x){
+    public static int shiftedHash(int x) {
 
         /*
             still perfectly fine for a hash function.
@@ -74,7 +74,7 @@ public class HashFunctions {
         return x + 100;
     }
 
-    public static int hashLongToInt(long x){
+    public static int hashLongToInt(long x) {
 
         /*
             int are 32 bits.
@@ -115,7 +115,7 @@ public class HashFunctions {
         return (int) x;
     }
 
-    public static int hashLongToIntRevised(long x){
+    public static int hashLongToIntRevised(long x) {
         /*
             This is actually what done in the Java API to
             calculate Long.hashCode().
@@ -139,12 +139,61 @@ public class HashFunctions {
             a different hash value.
             Changing 2 or more bits might result in same hash though.
          */
-        return (int)(x ^ (x >>> 32));
+        return (int) (x ^ (x >>> 32));
     }
 
-    /*
-        TODO examples with strings
-     */
+    public static int hashStringSum(String x) {
+
+       /*
+            A string is a sequence of characters.
+            This is usually represented as an array of char values.
+            In Java, chars are represented with 16-bit numbers in UTF-16 format.
+            UTF: Unicode Transformation Format.
+            Each number is mapped to a specific character.
+            For example the number 65 represents the character 'A'.
+        */
+
+        int sum = 0;
+        for (int i = 0; i < x.length(); i++) {
+            sum += x.charAt(i);
+        }
+        return sum;
+    }
+
+
+    public static int hashStringSumRevised(String x) {
+
+       /*
+           This is equivalent to the actual code in
+           String#hashCode()
+
+           Here, before adding, we multiply by a constant delta.
+           This is used to avoid (but not prevent) collisions on
+           common words.
+           The actual value 31 is not random, but based on some properties,
+           like being odd (this helps in avoiding some issues when the sum
+           overflow).
+           It is also efficient to compute. Multiplying by 31 is equivalent
+           to multiplying by 32 and then subtract 1 time, ie
+
+           31 * y == (32 * y) -y
+
+           multiplying by a multiple of 2 (note 32==2^5) is equivalent to shift
+           its bits to the right, ie
+
+           31 * y = (y << 5) - y
+
+           Compilers can do this kind of optimization.
+        */
+
+        final int delta = 31;
+
+        int sum = 0;
+        for (int i = 0; i < x.length(); i++) {
+            sum = (delta * sum) + x.charAt(i);
+        }
+        return sum;
+    }
 }
 
 
