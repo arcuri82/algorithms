@@ -20,6 +20,11 @@ public class QuickSort implements MySort{
         int i = low;
         int j = high;
 
+        /*
+            Choice of pivot is critical for the performance
+            of the algorithm.
+            Another option here would be to take it at random.
+         */
         T pivot = array[low + (high-low)/2];
 
         while (i <= j) {
@@ -41,7 +46,7 @@ public class QuickSort implements MySort{
             }
         }
 
-        if (low < j) {
+        if (j > low) {
             quicksort(low, j, array);
         }
 
