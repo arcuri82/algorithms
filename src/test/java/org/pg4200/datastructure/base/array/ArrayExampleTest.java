@@ -15,7 +15,7 @@ public class ArrayExampleTest {
     public void testBase(){
 
         //values initialized when array is created
-        int[] array = new int[]{1, 2, 3};
+        int[] array = {1, 2, 3};
 
         int res = ArrayExample.sum(array);
 
@@ -41,7 +41,7 @@ public class ArrayExampleTest {
 
         int x = 1_000_000_000; //1 billion
 
-        int[] array = new int[]{x, x, x};
+        int[] array = {x, x, x};
 
         int res = ArrayExample.sum(array);
 

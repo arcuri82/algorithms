@@ -25,7 +25,7 @@ public class OptimizedBubbleSortTest {
     @Test
     public void testAlreadySorted(){
 
-        String[] array = new String[]{"a", "b", "c", "d"};
+        String[] array = {"a", "b", "c", "d"};
 
         int comparsions = sorter.sort(array, new StringComparator(), false);
 
@@ -40,7 +40,7 @@ public class OptimizedBubbleSortTest {
     @Test
     public void testInverted(){
 
-        String[] array = new String[]{"d", "c", "b", "a"};
+        String[] array = {"d", "c", "b", "a"};
 
         int comparsions = sorter.sort(array, new StringComparator(), false);
 
@@ -55,7 +55,7 @@ public class OptimizedBubbleSortTest {
     @Test
     public void testBase(){
 
-        String[] array = new String[]{"d", "a", "c", "b"};
+        String[] array = {"d", "a", "c", "b"};
 
         sorter.sort(array, new StringComparator(), false);
 
@@ -69,7 +69,7 @@ public class OptimizedBubbleSortTest {
     @Test
     public void testNearly(){
 
-        String[] array = new String[]{"c", "b", "a", "d", "e", "f"};
+        String[] array = {"c", "b", "a", "d", "e", "f"};
         int optimized = sorter.sort(array, new StringComparator(), true);
 
         array = new String[]{"c", "b", "a", "d", "e", "f"};

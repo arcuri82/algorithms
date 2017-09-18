@@ -9,7 +9,7 @@ public class SortExample {
 
     public static void main(String[] args){
 
-        String[] names = new String[]{
+        String[] names = {
                 "Sara",
                 "Jack",
                 "Robert",
@@ -22,7 +22,7 @@ public class SortExample {
                 "Bob"
         };
 
-        /**
+        /*
          * Practically all languages have built-in APIs to sort
          * collections, like arrays.
          * You will not need to implement sorting in your programs,

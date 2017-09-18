@@ -91,7 +91,7 @@ public class Sum {
             pairs(warmupArray);
         }
 
-        int[] sizes = new int[]{100, 200, 400, 800, 1600, 3200, 6400, 12800};
+        int[] sizes = {100, 200, 400, 800, 1600, 3200, 6400, 12800};
         int repetitions = 100;
 
         for(int n : sizes){

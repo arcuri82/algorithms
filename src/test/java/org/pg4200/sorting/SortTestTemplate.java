@@ -33,7 +33,7 @@ public abstract class SortTestTemplate {
     @Test
     public void testOne(){
 
-        String[] array = new String[]{"a"};
+        String[] array = {"a"};
 
         sorter.sort(array);
 
@@ -43,7 +43,7 @@ public abstract class SortTestTemplate {
     @Test
     public void testAlreadySorted(){
 
-        String[] array = new String[]{"a", "b", "c", "d"};
+        String[] array = {"a", "b", "c", "d"};
 
         sorter.sort(array);
 
@@ -57,7 +57,7 @@ public abstract class SortTestTemplate {
     @Test
     public void testInverted(){
 
-        String[] array = new String[]{"d", "c", "b", "a"};
+        String[] array = {"d", "c", "b", "a"};
 
         sorter.sort(array);
 
@@ -71,7 +71,7 @@ public abstract class SortTestTemplate {
     @Test
     public void testBase(){
 
-        String[] array = new String[]{"d", "a", "c", "b"};
+        String[] array = {"d", "a", "c", "b"};
 
         sorter.sort(array);
 
