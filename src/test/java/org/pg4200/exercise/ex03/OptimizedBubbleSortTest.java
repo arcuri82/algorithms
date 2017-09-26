@@ -27,9 +27,9 @@ public class OptimizedBubbleSortTest {
 
         String[] array = {"a", "b", "c", "d"};
 
-        int comparsions = sorter.sort(array, new StringComparator(), false);
+        int comparisons = sorter.sort(array, new StringComparator(), false);
 
-        assertEquals(3, comparsions);
+        assertEquals(3, comparisons);
         assertEquals("a", array[0]);
         assertEquals("b", array[1]);
         assertEquals("c", array[2]);
@@ -42,9 +42,9 @@ public class OptimizedBubbleSortTest {
 
         String[] array = {"d", "c", "b", "a"};
 
-        int comparsions = sorter.sort(array, new StringComparator(), false);
+        int comparisons = sorter.sort(array, new StringComparator(), false);
 
-        assertEquals(12, comparsions);
+        assertEquals(12, comparisons);
         assertEquals("a", array[0]);
         assertEquals("b", array[1]);
         assertEquals("c", array[2]);
