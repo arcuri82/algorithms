@@ -8,10 +8,21 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
     protected class TreeNode {
         K key;
         V value;
+
+        /**
+         * Pointer to the root of the subtree containing the values lower than this.value
+         */
         TreeNode left;
+
+        /**
+         * Pointer to the root of the subtree containing the values larger than this.value
+         */
         TreeNode right;
     }
 
+    /**
+     * From the root of the tree, we can access all thennodes
+     */
     protected TreeNode root;
 
     protected int size;
@@ -21,6 +32,10 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
         root = put(key, value, root);
     }
 
+    /**
+     *  Add the V into the subtree, based on its K.
+     *  Returns the (possibly new) root of this subtree
+     */
     private TreeNode put(K key, V value, TreeNode subtree) {
 
         if (subtree == null) {
@@ -56,6 +71,10 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
         root = delete(key, root);
     }
 
+    /**
+     *  Delete the V from the subtree, based on its K.
+     *  Returns the (possibly new) root of this subtree
+     */
     private TreeNode delete(K key, TreeNode subtreeRoot) {
 
         if (subtreeRoot == null) {
@@ -74,6 +93,12 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
             return subtreeRoot;
         }
 
+        /*
+            Here, we are done with the recursion.
+            How to delete this node will depend on
+            how many children it has
+         */
+
         assert cmp == 0;
 
         size--;
@@ -85,6 +110,10 @@ public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap
         if (subtreeRoot.right == null) {
             return subtreeRoot.left;
         }
+
+        /*
+            Both children are present
+         */
 
         TreeNode tmp = subtreeRoot;
         subtreeRoot = min(tmp.right);
