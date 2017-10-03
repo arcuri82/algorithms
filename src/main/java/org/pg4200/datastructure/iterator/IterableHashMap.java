@@ -5,6 +5,7 @@ import org.pg4200.datastructure.map.hash.MyHashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Created by arcuri82 on 15-Sep-17.
@@ -39,19 +40,74 @@ public class IterableHashMap<K,V> implements MyHashMap<K,V>, Iterable<V> {
     public Iterator<V> iterator() {
         return new Iterator<V>() {
 
-            private int initialCounter = modificationCounter;
+            private int initialCounter;
+            private int arrayIndex;
+            private int listIndex;
 
-            private int i = -1;
-            private int j = -1;
+            {
+                //initialization code, like in a constructor
+
+                initialCounter = modificationCounter;
+
+                arrayIndex = -1;
+                listIndex = -1;
+
+                for(int i=0; i < data.length; i++){
+                    List<Entry> list = data[i];
+                    if(list != null && !list.isEmpty()){
+                        arrayIndex = i;
+                        listIndex = 0;
+                        break;
+                    }
+                }
+            }
 
             @Override
             public boolean hasNext() {
-                return false; //TODO
+                checkModifications();
+                return arrayIndex >= 0;
             }
 
             @Override
             public V next() {
-                return null; //TODO
+                checkModifications();
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+
+                List<Entry> current = data[arrayIndex];
+
+                V value = current.get(listIndex).value;
+
+                if(listIndex < current.size() - 1){
+                    //more data in current list
+                    listIndex++;
+                } else {
+
+                    boolean found = false;
+
+                    for(int i=arrayIndex+1; i < data.length; i++){
+                        List<Entry> list = data[i];
+                        if(list != null && !list.isEmpty()){
+                            arrayIndex = i;
+                            listIndex = 0;
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if(! found){
+                        arrayIndex = -1;
+                    }
+                }
+
+                return value;
+            }
+
+            private void checkModifications() {
+                if (initialCounter != modificationCounter) {
+                    throw new IllegalStateException();
+                }
             }
         };
     }
