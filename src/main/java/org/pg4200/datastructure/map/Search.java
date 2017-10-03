@@ -41,6 +41,12 @@ public class Search {
             return -1;
         }
 
+        /*
+            middle = low + (high - low) / 2
+                   = (2low + high - low) / 2
+                   = (low + high) / 2
+         */
+
         int middle = (low + high) / 2;
         T value = list.get(middle);
 
