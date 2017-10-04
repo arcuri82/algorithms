@@ -144,4 +144,13 @@ public class IterableLinkedList<T> implements Iterable<T> {
     public boolean isEmpty(){
         return size <= 0;
     }
+
+    public boolean contains(T value){
+        for(T v : this){
+            if(v.equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
