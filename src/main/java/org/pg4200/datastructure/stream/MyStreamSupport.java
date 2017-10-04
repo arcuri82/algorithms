@@ -16,19 +16,19 @@ public class MyStreamSupport {
     }
 
 
-    private static class Pipeline<IN, OUT> implements MyStream<OUT> {
+    protected static class Pipeline<IN, OUT> implements MyStream<OUT> {
 
-        private final Iterator<OUT> iterator;
-        private final Pipeline previousStage;
-        private final int depth;
+        protected final Iterator<OUT> iterator;
+        protected final Pipeline previousStage;
+        protected final int depth;
 
-        private Pipeline(Iterator<OUT> iterator) {
+        protected Pipeline(Iterator<OUT> iterator) {
             this.iterator = iterator;
             this.previousStage = null;
             this.depth = 0;
         }
 
-        private Pipeline(Pipeline previousStage) {
+        protected Pipeline(Pipeline previousStage) {
             this.iterator = previousStage.iterator;
             this.previousStage = previousStage;
             this.depth = previousStage.depth + 1;
@@ -38,7 +38,7 @@ public class MyStreamSupport {
             throw new IllegalStateException();
         }
 
-        private <T> Consumer<T> wrapConsumer(Consumer<OUT> consumer) {
+        protected <T> Consumer<T> wrapConsumer(Consumer<OUT> consumer) {
             Objects.requireNonNull(consumer);
 
             Pipeline p = this;
@@ -161,11 +161,9 @@ public class MyStreamSupport {
             return list;
         }
 
-
-        // ----- private methods -------------------------------------------
     }
 
-    private static abstract class ChainedReference<T, OUT> implements Consumer<T> {
+    protected static abstract class ChainedReference<T, OUT> implements Consumer<T> {
 
         protected final Consumer<OUT> downstream;
 
