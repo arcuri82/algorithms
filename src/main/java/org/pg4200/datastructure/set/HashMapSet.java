@@ -13,6 +13,11 @@ public class HashMapSet<E> implements MySet<E> {
      */
     private MyHashMap<E, Object> map = new ChainingHashMap<>();
 
+    /**
+     * We do not care about the values in the map.
+     * So, let's create a single object, and re-use it for
+     * all insertions.
+     */
     private static final Object PRESENCE = new Object();
 
     @Override

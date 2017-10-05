@@ -25,6 +25,20 @@ public class IterableLinkedList<T> implements Iterable<T> {
     public Iterator<T> iterator() {
         return new Iterator<T>() {
 
+            /*
+                While we traverse a collection with an iterator,
+                the data structure shouldn't change, otherwise
+                the iterator would be left in an inconsistent state.
+                So, every time we do a modification on a collection (eg,
+                insert/delete an element), we increase a counter.
+                When we create a new iterator, we will save the value
+                of that counter.
+                If it changes for any reason, then we know that someone
+                modified the collection while the iterator was still
+                active. In such a case, we will explicitly throw
+                an exception.
+             */
+
             private int initialCounter = modificationCounter;
 
             private BiDirectionalNode next = head;

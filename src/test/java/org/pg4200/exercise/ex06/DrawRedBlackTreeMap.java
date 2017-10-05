@@ -18,9 +18,8 @@ public class DrawRedBlackTreeMap<K extends Comparable<K>, V> extends RedBlackTre
 
 
     /**
-     * Strong assumption: only going to insert/remove key integers from 0 to 6.
-     * This means each key is at most 1 character, and tree has at most a depth
-     * of 3.
+     * Strong assumption: only going to insert/remove keys with toString() of 1 in length,
+     * and tree depth of max 3.
      */
     public void draw() {
 
