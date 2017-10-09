@@ -81,12 +81,14 @@ public class GreedyForKnapsackTest {
         assertTrue(fit_ratio > fit_lighter);
         assertTrue(fit_ratio > fit_heavier);
 
-        System.out.println("Heavier: " + fit_heavier);
-        System.out.println("Lighter: " + fit_lighter);
-        System.out.println("Ratio: " + fit_ratio);
-        System.out.println("Best: " + fit_best);
+        System.out.println("Heavier: fitness=" + fit_heavier +", items=" + p.getProblem().numberOfSelectedItems(heavier));
+        System.out.println("Lighter: fitness=" + fit_lighter+", items=" + p.getProblem().numberOfSelectedItems(lighter));
+        System.out.println("Ratio: fitness=" + fit_ratio+", items=" + p.getProblem().numberOfSelectedItems(ratio));
+        System.out.println("Best: fitness=" + fit_best+", items=" + p.getProblem().numberOfSelectedItems(best));
 
         double missingPercentage = (fit_best - fit_ratio) / fit_best;
         assertTrue(missingPercentage < 0.01);
+
+        assertEquals(34, p.getProblem().numberOfDifferences(ratio, best));
     }
 }

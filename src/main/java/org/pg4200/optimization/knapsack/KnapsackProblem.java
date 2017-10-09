@@ -114,4 +114,38 @@ public class KnapsackProblem {
 
         return objective;
     }
+
+    public int numberOfSelectedItems(boolean[] selection){
+        Objects.requireNonNull(selection);
+
+        int count = 0;
+
+        for(int i=0; i<selection.length; i++){
+            if(selection[i]){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public int numberOfDifferences(boolean[] a, boolean[] b){
+        Objects.requireNonNull(a);
+        Objects.requireNonNull(b);
+
+        if(a.length != b.length){
+            throw new IllegalArgumentException("Length mismatch");
+        }
+
+        int count = 0;
+
+        for(int i=0; i<a.length; i++){
+            if(a[i] != b[i]){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 }
