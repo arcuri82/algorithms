@@ -13,7 +13,7 @@ public class GreedyForKnapsackTest {
     @Test
     public void testSolveByHeavierFirst(){
 
-        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP01();
+        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP05();
 
         boolean[] res = GreedyForKnapsack.solveByHeavierFirst(p.getProblem());
 
@@ -30,7 +30,7 @@ public class GreedyForKnapsackTest {
     @Test
     public void testSolveByLigheterFirst(){
 
-        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP01();
+        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP05();
 
         boolean[] res = GreedyForKnapsack.solveByLighterFirst(p.getProblem());
 
@@ -47,11 +47,46 @@ public class GreedyForKnapsackTest {
     @Test
     public void testSolveByBestRatioFirst(){
 
-        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP01();
+        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP05();
 
         boolean[] heavier = GreedyForKnapsack.solveByHeavierFirst(p.getProblem());
         boolean[] ratio = GreedyForKnapsack.solveByBestRatioFirst(p.getProblem());
 
         assertArrayEquals(heavier, ratio);
+    }
+
+
+    @Test
+    public void testLargeInstance(){
+
+        KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP100();
+
+        boolean[] lighter = GreedyForKnapsack.solveByLighterFirst(p.getProblem());
+        boolean[] heavier = GreedyForKnapsack.solveByHeavierFirst(p.getProblem());
+        boolean[] ratio = GreedyForKnapsack.solveByBestRatioFirst(p.getProblem());
+        boolean[] best = p.getBest();
+
+
+        double fit_lighter = p.getProblem().evaluate(lighter);
+        double fit_heavier = p.getProblem().evaluate(heavier);
+        double fit_ratio = p.getProblem().evaluate(ratio);
+        double fit_best = p.getProblem().evaluate(best);
+
+        assertEquals(67165d, fit_best, 0.001);
+
+        assertTrue(fit_lighter < fit_best);
+        assertTrue(fit_heavier < fit_best);
+        assertTrue(fit_ratio < fit_best);
+
+        assertTrue(fit_ratio > fit_lighter);
+        assertTrue(fit_ratio > fit_heavier);
+
+        System.out.println("Heavier: " + fit_heavier);
+        System.out.println("Lighter: " + fit_lighter);
+        System.out.println("Ratio: " + fit_ratio);
+        System.out.println("Best: " + fit_best);
+
+        double missingPercentage = (fit_best - fit_ratio) / fit_best;
+        assertTrue(missingPercentage < 0.01);
     }
 }

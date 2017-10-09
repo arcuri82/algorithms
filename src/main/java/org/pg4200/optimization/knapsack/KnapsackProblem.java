@@ -71,6 +71,26 @@ public class KnapsackProblem {
         return weights.length;
     }
 
+    public double calculateWeight(boolean[] selection){
+        Objects.requireNonNull(selection);
+
+        if (selection.length != weights.length) {
+            throw new IllegalArgumentException("Invalid length of input parameter");
+        }
+
+        double weight = 0d;
+
+        for (int i = 0; i < selection.length; i++) {
+            if (selection[i]) {
+                weight += weights[i];
+            }
+        }
+
+        return weight;
+    }
+
+
+
     public double evaluate(boolean[] selection) {
         Objects.requireNonNull(selection);
 
