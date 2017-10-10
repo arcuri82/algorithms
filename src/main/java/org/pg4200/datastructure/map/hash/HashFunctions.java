@@ -179,7 +179,7 @@ public class HashFunctions {
            31 * y == (32 * y) -y
 
            multiplying by a multiple of 2 (note 32==2^5) is equivalent to shift
-           its bits to the right, ie
+           its bits to the left, ie
 
            31 * y = (y << 5) - y
 
