@@ -11,3 +11,4 @@ Code examples and exercises for the PG4200 course: Algoritmer og datastrukturer
 * [Ex06](docs/exercises/ex06.md)
 * [Ex07](docs/exercises/ex07.md)
 * [Ex08](docs/exercises/ex08.md)
+* [Ex09](docs/exercises/ex09.md)
