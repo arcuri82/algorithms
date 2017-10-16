@@ -64,10 +64,10 @@ public class ChainingHashMap<K,V> implements MyHashMap<K,V> {
             the sign of the number).
 
             How to do it? By using the mask 0x7f_ff_ff_ff
-            But why does it mean?
+            But what does it mean?
 
             An F is the value 15 in hexadecimal format, which in
-            binary is 1111 (ie, 2^3 + 2^2 + 2^1 + 2^0 = 8 + 4 + 2 + 1)
+            binary is 1111 (ie, 2^3 + 2^2 + 2^1 + 2^0 = 8 + 4 + 2 + 1 = 15)
             So an "& F" means take all the bits at that position.
             However, if we want to skip a first bit in a &, we
             need the following mask in binary
