@@ -1,6 +1,10 @@
 package org.pg4200.datastructure.set;
 
 /**
+ * In mathematics, a Set is a collection of unique elements,
+ * for which there is no ordering defined, ie no positions
+ * like in a List.
+ *
  * Created by arcuri82 on 14-Sep-17.
  */
 public interface MySet<E> {
