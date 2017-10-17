@@ -26,7 +26,7 @@ public class MyStreamSupport {
         IN and OUT can be of exactly the same type, they do not have
         to be necessarily different.
         From the point of view of Stream though, we are only interested
-        to the output.
+        in the output.
      */
     protected static class Pipeline<IN, OUT> implements MyStream<OUT> {
 
