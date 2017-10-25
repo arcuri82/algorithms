@@ -60,11 +60,34 @@ public class AnotherStreamSupport {
         @Override
         public int count() {
 
+            /*
+                We need to have an integer to represent the counter,
+                ie the number of elements going through the stream
+                without being blocked (eg by "filter" or "distinct"
+                stream steps).
+                A local int variable would live in the frame of this
+                function call.
+                However, it needs to be accessed in the frame of the
+                call of the lambda expression (ie the Consumer).
+                Java allows to read the outerscope variables, but not
+                modify them.
+                So, we need to pass a "reference" of the counter, as we would
+                not modify the reference itself, but rather the value
+                it points to.
+                But Java has no references for primitive values (eg, int,
+                double, boolean).
+                So, to "simulate" a int reference, we just create an array
+                of size 1.
+             */
             int[] counter = {0};
 
             Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
                 @Override
                 public void accept(OUT out) {
+                    /*
+                        Here we cannot modify "counter", but we are
+                        allowed to modify "counter[i]".
+                     */
                     counter[0]++;
                 }
             };
@@ -90,11 +113,32 @@ public class AnotherStreamSupport {
 
                     return new ChainedReference<OUT, OUT>(consumer) {
 
+                        /*
+                            To check for uniqueness, we need to keep track
+                            of all items seen so far.
+                            To do that, we need to use a "collection".
+                            But which one?
+                            As we need to check for uniqueness, then it is best
+                            to use a collection that enforces uniqueness of its
+                            elements, so that we do not need to implement such
+                            checks by ourselves.
+                            Such a collection with these properties is for
+                            example a "Set".
+                         */
+
                         private final HashMapSet<OUT> values = new HashMapSet<>();
 
                         @Override
                         public void accept(OUT u) {
                             if(!values.isPresent(u)) {
+                                /*
+                                    If first time we see it, it is not in the
+                                    local set.
+                                    So we propagate downstream.
+                                    However, we add it to the set, so that next
+                                    time we see it coming in through the pipeline,
+                                    we stop it (ie, not propagate downstream).
+                                 */
                                 values.add(u);
                                 downstream.accept(u);
                             }
@@ -114,6 +158,11 @@ public class AnotherStreamSupport {
 
                     return new ChainedReference<OUT, OUT>(consumer) {
 
+                        /*
+                            Keeping track of how many items we have seen so far.
+                            We do not propagate downstream until such counter
+                            becomes bigger than the number of items we want to "skip".
+                         */
                         private int counter = 0;
                         private final int skip = n;
 
