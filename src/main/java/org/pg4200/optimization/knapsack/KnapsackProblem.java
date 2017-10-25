@@ -71,6 +71,10 @@ public class KnapsackProblem {
         return weights.length;
     }
 
+    public double getLimit() {
+        return limit;
+    }
+
     public double calculateWeight(boolean[] selection){
         Objects.requireNonNull(selection);
 

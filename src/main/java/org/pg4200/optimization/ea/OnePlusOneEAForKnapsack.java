@@ -42,6 +42,13 @@ public class OnePlusOneEAForKnapsack {
                 }
             }
 
+            /*
+                Note: it is CRITICAL here that we have ">=" instead of
+                ">". This is to allow "random walks" on "fitness plateaus",
+                ie still explore the search space as long as individual does
+                not get worse.
+              */
+
             if(problem.evaluate(offspring) >= problem.evaluate(solution)){
                 solution = offspring;
             }

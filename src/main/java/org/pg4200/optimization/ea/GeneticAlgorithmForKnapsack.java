@@ -2,34 +2,37 @@ package org.pg4200.optimization.ea;
 
 import org.pg4200.optimization.knapsack.KnapsackProblem;
 
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class GeneticAlgorithmForKnapsack {
 
-    private static class Individual{
+    private static class Individual {
         public double fitness;
         public boolean[] chromosome;
+        private final KnapsackProblem problem;
 
         public Individual(boolean[] chromosome, KnapsackProblem problem) {
-            this.chromosome = chromosome;
-            this.fitness = problem.evaluate(chromosome);
+            this(chromosome, problem, problem.evaluate(chromosome));
         }
 
-        private Individual(boolean[] chromosome, double fitness) {
+        private Individual(boolean[] chromosome, KnapsackProblem problem, double fitness) {
             this.chromosome = chromosome;
             this.fitness = fitness;
+            this.problem = problem;
         }
 
+        public void updateFitness() {
+            fitness = problem.evaluate(chromosome);
+        }
 
-        public Individual copy(){
-            return new Individual(chromosome.clone(), fitness);
+        public Individual copy() {
+            return new Individual(chromosome.clone(), problem, fitness);
         }
     }
 
-    public static boolean[] solve(int maxIterations, KnapsackProblem problem){
+    public static boolean[] solve(int maxIterations, KnapsackProblem problem) {
 
-        if(maxIterations < 1){
+        if (maxIterations < 1) {
             throw new IllegalArgumentException("Invalid number of iterations");
         }
         Objects.requireNonNull(problem);
@@ -37,46 +40,138 @@ public class GeneticAlgorithmForKnapsack {
         Random random = new Random();
 
         final int n = problem.getSize();
-        final double p = 1d / (double) n;
+        final int populationSize = 100;
 
         int counter = 0;
 
-        Individual[] population = new Individual[50];
-        for(int i=0; i<population.length && counter < maxIterations; i++){
-            population[i] = new Individual(sample(n, random), problem);
+        List<Individual> population = new ArrayList<>(populationSize);
+
+        for (int i = 0; i < populationSize && counter < maxIterations; i++) {
+            population.add(new Individual(sample(n, random), problem));
             counter++;
         }
 
-        while(counter < maxIterations - 1){
+        while (counter < maxIterations - 1) {
+            //generations loop
 
+            List<Individual> next = new ArrayList<>(populationSize);
 
+            elitism(next, population, populationSize / 10);
 
-            Individual parent_0 = tournament(population, random);
-            Individual parent_1 = tournament(population, random);
+            //next generation
+            while (counter < maxIterations - 1 && next.size() < populationSize - 1) {
+                Individual parent_0 = tournament(population, random);
+                Individual parent_1 = tournament(population, random);
 
-            Individual[] offspring = mate(parent_0, parent_1);
+                Individual[] offspring = mate(parent_0, parent_1, random);
 
-//            mutate(offspring[0]);
-//            mutate(offspring[1]);
+                for (Individual os : offspring) {
+                    mutate(os, random);
+                    repair(os, problem);
+                    os.updateFitness();
+                    counter++;
 
+                    next.add(os);
+                }
+            }
 
-            //TODO
+            /*
+                Instance of Ættestup... just kill the old population
+             */
+            population = next;
         }
 
-        return null; //TODO
+        assert population.size() > 0;
+
+        return population.stream()
+                /*
+                    Note: "max" is a terminal operation that returns an Optional.
+                    It has to be an Optional, as "max" would be undefined on
+                    an empty collection.
+                 */
+                .max(Comparator.comparingDouble(i -> i.fitness))
+                //"map" here is on the Optional, not the stream
+                .map(i -> i.chromosome)
+                .get();
     }
 
-    private static Individual[] mate(Individual parent_0, Individual parent_1) {
-        return new Individual[0]; //TODO
+    private static void elitism(List<Individual> next, List<Individual> population, int k) {
+
+        population.sort(Comparator.comparingDouble(i -> i.fitness));
+
+        for (int j = population.size() - 1; next.size() < k; j--) {
+            next.add(population.get(j));
+        }
     }
 
-    private static Individual tournament(Individual[] population,  Random random){
+    private static void repair(Individual individual, KnapsackProblem problem) {
 
-        Individual best = population[random.nextInt(population.length)];
+        double weight = problem.calculateWeight(individual.chromosome);
+        double limit = problem.getLimit();
 
-        for(int i=0; i<6; i++){
-            Individual opponent = population[random.nextInt(population.length)];
-            if(opponent.fitness > best.fitness){
+        while(weight > limit){
+
+            for(int i=0; i<individual.chromosome.length; i++){
+                if(individual.chromosome[i]){
+                    individual.chromosome[i] = false;
+                    break;
+                }
+            }
+
+            weight = problem.calculateWeight(individual.chromosome);
+        }
+    }
+
+    private static void mutate(Individual individual, Random random) {
+
+        final int n = individual.chromosome.length;
+        final double p = 1d / (double) n;
+
+        for (int j = 0; j < n; j++) {
+            if (random.nextDouble() < p) {
+                individual.chromosome[j] = !individual.chromosome[j];
+            }
+        }
+        /*
+            Note: here it is OK if an offspring is not mutated
+         */
+    }
+
+    private static Individual[] mate(Individual parent_0, Individual parent_1, Random random) {
+
+        final int n = parent_0.chromosome.length;
+
+        assert parent_1.chromosome.length == n;
+
+        /*
+            Choose a random splitting point, but no first, and not last
+         */
+        int splitPoint = 1 + random.nextInt(n - 2);
+
+        Individual[] offspring = {
+                parent_0.copy(),
+                parent_1.copy()
+        };
+
+        double xoverProbability = 0.7;
+
+        if (random.nextDouble() < xoverProbability) {
+            for (int i = 0; i < splitPoint; i++) {
+                offspring[0].chromosome[i] = parent_1.chromosome[i];
+                offspring[1].chromosome[i] = parent_0.chromosome[i];
+            }
+        }
+
+        return offspring;
+    }
+
+    private static Individual tournament(List<Individual> population, Random random) {
+
+        Individual best = population.get(random.nextInt(population.size()));
+
+        for (int i = 0; i < 6; i++) {
+            Individual opponent = population.get(random.nextInt(population.size()));
+            if (opponent.fitness > best.fitness) {
                 best = opponent;
             }
         }
@@ -84,10 +179,10 @@ public class GeneticAlgorithmForKnapsack {
         return best;
     }
 
-    private static boolean[] sample(int n, Random random){
+    private static boolean[] sample(int n, Random random) {
 
         boolean[] solution = new boolean[n];
-        for(int i=0; i<solution.length; i++){
+        for (int i = 0; i < solution.length; i++) {
             solution[i] = random.nextBoolean();
         }
 
