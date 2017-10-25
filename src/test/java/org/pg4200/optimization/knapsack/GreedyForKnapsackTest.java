@@ -28,7 +28,7 @@ public class GreedyForKnapsackTest {
     }
 
     @Test
-    public void testSolveByLigheterFirst(){
+    public void testSolveByLighterFirst(){
 
         KnapsackInstanceWithSolution p = KnapsackInstanceWithSolution.problemP05();
 
