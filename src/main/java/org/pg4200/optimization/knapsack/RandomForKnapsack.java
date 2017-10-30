@@ -20,6 +20,11 @@ public class RandomForKnapsack {
 
         boolean[] solution = null;
 
+        /*
+            Just sample at random, and keep track of best
+            solution found so far
+         */
+
         for(int i=0; i<maxIterations; i++){
             boolean[] sampled = sample(problem.getSize(), random);
 

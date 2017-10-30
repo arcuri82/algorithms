@@ -6,7 +6,10 @@ package org.pg4200.optimization.knapsack;
 public class BruteForceForKnapsack {
 
 
-
+    /**
+     * Enumerate all possible combinations of 0/1, and
+     * return best among them.
+     */
     public static boolean[] solve(KnapsackProblem problem){
 
         boolean[] buffer = new boolean[problem.getSize()];

@@ -15,6 +15,11 @@ public class KnapsackProblem {
 
     private final double limit;
 
+    /**
+     * "Item" can be derived from the weights/values arrays.
+     * We have it here just because it makes some computations
+     * easier.
+     */
     private transient List<Item> items;
 
 
@@ -58,6 +63,9 @@ public class KnapsackProblem {
     public List<Item> getCopyOfItems() {
 
         if (items == null) {
+            /*
+                Computed only once, and then cached
+             */
             items = new ArrayList<>();
             for (int i = 0; i < getSize(); i++) {
                 items.add(new Item(weights[i], values[i], i));

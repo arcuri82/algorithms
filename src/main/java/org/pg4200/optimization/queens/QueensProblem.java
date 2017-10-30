@@ -25,8 +25,8 @@ public class QueensProblem {
 
     /**
      *
-     * @param positions, raw indices on the matrix for the given column indices,
-     *                   ie, positions[0] is the raw of the queen in column 0
+     * @param positions, row indices on the matrix for the given column indices,
+     *                   ie, positions[0] is the row of the queen in column 0
      * @return a positive heuristics telling how many queens are in conflict.
      *          If there is no conflict, and solution is found, return 0.
      */
@@ -40,6 +40,10 @@ public class QueensProblem {
 
             for(int j=i+1; j<positions.length; j++){
 
+                /*
+                    Need to check if the hit on the diagonals.
+                 */
+
                 int a = positions[i];
                 int b = positions[j];
                 int rowDiff = a - b;
@@ -50,12 +54,34 @@ public class QueensProblem {
                 if(a > b){
                     assert rowDiff > 0;
 
+                    /*
+                       |  i
+                       |   \
+                       |    j
+                       |
+
+                       this means the Queen in column i is on higher
+                       row than j.
+                     */
+
+
                     if(rowDiff == columnDiff){
                         penalty++;
                     }
 
                 } else {
                     assert a < b && rowDiff < 0;
+
+                     /*
+                       |    j
+                       |   /
+                       |  i
+                       |
+
+                       this means the Queen in column i is on lower
+                       row than j.
+                     */
+
 
                     if(-rowDiff == columnDiff){
                         penalty++;
