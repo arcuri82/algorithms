@@ -22,7 +22,6 @@ public class OnePlusOneEAForKnapsack {
         boolean[] solution = sample(n, random);
 
 
-
         for(int i=1; i<maxIterations; i++){
             boolean[] offspring = solution.clone();
 

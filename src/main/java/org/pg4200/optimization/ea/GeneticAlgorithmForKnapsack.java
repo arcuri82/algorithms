@@ -6,6 +6,12 @@ import java.util.*;
 
 public class GeneticAlgorithmForKnapsack {
 
+    /*
+        Internal class used to represent an individual,
+        ie, a solution in the search space.
+        We also keep track of its fitness function,
+        as to avoid recalculating each time we need it.
+     */
     private static class Individual {
         public double fitness;
         public boolean[] chromosome;
@@ -56,6 +62,7 @@ public class GeneticAlgorithmForKnapsack {
 
             List<Individual> next = new ArrayList<>(populationSize);
 
+            // let's save 10% of the population
             elitism(next, population, populationSize / 10);
 
             //next generation
@@ -67,6 +74,11 @@ public class GeneticAlgorithmForKnapsack {
 
                 for (Individual os : offspring) {
                     mutate(os, random);
+
+                    /*
+                        I need it here, as easily can exceed weight limit
+                        with xover and mutation
+                     */
                     repair(os, problem);
                     os.updateFitness();
                     counter++;
@@ -133,7 +145,12 @@ public class GeneticAlgorithmForKnapsack {
             }
         }
         /*
-            Note: here it is OK if an offspring is not mutated
+            Note: here it is OK if an offspring is not mutated,
+            because anyway we do use xover.
+            And even if no change at all (ie mutation/xover),
+            having non-changed individual can still be good
+            in some cases in the following generations (eg, to
+            avoid local optima).
          */
     }
 
