@@ -41,6 +41,11 @@ public class DnaCompressorTest {
         byte[] compressed = compressor.compress(dna);
 
         assertTrue(compressed.length < nonCompressedSize);
+
+        double ratio = (double) compressed.length / (double) nonCompressedSize;
+        assertTrue(ratio < 0.33);
+
+        assertTrue(ratio > 0.25);
     }
 
     @Test
