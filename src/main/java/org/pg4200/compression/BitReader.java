@@ -74,4 +74,18 @@ public class BitReader {
 
         return x;
     }
+
+    public char readChar(){
+
+        int x;
+
+        byte a = readByte();
+        x = a & 0xFF;
+
+        byte b = readByte();
+        x = x << 8;
+        x |= (b & 0xFF);
+
+        return (char) x;
+    }
 }

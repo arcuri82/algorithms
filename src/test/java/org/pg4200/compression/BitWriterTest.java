@@ -156,9 +156,28 @@ public class BitWriterTest {
 
         byte[] res = data.extract();
 
-        assertEquals(3, res.length);
-        assertEquals('a', res[0]);
-        assertEquals('b', res[1]);
-        assertEquals('c', res[2]);
+        assertEquals(6, res.length);
+        assertEquals(0, res[0]);
+        assertEquals('a', res[1]);
+        assertEquals(0, res[2]);
+        assertEquals('b', res[3]);
+        assertEquals(0, res[4]);
+        assertEquals('c', res[5]);
+    }
+
+    @Test
+    public void testChar(){
+
+        BitWriter data = new BitWriter();
+
+        char a = 'a';
+
+        data.write(a);
+
+        byte[] res = data.extract();
+
+        assertEquals(2, res.length);
+        assertEquals(0, res[0]);
+        assertEquals('a', res[1]);
     }
 }

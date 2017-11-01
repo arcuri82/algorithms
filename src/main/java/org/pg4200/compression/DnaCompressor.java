@@ -5,7 +5,7 @@ package org.pg4200.compression;
  */
 public class DnaCompressor {
 
-    public byte[] compress(String dna){
+    public static byte[] compress(String dna){
 
         BitWriter writer = new BitWriter();
 
@@ -34,7 +34,7 @@ public class DnaCompressor {
         return writer.extract();
     }
 
-    public String decompress(byte[] data){
+    public static String decompress(byte[] data){
 
         BitReader reader = new BitReader(data);
 

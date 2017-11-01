@@ -54,10 +54,14 @@ public class BitWriter {
     }
 
     public void write(String s){
-        byte[] sb = s.getBytes(Charset.forName("UTF-8"));
-        for(byte b : sb){
-            write(b);
+        for(int i=0; i<s.length(); i++){
+            write(s.charAt(i));
         }
+    }
+
+    public void write(char c){
+        writeByte((c >>>  8) & 0xFF);
+        writeByte(c  & 0xFF);
     }
 
     private void writeByte(int x){

@@ -117,4 +117,22 @@ public class BitReaderTest {
 
         assertEquals(val, res);
     }
+
+    @Test
+    public void testStringChar(){
+
+        String val = "abc";
+        BitWriter writer = new BitWriter();
+        writer.write(val);
+
+        BitReader reader = new BitReader(writer.extract());
+
+        char  a = reader.readChar();
+        char  b = reader.readChar();
+        char  c = reader.readChar();
+
+        assertEquals('a', a);
+        assertEquals('b', b);
+        assertEquals('c', c);
+    }
 }

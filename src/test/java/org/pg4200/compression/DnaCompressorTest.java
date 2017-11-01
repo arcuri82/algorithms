@@ -15,11 +15,9 @@ public class DnaCompressorTest {
 
     private void checkPreserveInformation(String dna ){
 
-        DnaCompressor compressor = new DnaCompressor();
+        byte[] compressed = DnaCompressor.compress(dna);
 
-        byte[] compressed = compressor.compress(dna);
-
-        String decompressed = compressor.decompress(compressed);
+        String decompressed = DnaCompressor.decompress(compressed);
 
         assertEquals(dna, decompressed);
     }
@@ -37,8 +35,7 @@ public class DnaCompressorTest {
 
         int nonCompressedSize = dna.getBytes(Charset.forName("utf-8")).length;
 
-        DnaCompressor compressor = new DnaCompressor();
-        byte[] compressed = compressor.compress(dna);
+        byte[] compressed = DnaCompressor.compress(dna);
 
         assertTrue(compressed.length < nonCompressedSize);
 
@@ -56,8 +53,7 @@ public class DnaCompressorTest {
 
         int nonCompressedSize = dna.getBytes(Charset.forName("utf-8")).length;
 
-        DnaCompressor compressor = new DnaCompressor();
-        byte[] compressed = compressor.compress(dna);
+        byte[] compressed = DnaCompressor.compress(dna);
 
         assertTrue(compressed.length > nonCompressedSize);
     }
