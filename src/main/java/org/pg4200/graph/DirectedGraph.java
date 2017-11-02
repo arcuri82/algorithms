@@ -8,6 +8,12 @@ import java.util.Set;
  */
 public class DirectedGraph<V> extends UndirectedGraph<V> {
 
+    /*
+        We extend UndirectedGraph, as most of the code would be
+        similar.
+        However, we still have to override some methods.
+     */
+
     @Override
     public void addEdge(V from, V to) {
         Objects.requireNonNull(from);
@@ -17,6 +23,8 @@ public class DirectedGraph<V> extends UndirectedGraph<V> {
         addVertex(to);
 
         graph.get(from).add(to);
+
+        // note here we don't have "graph.get(to).add(from)"
     }
 
     @Override

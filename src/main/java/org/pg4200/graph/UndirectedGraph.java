@@ -3,6 +3,10 @@ package org.pg4200.graph;
 import java.util.*;
 
 /**
+ * Undirected means: every time there is a connection
+ * (ie an edge) from X to Y, then there is also a connection
+ * from Y to X.
+ *
  * Created by arcuri82 on 25-Oct-17.
  */
 public class UndirectedGraph<V> implements  Graph<V>{
@@ -111,10 +115,15 @@ public class UndirectedGraph<V> implements  Graph<V>{
     public List<V> findPathDFS(V start, V end) {
 
         if(! graph.containsKey(start) && ! graph.containsKey(end)){
+            /*
+                no point in searching if either start or end are not
+                in the graph.
+             */
             return null;
         }
 
         if(start.equals(end)){
+            //we do not consider cycles
             throw new IllegalArgumentException();
         }
 
@@ -155,12 +164,17 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
         for(V connected : getAdjacents(current)){
             if(alreadyVisited.contains(connected)){
+                /*
+                    If we have already analysed a vertex,
+                    no point in re-analyzing it again.
+                 */
                 continue;
             }
 
             dfs(alreadyVisited, stack, connected, end);
 
             if(! isPathTo(stack, end)){
+                //backtrack
                 stack.removeFirst();
             } else {
                 return;
@@ -174,6 +188,8 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
     @Override
     public List<V> findPathBFS(V start, V end) {
+
+        // same initial checks as in DFS
 
         if(! graph.containsKey(start) && ! graph.containsKey(end)){
             return null;
@@ -198,12 +214,17 @@ public class UndirectedGraph<V> implements  Graph<V>{
             alreadyVisited.add(parent);
 
             for(V child : graph.get(parent)){
+
                 if(alreadyVisited.contains(child)){
                     continue;
                 }
                 bestParent.put(child, parent);
 
                 if(child.equals(end)){
+                    /*
+                        found a path, no need to analyze
+                        the rest of the queue
+                     */
                     break mainLoop;
                 }
 
@@ -214,6 +235,13 @@ public class UndirectedGraph<V> implements  Graph<V>{
         if(! bestParent.containsKey(end)){
             return null;
         }
+
+        /*
+            At this point, we know that there is a path.
+            So, starting from "end", we need to use the
+            bestParent map to backtrack the path from "end"
+            to "start"
+         */
 
         List<V> path = new ArrayList<>();
         V current = end;
@@ -244,6 +272,12 @@ public class UndirectedGraph<V> implements  Graph<V>{
         }
 
         connected.add(vertex);
+
+        /*
+            Look and add all connected vertices.
+            Them, reapply this code recursively on
+            all these connected vertices.
+         */
 
         graph.get(vertex).stream()
                 .filter(c -> ! connected.contains(c))
