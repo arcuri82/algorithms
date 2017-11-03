@@ -182,7 +182,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
         }
     }
 
-    private boolean isPathTo(Deque<V> stack, V vertex){
+    protected boolean isPathTo(Deque<V> stack, V vertex){
         return !stack.isEmpty() && stack.peekFirst().equals(vertex);
     }
 
