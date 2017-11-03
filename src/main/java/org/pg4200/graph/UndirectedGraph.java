@@ -201,8 +201,6 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
 
         Queue<V> queue = new ArrayDeque<>();
-        Set<V> alreadyVisited = new HashSet<>();
-        //map from child to "best" parent
         Map<V,V> bestParent = new HashMap<>();
 
         queue.add(start);
@@ -211,11 +209,9 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
             V parent = queue.poll();
 
-            alreadyVisited.add(parent);
-
             for(V child : graph.get(parent)){
 
-                if(alreadyVisited.contains(child)){
+                if( child.equals(start) || bestParent.get(child) != null){
                     continue;
                 }
                 bestParent.put(child, parent);
