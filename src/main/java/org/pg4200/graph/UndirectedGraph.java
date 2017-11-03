@@ -271,7 +271,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
         /*
             Look and add all connected vertices.
-            Them, reapply this code recursively on
+            Then, reapply this code recursively on
             all these connected vertices.
          */
 
