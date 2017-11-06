@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class HuffmanTest {
 
 
-    private double checkCompressAndDecompress(String text){
+    private double checkCompressAndDecompress(String text, String charset){
 
         byte[] compressed = Huffman.compress(text);
 
@@ -23,27 +23,34 @@ public class HuffmanTest {
 
         System.out.println(Huffman.getTrieStatistics(text));
 
-        int originalLength = text.getBytes(Charset.forName("utf-16")).length;
+        int originalLength = text.getBytes(Charset.forName(charset)).length;
 
-        return (double) compressed.length / (double) originalLength;
+        double ratio = (double) compressed.length / (double) originalLength;
+
+        System.out.println("Original size for "+charset+": " + originalLength);
+        System.out.println("Compressed size: " + compressed.length);
+        System.out.println("Ratio for "+charset+": "  + ratio);
+
+        return ratio;
     }
 
     @Test
     public void testSingleChar(){
-        double ratio = checkCompressAndDecompress("a");
+        double ratio = checkCompressAndDecompress("a","utf-16");
         assertTrue(ratio > 1);
     }
 
     @Test
     public void testSingleWord(){
-        double ratio = checkCompressAndDecompress("foo");
+        double ratio = checkCompressAndDecompress("foo","utf-16");
         assertTrue(ratio > 1);
     }
 
     @Test
     public void testSentence(){
         double ratio = checkCompressAndDecompress(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+                "utf-16");
 
         assertTrue(ratio > 0.4);
         assertTrue(ratio < 0.5);
@@ -54,8 +61,12 @@ public class HuffmanTest {
 
         String text = new Scanner(HuffmanTest.class.getResourceAsStream("/compression/odyssey.mb.txt"), "UTF-8").useDelimiter("\\A").next();
 
-        double ratio = checkCompressAndDecompress(text);
-        assertTrue(ratio > 0.25);
-        assertTrue(ratio < 0.3);
+        double ratio16 = checkCompressAndDecompress(text, "utf-16");
+
+        assertTrue(ratio16 > 0.25);
+        assertTrue(ratio16 < 0.3);
+
+        double ratio8 = checkCompressAndDecompress(text, "utf-8");
+        assertTrue(ratio16 < 0.6);
     }
 }
