@@ -8,7 +8,7 @@ import java.util.*;
 public class Huffman {
 
 
-    public static byte[] compress(String text) {
+    public  byte[] compress(String text) {
 
         Objects.requireNonNull(text);
 
@@ -25,7 +25,7 @@ public class Huffman {
         return buffer.extract();
     }
 
-    public static String decompress(byte[] data) {
+    public  String decompress(byte[] data) {
 
         BitReader reader = new BitReader(data);
         StringBuilder buffer = new StringBuilder();
@@ -52,7 +52,7 @@ public class Huffman {
         return buffer.toString();
     }
 
-    public static String getTrieStatistics(String text) {
+    public  String getTrieStatistics(String text) {
 
         Node root = buildTrie(text);
         Map<Character, String> codes = new HashMap<>();
@@ -76,7 +76,7 @@ public class Huffman {
         return buffer.toString();
     }
 
-    private static void collectNodes(Node node, List<Node> list) {
+    private  void collectNodes(Node node, List<Node> list) {
         if (node.isLeaf()) {
             list.add(node);
             return;
@@ -89,7 +89,7 @@ public class Huffman {
         }
     }
 
-    private static Node readTrie(BitReader buffer) {
+    protected  Node readTrie(BitReader buffer) {
         boolean isLeaf = buffer.readBoolean();
         if (isLeaf) {
             return new Node(buffer.readChar(), -1, null, null);
@@ -98,7 +98,7 @@ public class Huffman {
         }
     }
 
-    private static void writeChars(String text, Map<Character, String> codes, BitWriter buffer) {
+    private  void writeChars(String text, Map<Character, String> codes, BitWriter buffer) {
 
         for (int i = 0; i < text.length(); i++) {
             Character c = text.charAt(i);
@@ -114,7 +114,7 @@ public class Huffman {
         }
     }
 
-    private static void writeTrie(Node node, BitWriter buffer) {
+    protected  void writeTrie(Node node, BitWriter buffer) {
 
         if (node.isLeaf()) {
             buffer.write(true);
@@ -127,7 +127,7 @@ public class Huffman {
         writeTrie(node.right, buffer);
     }
 
-    private static void buildCodes(Map<Character, String> codes, Node node, String s) {
+    private  void buildCodes(Map<Character, String> codes, Node node, String s) {
         if (!node.isLeaf()) {
             buildCodes(codes, node.left, s + '0');
             buildCodes(codes, node.right, s + '1');
@@ -137,7 +137,7 @@ public class Huffman {
     }
 
 
-    private static Node buildTrie(String text) {
+    private  Node buildTrie(String text) {
 
         int[] freq = new int[65_536]; //2^16
 
@@ -165,7 +165,7 @@ public class Huffman {
         return list.get(0);
     }
 
-    private static Node deleteMinimum(List<Node> list) {
+    private  Node deleteMinimum(List<Node> list) {
 
         /*
             Note: this code could be optimized to handle a custom
@@ -184,12 +184,12 @@ public class Huffman {
         return list.remove(min);
     }
 
-    private static class Node implements Comparable<Node> {
+    protected  class Node implements Comparable<Node> {
 
-        private final Character ch;
-        private final int freq;
-        private final Node left;
-        private final Node right;
+        public final Character ch;
+        public final int freq;
+        public final Node left;
+        public final Node right;
 
         public Node(Character ch, int freq, Node left, Node right) {
             this.ch = ch;

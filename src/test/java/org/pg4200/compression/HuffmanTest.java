@@ -15,13 +15,15 @@ public class HuffmanTest {
 
     private double checkCompressAndDecompress(String text, String charset){
 
-        byte[] compressed = Huffman.compress(text);
+        Huffman huffman = new Huffman();
 
-        String res = Huffman.decompress(compressed);
+        byte[] compressed = huffman.compress(text);
+
+        String res = huffman.decompress(compressed);
 
         assertEquals(text, res);
 
-        System.out.println(Huffman.getTrieStatistics(text));
+        System.out.println(huffman.getTrieStatistics(text));
 
         int originalLength = text.getBytes(Charset.forName(charset)).length;
 
@@ -67,6 +69,6 @@ public class HuffmanTest {
         assertTrue(ratio16 < 0.3);
 
         double ratio8 = checkCompressAndDecompress(text, "utf-8");
-        assertTrue(ratio16 < 0.6);
+        assertTrue(ratio8 < 0.6);
     }
 }
