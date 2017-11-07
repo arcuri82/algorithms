@@ -8,7 +8,7 @@ public class LcgRandom implements MyRandom {
     private int current;
 
     public LcgRandom(){
-        setSeed((int) System.currentTimeMillis());
+        setSeed(Math.abs((int) System.currentTimeMillis()));
     }
 
     @Override
