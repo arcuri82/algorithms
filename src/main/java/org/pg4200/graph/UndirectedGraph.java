@@ -13,7 +13,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
     /**
      * Key -> a vertex in the graph
-     * Value -> set of all vertex that connect to the Key, ie
+     * Value -> set of all vertices that connect to the Key, ie
      *          the Key is the "from"/"source"
      */
     protected Map<V, Set<V>> graph = new HashMap<>();

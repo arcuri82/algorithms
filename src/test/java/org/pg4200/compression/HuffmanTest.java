@@ -13,6 +13,12 @@ import static org.junit.Assert.*;
 public class HuffmanTest {
 
 
+    /**
+     *  Compress and decompress the text, checking that this works correctly,
+     *  and also printing stats.
+     *  Note: the string "text" is in UTF-16, but, when we consider its size
+     *  in bytes, we can choose different encodings.
+     */
     private double checkCompressAndDecompress(String text, String charset){
 
         Huffman huffman = new Huffman();
@@ -61,7 +67,20 @@ public class HuffmanTest {
     @Test
     public void testBook(){
 
+        /*
+         * The actual book on disk is in UTF-8.
+         * We must read it in UTF-8.
+         * However, once loaded, the JVM does convert it to UTF-16
+         * to be able to store it in a String object.
+         *
+         * Note: the following code does read all the lines from the given file.
+         */
         String text = new Scanner(HuffmanTest.class.getResourceAsStream("/compression/odyssey.mb.txt"), "UTF-8").useDelimiter("\\A").next();
+
+        /*
+            Note: as the text in that file does not have special characters,
+            its utf-16 representation is twice as long as the utf-8 one.
+         */
 
         double ratio16 = checkCompressAndDecompress(text, "utf-16");
 

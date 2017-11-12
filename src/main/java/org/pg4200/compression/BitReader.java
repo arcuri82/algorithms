@@ -3,6 +3,8 @@ package org.pg4200.compression;
 import java.util.Objects;
 
 /**
+ * Class used to read byte[] data encoded with BitWriter
+ *
  * Created by arcuri82 on 30-Oct-17.
  */
 public class BitReader {

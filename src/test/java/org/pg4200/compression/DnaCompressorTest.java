@@ -12,7 +12,16 @@ import static org.junit.Assert.*;
 public class DnaCompressorTest {
 
 
-
+    /**
+     *   Having a compression "c" and a decompression "d",
+     *   then, whatever the input "x" is, the following should
+     *   always be true
+     *
+     *   x = d(c(x))
+     *
+     *   ie, if we compress and then decompress, we should get
+     *   back the original input
+     */
     private void checkPreserveInformation(String dna ){
 
         byte[] compressed = DnaCompressor.compress(dna);
@@ -40,13 +49,24 @@ public class DnaCompressorTest {
         assertTrue(compressed.length < nonCompressedSize);
 
         double ratio = (double) compressed.length / (double) nonCompressedSize;
+        /*
+            we get a good compression, which gets better for longer text,
+            as the overhead of storing the trie has less impact
+         */
+
         assertTrue(ratio < 0.33);
 
-        assertTrue(ratio > 0.25);
+        //can't bit 1/4 ratio
+        assertTrue(ratio >= 0.25);
     }
 
     @Test
     public void testIncreaseSize(){
+
+        /*
+            Compressing a single char make the data larger, as we still
+            have to store the trie and 32 bits for the size "1"
+         */
 
         String dna = "A";
         checkPreserveInformation(dna);
