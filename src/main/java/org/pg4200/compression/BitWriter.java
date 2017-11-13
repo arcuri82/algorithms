@@ -5,7 +5,8 @@ import java.util.List;
 
 /**
  * Programs and CPUs work at byte (8 bits) level.
- * Even a boolean in Java takes actually 8 bits.
+ * Even a boolean in Java takes actually 8 bits (eg, in
+ * an array of booleans).
  *
  * However, for compression, we need to work at bit level, to
  * exploit all the available space.
@@ -19,6 +20,14 @@ import java.util.List;
  *
  * But there is no silver bullet: the downside here is that
  * reading/parsing such data at bit level is much more expensive
+ *
+ * Note: to be precise, the situation is even more complex.
+ * The type boolean is the only one whose size is not actually
+ * defined, as JVM implementation dependent (although usually 1 byte).
+ * Furthermore, the JVM bytecode on the stack works with chunks of 32 bits,
+ * so types "byte" and "boolean" actually consumes 32 bits on the call
+ * stack. But that is not the case for when storing arrays in the heap,
+ * in which the granularity is at byte level.
  *
  * Created by arcuri82 on 30-Oct-17.
  */
