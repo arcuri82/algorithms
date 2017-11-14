@@ -73,7 +73,18 @@ public class BitWriter {
     private void writeBit(boolean bit) {
         checkClosed();
 
-        //shift current data in the buffer to the left
+        /*
+            shift current data in the buffer to the left.
+            Eg, if I have
+
+            xxxx1011
+
+            (where we ignore the context with x) I ll get
+
+            xxx10110
+
+            where rightmost new introduced value is a 0
+         */
         buffer <<= 1;
 
         if (bit) {
@@ -81,7 +92,15 @@ public class BitWriter {
                 if true, we need to add a 1.
                 We do this by doing an "or" with 1,
                 which will just put a 1 bit on rightmost
-                position on the 8 bit buffer
+                position on the 8 bit buffer.
+
+                For example:
+
+                xxx10110
+                00000001
+                --------
+                xxx10111
+
              */
 
             buffer |= 1;
