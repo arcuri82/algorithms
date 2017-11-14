@@ -177,17 +177,32 @@ public class BitWriter {
 
             the right-shift 24 leads to the value
 
-            z = (24 bits of data)(first 8 bits)
+            z = (24 bits of 0 data)(first 8 bits)
+         */
+        writeByte(x >>> 24);
 
-            on which we do a "and" mask with
+        /*
+            Reading the second byte is more tricky.
+
+            x = (first 8 bits)(second byte)(remaining 16 bits)
+
+            After the 16 bit shifting, I get
+
+            z = (16 bits of 0 data)(first 8 bits) (second byte)
+
+            We need to get rid of the "first 8 bits", and
+            we do that by a "and" mask with
 
             0...011111111
 
             to get only the rightmost 8 bits in z,
-            which are the first 8 bits in x
-         */
-        writeByte((x >>> 24) & 0xFF);
+            which are the second byte in x, ie
 
+            00...00 kkkkkkkk wwwwwwww
+            00...00 00000000 11111111
+            -------------------------
+            00...00 00000000 wwwwwwww
+         */
         writeByte((x >>> 16) & 0xFF); //2nd byte
         writeByte((x >>>  8) & 0xFF); //3rd byte
         writeByte(x  & 0xFF); // 4th, rightmost byte

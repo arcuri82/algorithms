@@ -129,6 +129,24 @@ public class BitWriterTest {
     }
 
     @Test
+    public void testLargeInt(){
+
+        BitWriter data = new BitWriter();
+
+        int val = 0x01_01_01_01;
+        data.write(val);
+
+        byte[] res = data.extract();
+
+        assertEquals(4, res.length);
+        assertEquals(1, res[0]);
+        assertEquals(1, res[1]);
+        assertEquals(1, res[2]);
+        assertEquals(1, res[3]);
+    }
+
+
+    @Test
     public void testIntAsNegativeByte(){
 
         BitWriter data = new BitWriter();
