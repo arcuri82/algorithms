@@ -25,8 +25,8 @@ import java.util.List;
  * The type boolean is the only one whose size is not actually
  * defined, as JVM implementation dependent (although usually 1 byte).
  * Furthermore, the JVM bytecode on the stack works with chunks of 32 bits,
- * so types "byte" and "boolean" actually consumes 32 bits on the call
- * stack. But that is not the case for when storing arrays in the heap,
+ * so types "byte" and "boolean" actually consumes 32 bits on the instruction
+ * execution stack. But that is not the case for when storing arrays in the heap,
  * in which the granularity is at byte level.
  *
  * Created by arcuri82 on 30-Oct-17.
