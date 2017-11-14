@@ -40,9 +40,6 @@ public class OnePlusOneEAForQueens {
                     if (random.nextDouble() < p) {
 
                         int i = random.nextInt(j);
-                        while(i == j){
-                            i  = random.nextInt(n);
-                        }
 
                         swap(offspring, i , j);
 
