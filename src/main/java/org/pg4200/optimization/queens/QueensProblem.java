@@ -29,6 +29,8 @@ public class QueensProblem {
      *                   ie, positions[0] is the row of the queen in column 0
      * @return a positive heuristics telling how many queens are in conflict.
      *          If there is no conflict, and solution is found, return 0.
+     * @throws NullPointerException if the input array is null
+     * @throws IllegalArgumentException if the input array is not valid
      */
     public static int evaluate(int[] positions){
 
@@ -99,7 +101,11 @@ public class QueensProblem {
         boolean[] presences = new boolean[positions.length];
 
         for(int i=0; i<positions.length; i++){
-            presences[positions[i]] =  true;
+            int pos = positions[i];
+            if(pos < 0 || pos >= presences.length){
+                throw new IllegalArgumentException("Invalid position value " + pos);
+            }
+            presences[pos] =  true;
         }
 
         for(int i=0; i<presences.length; i++){
