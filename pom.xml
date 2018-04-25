@@ -3,10 +3,13 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.pg4200</groupId>
-    <artifactId>pg4200</artifactId>
+    <artifactId>pg4200-root</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>PG4200</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lessons</module>
+    </modules>
 
 
     <properties>
@@ -16,14 +19,16 @@
         <version.java>1.8</version.java>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
-    </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
