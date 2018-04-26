@@ -1,7 +1,7 @@
 package org.pg4200.exercise.ex01;
 
 import org.pg4200.les02.delete.DeleteContainer;
-import org.pg4200.datastructure.delete.DeleteContainerTestTemplate;
+import org.pg4200.les02.delete.DeleteContainerTestTemplate;
 
 /**
  * Created by arcuri82 on 15-Aug-17.

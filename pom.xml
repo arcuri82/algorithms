@@ -9,6 +9,8 @@
 
     <modules>
         <module>lessons</module>
+        <module>exercises</module>
+        <module>solutions</module>
     </modules>
 
 

@@ -1,21 +1,18 @@
-package org.pg4200.exercise.ex05;
+package org.pg4200.les05;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.pg4200.les05.MyMap;
-import org.pg4200.les05.MyMapTestTemplate;
-import org.pg4200.les05.MyTreeBasedMap;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
- * Created by arcuri82 on 24-Aug-17.
+ * Created by arcuri82 on 23-Aug-17.
  */
-public class TernaryTreeMapTest extends MyMapTestTemplate {
+public class BinaryTreeMapTest extends MyMapTestTemplate {
 
 
     protected <K extends Comparable<K>, V> MyTreeBasedMap<K, V> getTreeInstance() {
-        return new TernaryTreeMap<>();
+        return new BinaryTreeMap<>();
     }
 
     @Override
@@ -47,43 +44,62 @@ public class TernaryTreeMapTest extends MyMapTestTemplate {
     }
 
     @Test
-    public void testBalanced2() {
+    public void testBalanced3(){
 
-        map.put(0, "a");
+        map.put(5, "a");
         assertEquals(1, map.getMaxTreeDepth());
 
-        map.put(5, "b");
-        assertEquals(1, map.getMaxTreeDepth());
+        map.put(0, "b");
+        assertEquals(2, map.getMaxTreeDepth());
+
+        map.put(10, "c");
+        assertEquals(2, map.getMaxTreeDepth());
     }
 
-
     @Test
-    public void testWorstCaseFor3() {
+    public void testWorstCaseFor3(){
+
+        //compared to previous test, here just changed the order of insertions
 
         map.put(0, "b");
         assertEquals(1, map.getMaxTreeDepth());
 
-        map.put(-5, "a");
+        map.put(5, "a");
         assertEquals(2, map.getMaxTreeDepth());
 
-        map.put(-10, "c");
+        map.put(10, "c");
         assertEquals(3, map.getMaxTreeDepth());
     }
 
 
     @Test
-    public void testBalanced8() {
+    public void testBalanced7(){
 
         map.put(5, "a");
         map.put(2, "a");
         map.put(3, "a");
-        map.put(10, "a");
+        map.put(0, "a");
+        map.put(8, "a");
         map.put(6, "a");
-        map.put(7, "a");
-        map.put(11, "a");
-        map.put(12, "a");
+        map.put(10, "a");
 
-        assertEquals(2, map.getMaxTreeDepth());
+        assertEquals(3, map.getMaxTreeDepth());
     }
 
+
+    @Test
+    public void testWorstCaseFor7(){
+
+        //compared to previous test, here just changed the order of insertions
+
+        map.put(10, "a");
+        map.put(8, "a");
+        map.put(6, "a");
+        map.put(5, "a");
+        map.put(3, "a");
+        map.put(2, "a");
+        map.put(0, "a");
+
+        assertEquals(7, map.getMaxTreeDepth());
+    }
 }
