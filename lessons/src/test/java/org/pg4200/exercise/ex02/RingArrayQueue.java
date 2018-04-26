@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex02;
 
-import org.pg4200.datastructure.queue.MyQueue;
+import org.pg4200.les02.queue.MyQueue;
 
 /**
  * Created by arcuri82 on 16-Aug-17.

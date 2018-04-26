@@ -2,9 +2,9 @@ package org.pg4200.sorting;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pg4200.les03.MySort;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;

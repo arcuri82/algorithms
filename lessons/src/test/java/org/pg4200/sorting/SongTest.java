@@ -1,6 +1,7 @@
 package org.pg4200.sorting;
 
 import org.junit.Test;
+import org.pg4200.les03.Song;
 
 import java.util.ArrayList;
 import java.util.Collections;

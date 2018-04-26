@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.map.hash;
 
-import static org.junit.Assert.*;
+import org.pg4200.les06.ChainingHashMap;
+import org.pg4200.les06.MyHashMap;
 
 /**
  * Created by arcuri82 on 14-Sep-17.

@@ -2,6 +2,8 @@ package org.pg4200.datastructure.set;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pg4200.les07.set.HashMapSet;
+import org.pg4200.les07.set.MySet;
 
 import static org.junit.Assert.*;
 

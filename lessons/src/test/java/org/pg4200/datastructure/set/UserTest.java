@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.set;
 
 import org.junit.Test;
+import org.pg4200.les07.set.*;
 
 import static org.junit.Assert.*;
 

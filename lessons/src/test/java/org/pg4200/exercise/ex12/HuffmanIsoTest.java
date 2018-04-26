@@ -1,8 +1,8 @@
 package org.pg4200.exercise.ex12;
 
 import org.junit.Test;
-import org.pg4200.compression.Huffman;
-import org.pg4200.compression.HuffmanTest;
+import org.pg4200.les12.Huffman;
+import org.pg4200.les12.HuffmanTest;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;

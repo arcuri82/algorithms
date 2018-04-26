@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.map.hash;
 
 import org.junit.Test;
+import org.pg4200.les06.HashFunctions;
 
 import static org.junit.Assert.*;
 

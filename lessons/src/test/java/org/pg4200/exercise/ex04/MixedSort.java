@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex04;
 
-import org.pg4200.sorting.MySort;
+import org.pg4200.les03.MySort;
 
 /**
  * Created by arcuri82 on 21-Aug-17.

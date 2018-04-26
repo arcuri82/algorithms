@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.stack;
 
-import static org.junit.Assert.*;
+import org.pg4200.les02.stack.LinkedListStack;
+import org.pg4200.les02.stack.MyStack;
 
 public class LinkedListStackTest extends MyStackTestTemplate{
 

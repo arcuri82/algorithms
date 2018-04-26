@@ -1,6 +1,9 @@
 package org.pg4200.optimization.queens;
 
 import org.junit.Test;
+import org.pg4200.les09.queens.HillClimbingForQueens;
+import org.pg4200.les09.queens.QueensProblem;
+import org.pg4200.les09.queens.RandomForQueens;
 
 import java.util.Arrays;
 

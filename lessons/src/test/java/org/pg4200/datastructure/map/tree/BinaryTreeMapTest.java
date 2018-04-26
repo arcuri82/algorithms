@@ -2,8 +2,10 @@ package org.pg4200.datastructure.map.tree;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.pg4200.datastructure.map.MyMap;
+import org.pg4200.les05.BinaryTreeMap;
+import org.pg4200.les05.MyMap;
 import org.pg4200.datastructure.map.MyMapTestTemplate;
+import org.pg4200.les05.MyTreeBasedMap;
 
 import static org.junit.Assert.*;
 

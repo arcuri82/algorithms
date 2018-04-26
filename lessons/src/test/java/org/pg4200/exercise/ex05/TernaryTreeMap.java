@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex05;
 
-import org.pg4200.datastructure.map.tree.MyTreeBasedMap;
+import org.pg4200.les05.MyTreeBasedMap;
 
 /**
  * Created by arcuri82 on 23-Aug-17.

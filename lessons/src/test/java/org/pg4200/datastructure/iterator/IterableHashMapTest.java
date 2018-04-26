@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.iterator;
 
 import org.junit.Test;
+import org.pg4200.les07.iterator.IterableHashMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +18,7 @@ public class IterableHashMapTest {
     @Test
     public void testBaseIterator(){
 
-        IterableHashMap<Integer, String>  map = new IterableHashMap<>();
+        IterableHashMap<Integer, String> map = new IterableHashMap<>();
         map.put(0, "a");
         map.put(1, "b");
         map.put(2, "c");

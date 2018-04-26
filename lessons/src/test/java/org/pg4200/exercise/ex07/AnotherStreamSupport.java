@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex07;
 
-import org.pg4200.datastructure.set.HashMapSet;
+import org.pg4200.les07.set.HashMapSet;
 
 import java.util.Iterator;
 import java.util.Objects;

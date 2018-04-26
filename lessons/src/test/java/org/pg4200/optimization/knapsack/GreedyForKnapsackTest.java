@@ -1,6 +1,8 @@
 package org.pg4200.optimization.knapsack;
 
 import org.junit.Test;
+import org.pg4200.les09.knapsack.GreedyForKnapsack;
+import org.pg4200.les09.knapsack.KnapsackInstanceWithSolution;
 
 import static org.junit.Assert.*;
 

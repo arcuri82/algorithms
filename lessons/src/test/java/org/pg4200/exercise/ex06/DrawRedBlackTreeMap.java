@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex06;
 
-import org.pg4200.datastructure.map.tree.RedBlackTreeMap;
+import org.pg4200.les06.RedBlackTreeMap;
 
 /**
  * Created by arcuri82 on 06-Sep-17.

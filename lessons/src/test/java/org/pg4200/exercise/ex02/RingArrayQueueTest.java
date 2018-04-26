@@ -1,7 +1,7 @@
 package org.pg4200.exercise.ex02;
 
 import org.junit.Test;
-import org.pg4200.datastructure.queue.MyQueue;
+import org.pg4200.les02.queue.MyQueue;
 import org.pg4200.datastructure.queue.MyQueueTestTemplate;
 
 import static org.junit.Assert.*;

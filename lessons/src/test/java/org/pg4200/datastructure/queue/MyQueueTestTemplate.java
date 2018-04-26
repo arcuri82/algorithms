@@ -2,6 +2,7 @@ package org.pg4200.datastructure.queue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pg4200.les02.queue.MyQueue;
 
 import static org.junit.Assert.*;
 

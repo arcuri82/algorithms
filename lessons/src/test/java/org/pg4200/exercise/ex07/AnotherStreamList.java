@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex07;
 
-import org.pg4200.datastructure.iterator.IterableLinkedList;
+import org.pg4200.les07.iterator.IterableLinkedList;
 
 /**
  * Created by arcuri82 on 04-Oct-17.

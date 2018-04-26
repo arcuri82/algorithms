@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.delete;
 
-import static org.junit.Assert.*;
+import org.pg4200.les02.delete.ArrayDeleteContainer;
+import org.pg4200.les02.delete.DeleteContainer;
 
 /**
  * Created by arcuri82 on 15-Aug-17.

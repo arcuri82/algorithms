@@ -1,6 +1,7 @@
 package org.pg4200.sorting;
 
-import static org.junit.Assert.*;
+import org.pg4200.les03.BubbleSort;
+import org.pg4200.les03.MySort;
 
 /**
  * Created by arcuri82 on 21-Aug-17.

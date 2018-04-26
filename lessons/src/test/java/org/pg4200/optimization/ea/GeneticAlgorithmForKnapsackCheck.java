@@ -1,7 +1,8 @@
 package org.pg4200.optimization.ea;
 
-import org.pg4200.optimization.knapsack.GreedyForKnapsack;
-import org.pg4200.optimization.knapsack.KnapsackInstanceWithSolution;
+import org.pg4200.les09.knapsack.GreedyForKnapsack;
+import org.pg4200.les09.knapsack.KnapsackInstanceWithSolution;
+import org.pg4200.les10.ea.GeneticAlgorithmForKnapsack;
 
 /**
  * Created by arcuri82 on 25-Oct-17.

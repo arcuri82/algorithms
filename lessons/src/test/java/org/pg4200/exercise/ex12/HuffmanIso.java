@@ -1,8 +1,8 @@
 package org.pg4200.exercise.ex12;
 
-import org.pg4200.compression.BitReader;
-import org.pg4200.compression.BitWriter;
-import org.pg4200.compression.Huffman;
+import org.pg4200.les12.BitReader;
+import org.pg4200.les12.BitWriter;
+import org.pg4200.les12.Huffman;
 
 import java.nio.charset.Charset;
 

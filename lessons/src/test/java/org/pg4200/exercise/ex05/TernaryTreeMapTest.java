@@ -2,9 +2,9 @@ package org.pg4200.exercise.ex05;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.pg4200.datastructure.map.MyMap;
+import org.pg4200.les05.MyMap;
 import org.pg4200.datastructure.map.MyMapTestTemplate;
-import org.pg4200.datastructure.map.tree.MyTreeBasedMap;
+import org.pg4200.les05.MyTreeBasedMap;
 
 import static org.junit.Assert.assertEquals;
 

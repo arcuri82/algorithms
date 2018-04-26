@@ -1,9 +1,9 @@
 package org.pg4200.datastructure.map.tree;
 
-import org.pg4200.datastructure.map.MyMap;
+import org.pg4200.les05.MyMap;
 import org.pg4200.datastructure.map.MyMapTestTemplate;
-
-import static org.junit.Assert.*;
+import org.pg4200.les05.MyTreeBasedMap;
+import org.pg4200.les06.RedBlackTreeMap;
 
 /**
  * Created by arcuri82 on 06-Sep-17.

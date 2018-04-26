@@ -1,6 +1,7 @@
 package org.pg4200.datastructure.base.array;
 
 import org.junit.Test;
+import org.pg4200.les01.array.ArrayExample;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

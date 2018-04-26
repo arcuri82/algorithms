@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex11;
 
-import org.pg4200.graph.UndirectedGraph;
+import org.pg4200.les11.UndirectedGraph;
 
 import java.util.*;
 

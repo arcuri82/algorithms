@@ -1,6 +1,6 @@
 package org.pg4200.exercise.ex10;
 
-import org.pg4200.optimization.queens.QueensProblem;
+import org.pg4200.les09.queens.QueensProblem;
 
 import java.util.Random;
 

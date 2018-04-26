@@ -2,6 +2,7 @@ package org.pg4200.datastructure.map.hash;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.pg4200.les06.MyHashMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
