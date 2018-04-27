@@ -1,11 +1,11 @@
 package org.pg4200.les01.list;
 
-import org.pg4200.les01.StringContainerWithIndex;
+import org.pg4200.les01.MyStringContainerWithIndex;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class ListStringContainer implements StringContainerWithIndex {
+public class MyListStringContainer implements MyStringContainerWithIndex {
 
     /*
         For each "value" in the container, we create a Node object to contain it.
@@ -36,7 +36,7 @@ public class ListStringContainer implements StringContainerWithIndex {
         Note: this constructor declaration here is redundant, as
         I am assigning default values anyway
      */
-    public ListStringContainer(){
+    public MyListStringContainer(){
         head = null;
         tail = null;
         size = 0;

@@ -1,6 +1,6 @@
 package org.pg4200.les01.list;
 
-import org.pg4200.les01.StringContainerWithIndex;
+import org.pg4200.les01.MyStringContainerWithIndex;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class DelegateListContainer implements StringContainerWithIndex {
+public class MyDelegateListContainer implements MyStringContainerWithIndex {
 
     /*
         The Java API provides many implementations for containers, eg in

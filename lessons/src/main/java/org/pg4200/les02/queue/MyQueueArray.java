@@ -3,7 +3,7 @@ package org.pg4200.les02.queue;
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
-public class ArrayQueue<T> implements MyQueue<T>{
+public class MyQueueArray<T> implements MyQueue<T>{
 
     protected Object[] data;
 
@@ -33,11 +33,11 @@ public class ArrayQueue<T> implements MyQueue<T>{
      */
 
 
-    public ArrayQueue(){
+    public MyQueueArray(){
         this(10);
     }
 
-    public ArrayQueue(int capacity){
+    public MyQueueArray(int capacity){
         data = new Object[capacity];
     }
 

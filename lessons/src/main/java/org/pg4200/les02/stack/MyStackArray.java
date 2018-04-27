@@ -1,8 +1,8 @@
 package org.pg4200.les02.stack;
 
-import org.pg4200.les02.delete.ArrayDeleteContainer;
+import org.pg4200.les02.generic.MyGenericContainerArray;
 
-public class ArrayStack<T> extends ArrayDeleteContainer<T> implements MyStack<T>{
+public class MyStackArray<T> extends MyGenericContainerArray<T> implements MyStack<T>{
 
     @Override
     public void push(T value) {

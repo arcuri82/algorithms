@@ -1,4 +1,4 @@
-package org.pg4200.les02.delete;
+package org.pg4200.les02.generic;
 
 /**
  *  Before we defined a container interface to hold String objects.
@@ -9,7 +9,7 @@ package org.pg4200.les02.delete;
  *
  * Created by arcuri82 on 15-Aug-17.
  */
-public interface DeleteContainer<T> {
+public interface MyGenericContainer<T> {
 
     /**
      *  Delete the element at position "index".

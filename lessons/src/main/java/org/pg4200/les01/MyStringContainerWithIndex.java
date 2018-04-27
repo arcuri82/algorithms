@@ -14,7 +14,7 @@ package org.pg4200.les01;
  * So when you choose a specific implementation to use, such choice would be based
  * on which operations are expected to be used most.
  */
-public interface StringContainerWithIndex {
+public interface MyStringContainerWithIndex {
 
     /**
      * Get the string stored in position defined by "index".

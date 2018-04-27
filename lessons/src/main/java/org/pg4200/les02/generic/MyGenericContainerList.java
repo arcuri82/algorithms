@@ -1,9 +1,9 @@
-package org.pg4200.les02.delete;
+package org.pg4200.les02.generic;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class ListDeleteContainer<T> implements DeleteContainer<T> {
+public class MyGenericContainerList<T> implements MyGenericContainer<T> {
 
     private class ListNode{
         T value;

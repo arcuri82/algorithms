@@ -1,4 +1,4 @@
-package org.pg4200.les02.delete;
+package org.pg4200.les02.generic;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,16 +9,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public abstract class DeleteContainerTestTemplate {
+public abstract class MyGenericContainerTestTemplate {
 
-    protected abstract <T> DeleteContainer<T> getNewInstance(Class<T> klass);
+    protected abstract <T> MyGenericContainer<T> getNewInstance(Class<T> klass);
 
 
 
     @Test
     public void testEmpty(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
 
         //a newly created container should be empty
         assertEquals(0, data.size());
@@ -28,7 +28,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testAddOneElement(){
 
-        DeleteContainer<String> data = getNewInstance(String.class);
+        MyGenericContainer<String> data = getNewInstance(String.class);
 
         int n = data.size();
 
@@ -40,7 +40,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testAddAndRetrieveElement() {
 
-        DeleteContainer<String> data = getNewInstance(String.class);
+        MyGenericContainer<String> data = getNewInstance(String.class);
 
         String value = "foo";
 
@@ -57,7 +57,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testAdd5Elements(){
 
-        DeleteContainer<String> data = getNewInstance(String.class);
+        MyGenericContainer<String> data = getNewInstance(String.class);
 
         assertEquals(0, data.size());
         String a = "a";
@@ -80,7 +80,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testOutOfIndex(){
 
-        DeleteContainer<String> data = getNewInstance(String.class);
+        MyGenericContainer<String> data = getNewInstance(String.class);
 
         assertThrows(IndexOutOfBoundsException.class,
                 () -> data.get(-5));
@@ -92,7 +92,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testDeleteOne(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
 
         data.add(1);
 
@@ -106,7 +106,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testDeleteFirst(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -125,7 +125,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testDeleteLast(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -142,7 +142,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testDeleteMiddle(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -160,7 +160,7 @@ public abstract class DeleteContainerTestTemplate {
     @Test
     public void testDeleteAll(){
 
-        DeleteContainer<Integer> data = getNewInstance(Integer.class);
+        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);

@@ -1,11 +1,11 @@
 package org.pg4200.les01.list;
 
-import org.pg4200.les01.StringContainerWithIndex;
+import org.pg4200.les01.MyStringContainerWithIndex;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class NaiveListStringContainer implements StringContainerWithIndex{
+public class MyNaiveListStringContainer implements MyStringContainerWithIndex {
 
     /*
         For each "value" in the container, we create a Node object to contain it.

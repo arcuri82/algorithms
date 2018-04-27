@@ -1,16 +1,16 @@
 package org.pg4200.les01.array;
 
-import org.pg4200.les01.StringContainerWithIndex;
-import org.pg4200.les01.StringContainerWithIndexTestTemplate;
+import org.pg4200.les01.MyStringContainerWithIndex;
+import org.pg4200.les01.MyStringContainerWithIndexTestTemplate;
 
 /**
  * Created by arcuri82 on 14-Aug-17.
  */
-public class ArrayStringContainerTestFailing extends StringContainerWithIndexTestTemplate {
+public class MyArrayStringContainerTestFailing extends MyStringContainerWithIndexTestTemplate {
 
     @Override
-    protected StringContainerWithIndex getNewInstance() {
-        return new ArrayStringContainer(4);
+    protected MyStringContainerWithIndex getNewInstance() {
+        return new MyArrayStringContainer(4);
     }
 
     /*

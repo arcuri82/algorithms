@@ -2,7 +2,7 @@ package org.pg4200.les02.stack;
 
 
 
-public class LinkedListStack<T> implements MyStack<T>{
+public class MyStackLinkedList<T> implements MyStack<T>{
 
     private class StackNode {
         T value;

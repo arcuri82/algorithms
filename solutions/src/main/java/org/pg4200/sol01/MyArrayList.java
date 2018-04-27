@@ -1,11 +1,11 @@
 package org.pg4200.sol01;
 
-import org.pg4200.les02.delete.ArrayDeleteContainer;
+import org.pg4200.les02.generic.MyGenericContainerArray;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyArrayList<T> extends ArrayDeleteContainer<T> {
+public class MyArrayList<T> extends MyGenericContainerArray<T> {
 
     public MyArrayList(){
         super();

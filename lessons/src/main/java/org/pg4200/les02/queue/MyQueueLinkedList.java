@@ -3,7 +3,7 @@ package org.pg4200.les02.queue;
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
-public class LinkedListQueue<T> implements MyQueue<T> {
+public class MyQueueLinkedList<T> implements MyQueue<T> {
 
     private class BiDirectionalNode{
         T value;
