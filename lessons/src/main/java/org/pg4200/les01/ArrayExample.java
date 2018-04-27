@@ -1,4 +1,4 @@
-package org.pg4200.les01.array;
+package org.pg4200.les01;
 
 /**
  * Created by arcuri82 on 14-Aug-17.

@@ -1,6 +1,7 @@
-package org.pg4200.les01.array;
+package org.pg4200.les01;
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les01.ArrayExample;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
