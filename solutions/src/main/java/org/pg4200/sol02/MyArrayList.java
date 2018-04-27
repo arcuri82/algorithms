@@ -1,4 +1,4 @@
-package org.pg4200.sol01;
+package org.pg4200.sol02;
 
 import org.pg4200.les02.generic.MyGenericContainerArray;
 
