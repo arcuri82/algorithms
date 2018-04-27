@@ -232,9 +232,9 @@ public class MyStreamSupport {
         }
 
         @Override
-        public StreamList<OUT> collectToList() {
+        public MyStreamCollectionList<OUT> collectToList() {
 
-            StreamList<OUT> list = new StreamList<>();
+            MyStreamCollectionList<OUT> list = new MyStreamCollectionList<>();
 
             /*
                 Custom action in which we add all inputs to a

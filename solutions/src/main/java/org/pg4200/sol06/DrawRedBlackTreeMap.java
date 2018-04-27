@@ -1,11 +1,11 @@
 package org.pg4200.sol06;
 
-import org.pg4200.les06.RedBlackTreeMap;
+import org.pg4200.les06.MyRedBlackTreeMap;
 
 /**
  * Created by arcuri82 on 06-Sep-17.
  */
-public class DrawRedBlackTreeMap<K extends Comparable<K>, V> extends RedBlackTreeMap<K, V> {
+public class DrawRedBlackTreeMap<K extends Comparable<K>, V> extends MyRedBlackTreeMap<K, V> {
 
     /*
                          [0]

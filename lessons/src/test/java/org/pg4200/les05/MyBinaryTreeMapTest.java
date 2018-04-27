@@ -9,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Created by arcuri82 on 23-Aug-17.
  */
-public class BinaryTreeMapTest extends MyMapTestTemplate {
+public class MyBinaryTreeMapTest extends MyMapTestTemplate {
 
 
     protected <K extends Comparable<K>, V> MyTreeBasedMap<K, V> getTreeInstance() {
-        return new BinaryTreeMap<>();
+        return new MyBinaryTreeMap<>();
     }
 
     @Override

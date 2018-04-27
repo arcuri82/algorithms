@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by arcuri82 on 21-Aug-17.
  */
-public class LinearSearchMap<K extends Comparable<K>,V> implements MyMap<K,V>{
+public class MyLinearSearchMap<K extends Comparable<K>,V> implements MyMap<K,V>{
 
     private class Entry<K extends Comparable<K>,V> implements Comparable<Entry<K,V>>{
         K key;

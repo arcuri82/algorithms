@@ -15,12 +15,12 @@ public class MyStreamTest {
     @Test
     public void testCollect() {
 
-        StreamList<String> list = new StreamList<>();
+        MyStreamCollectionList<String> list = new MyStreamCollectionList<>();
         list.add("a");
         list.add("b");
         list.add("c");
 
-        StreamList<String> copy = list.stream().collectToList();
+        MyStreamCollectionList<String> copy = list.stream().collectToList();
 
         assertEquals(list.size(), copy.size());
 
@@ -32,12 +32,12 @@ public class MyStreamTest {
     @Test
     public void testForEach() {
 
-        StreamList<String> list = new StreamList<>();
+        MyStreamCollectionList<String> list = new MyStreamCollectionList<>();
         list.add("a");
         list.add("b");
         list.add("c");
 
-        StreamList<String> upper = new StreamList<>();
+        MyStreamCollectionList<String> upper = new MyStreamCollectionList<>();
 
         list.stream().forEach(s -> upper.add(s.toUpperCase()));
 
@@ -51,14 +51,14 @@ public class MyStreamTest {
     @Test
     public void testFilter() {
 
-        StreamList<String> list = new StreamList<>();
+        MyStreamCollectionList<String> list = new MyStreamCollectionList<>();
         list.add("x");
         list.add("y");
         list.add("foo");
         list.add("bar");
         list.add("c");
 
-        StreamList<String> longAtLeastThree = list.stream()
+        MyStreamCollectionList<String> longAtLeastThree = list.stream()
                 .filter(s -> s.length() >= 3)
                 .collectToList();
 
@@ -79,8 +79,8 @@ public class MyStreamTest {
         }
     }
 
-    private StreamList<User> getSomeUsers() {
-        StreamList<User> list = new StreamList<>();
+    private MyStreamCollectionList<User> getSomeUsers() {
+        MyStreamCollectionList<User> list = new MyStreamCollectionList<>();
         list.add(new User("John", "Smith", "USA"));
         list.add(new User("Foo", "Hansen", "Norway"));
         list.add(new User("Bar", "Olsen", "Norway"));
@@ -91,9 +91,9 @@ public class MyStreamTest {
     @Test
     public void testMap() {
 
-        StreamList<User> list = getSomeUsers();
+        MyStreamCollectionList<User> list = getSomeUsers();
 
-        StreamList<String> names = list.stream()
+        MyStreamCollectionList<String> names = list.stream()
                 .map(u -> u.name)
                 .collectToList();
 
@@ -108,9 +108,9 @@ public class MyStreamTest {
     @Test
     public void testFilteredMap() {
 
-        StreamList<User> list = getSomeUsers();
+        MyStreamCollectionList<User> list = getSomeUsers();
 
-        StreamList<String> names = list.stream()
+        MyStreamCollectionList<String> names = list.stream()
                 .filter(u -> u.nationality.equalsIgnoreCase("norway"))
                 .map(u -> u.name)
                 .collectToList();
@@ -123,9 +123,9 @@ public class MyStreamTest {
     @Test
     public void testFilteredMapWithoutStream() {
 
-        StreamList<User> list = getSomeUsers();
+        MyStreamCollectionList<User> list = getSomeUsers();
 
-        StreamList<String> names = new StreamList();
+        MyStreamCollectionList<String> names = new MyStreamCollectionList();
         for (User user : list) {
             if (!user.nationality.equalsIgnoreCase("norway")) {
                 continue;
@@ -142,17 +142,17 @@ public class MyStreamTest {
     @Test
     public void testFlatMap() {
 
-        StreamHashMap<String, StreamList<User>> usersByNationality = new StreamHashMap<>();
+        MyStreamCollectionHashMap<String, MyStreamCollectionList<User>> usersByNationality = new MyStreamCollectionHashMap<>();
 
-        StreamList<User> norway = new StreamList<>();
+        MyStreamCollectionList<User> norway = new MyStreamCollectionList<>();
         norway.add(new User("Foo", "Hansen", "Norway"));
         norway.add(new User("Bar", "Olsen", "Norway"));
 
-        StreamList<User> usa = new StreamList<>();
+        MyStreamCollectionList<User> usa = new MyStreamCollectionList<>();
         usa.add(new User("John", "Smith", "USA"));
         usa.add(new User("Robert", "Black", "USA"));
 
-        StreamList<User> italy = new StreamList<>();
+        MyStreamCollectionList<User> italy = new MyStreamCollectionList<>();
         italy.add(new User("Marco", "Rossi", "Italy"));
 
         usersByNationality.put("Norway", norway);
@@ -163,7 +163,7 @@ public class MyStreamTest {
             Now let's get surname from all countries
          */
 
-        StreamList<String> surnames = usersByNationality.stream()
+        MyStreamCollectionList<String> surnames = usersByNationality.stream()
                 .flatMap(l -> l.stream())
                 .map(u -> u.surname)
                 .collectToList();

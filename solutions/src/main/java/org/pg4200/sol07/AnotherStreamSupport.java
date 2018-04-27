@@ -1,6 +1,6 @@
 package org.pg4200.sol07;
 
-import org.pg4200.les07.set.HashMapSet;
+import org.pg4200.les07.set.MySetHashMap;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -126,7 +126,7 @@ public class AnotherStreamSupport {
                             example a "Set".
                          */
 
-                        private final HashMapSet<OUT> values = new HashMapSet<>();
+                        private final MySetHashMap<OUT> values = new MySetHashMap<>();
 
                         @Override
                         public void accept(OUT u) {

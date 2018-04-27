@@ -3,7 +3,7 @@ package org.pg4200.les05;
 /**
  * Created by arcuri82 on 22-Aug-17.
  */
-public class BinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
+public class MyBinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
 
     protected class TreeNode {
         K key;

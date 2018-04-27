@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by arcuri82 on 14-Sep-17.
  */
-public class ChainingHashMap<K,V> implements MyHashMap<K,V> {
+public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
 
     /**
      * Important this is a prime number.

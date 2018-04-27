@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by arcuri82 on 14-Sep-17.
  */
-public class HashMapSetTest {
+public class MySetHashMapTest {
 
 
     private MySet<String> set;
 
     @BeforeEach
     public void initTest() {
-        set = new HashMapSet<>();
+        set = new MySetHashMap<>();
     }
 
 

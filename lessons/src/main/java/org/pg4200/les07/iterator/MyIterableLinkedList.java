@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * Created by arcuri82 on 15-Sep-17.
  */
-public class IterableLinkedList<T> implements Iterable<T> {
+public class MyIterableLinkedList<T> implements Iterable<T> {
 
     private class BiDirectionalNode {
         T value;

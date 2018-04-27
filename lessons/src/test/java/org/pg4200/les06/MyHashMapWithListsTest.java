@@ -3,10 +3,10 @@ package org.pg4200.les06;
 /**
  * Created by arcuri82 on 14-Sep-17.
  */
-public class ChainingHashMapTest  extends MyHashMapTestTemplate{
+public class MyHashMapWithListsTest extends MyHashMapTestTemplate{
 
     @Override
     protected <K, V> MyHashMap<K, V> getInstance() {
-        return new ChainingHashMap<>();
+        return new MyHashMapWithLists<>();
     }
 }

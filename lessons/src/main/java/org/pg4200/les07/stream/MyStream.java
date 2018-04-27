@@ -67,5 +67,5 @@ public interface MyStream<T> {
      *  Create a list. Add all elements coming from the stream
      *  into this list.
      */
-    StreamList<T> collectToList();
+    MyStreamCollectionList<T> collectToList();
 }

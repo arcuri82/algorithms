@@ -20,7 +20,7 @@ public class UserTest {
         //even if same id, they are not equal
         assertNotEquals(a, b);
 
-        MySet<User> users = new HashMapSet<>();
+        MySet<User> users = new MySetHashMap<>();
         users.add(a);
         users.add(b);
 
@@ -60,7 +60,7 @@ public class UserTest {
         //assuming the two objects are the same according to equals()
         assertEquals(first, second);
 
-        MySet<User> users = new HashMapSet<>();
+        MySet<User> users = new MySetHashMap<>();
         users.add(first);
         users.add(second);
 
@@ -92,7 +92,7 @@ public class UserTest {
 
         User foo = new User("foo", "bar", 0);
 
-        MySet<User> users = new HashMapSet<>();
+        MySet<User> users = new MySetHashMap<>();
         users.add(foo);
 
         assertEquals(1, users.size());
@@ -141,7 +141,7 @@ public class UserTest {
 
         UserImmutable foo = new UserImmutable("foo", "bar", 0);
 
-        MySet<UserImmutable> users = new HashMapSet<>();
+        MySet<UserImmutable> users = new MySetHashMap<>();
         users.add(foo);
 
         assertEquals(1, users.size());

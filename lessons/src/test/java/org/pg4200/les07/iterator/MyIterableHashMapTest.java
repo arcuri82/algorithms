@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Created by arcuri82 on 03-Oct-17.
  */
-public class IterableHashMapTest {
+public class MyIterableHashMapTest {
 
     @Test
     public void testBaseIterator(){
 
-        IterableHashMap<Integer, String> map = new IterableHashMap<>();
+        MyIterableHashMap<Integer, String> map = new MyIterableHashMap<>();
         map.put(0, "a");
         map.put(1, "b");
         map.put(2, "c");
@@ -47,7 +47,7 @@ public class IterableHashMapTest {
     @Test
     public void testIterable(){
 
-        IterableHashMap<Integer, String>  map = new IterableHashMap<>();
+        MyIterableHashMap<Integer, String> map = new MyIterableHashMap<>();
         map.put(0, "a");
         map.put(1, "b");
         map.put(2, "c");
@@ -67,7 +67,7 @@ public class IterableHashMapTest {
     @Test
     public void testModifications(){
 
-        IterableHashMap<Integer, String>  map = new IterableHashMap<>();
+        MyIterableHashMap<Integer, String> map = new MyIterableHashMap<>();
         map.put(0, "a");
 
         Iterator<String> iterator = map.iterator();
@@ -85,7 +85,7 @@ public class IterableHashMapTest {
     @Test
     public void testEmpty() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         assertEquals(0, map.size());
         assertTrue(map.isEmpty());
@@ -94,7 +94,7 @@ public class IterableHashMapTest {
     @Test
     public void testAddOne() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         int n = map.size();
 
@@ -107,7 +107,7 @@ public class IterableHashMapTest {
     @Test
     public void testRetrieve() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         String key = "foo";
         int value = 42;
@@ -124,7 +124,7 @@ public class IterableHashMapTest {
     @Test
     public void testUpdateOld() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         String key = "foo";
         int x = 42;
@@ -144,7 +144,7 @@ public class IterableHashMapTest {
     @Test
     public void testDelete() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         int n = map.size();
 
@@ -166,7 +166,7 @@ public class IterableHashMapTest {
     @Test
     public void testAddSeveral() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         map.put("a", 0);
         map.put("a", 0);
@@ -197,7 +197,7 @@ public class IterableHashMapTest {
 
         for (int i = 0; i < 10_000; i++) {
             Collections.shuffle(keys);
-            IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+            MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
             for (String key : keys) {
                 map.put(key, 0);
@@ -223,7 +223,7 @@ public class IterableHashMapTest {
     @Test
     public void test_2_1_3_0_4() {
 
-        IterableHashMap<String, Integer>  map = new IterableHashMap<>();
+        MyIterableHashMap<String, Integer> map = new MyIterableHashMap<>();
 
         String[] keys = {"2", "1", "3", "0", "4"};
         for (String key : keys) {

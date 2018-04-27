@@ -3,16 +3,16 @@ package org.pg4200.les02.generic;
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyGenericContainerArray<T> implements MyGenericContainer<T> {
+public class ArrayDeleteContainer<T> implements MyGenericContainer<T> {
 
     protected Object[] data;
     protected int size = 0;
 
-    public MyGenericContainerArray(){
+    public ArrayDeleteContainer(){
         this(10);
     }
 
-    public MyGenericContainerArray(int capacity){
+    public ArrayDeleteContainer(int capacity){
         data = new Object[capacity];
     }
 

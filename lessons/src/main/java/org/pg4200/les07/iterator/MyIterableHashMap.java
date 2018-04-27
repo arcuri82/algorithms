@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 /**
  * Created by arcuri82 on 15-Sep-17.
  */
-public class IterableHashMap<K,V> implements MyHashMap<K,V>, Iterable<V> {
+public class MyIterableHashMap<K,V> implements MyHashMap<K,V>, Iterable<V> {
 
     private class Entry{
         K key;
@@ -26,11 +26,11 @@ public class IterableHashMap<K,V> implements MyHashMap<K,V>, Iterable<V> {
 
     private int modificationCounter;
 
-    public IterableHashMap(){
+    public MyIterableHashMap(){
         this(997);
     }
 
-    public IterableHashMap(int capacity){
+    public MyIterableHashMap(int capacity){
         data = new ArrayList[capacity];
         modificationCounter = 0;
     }

@@ -7,10 +7,10 @@ import org.pg4200.les05.MyTreeBasedMap;
 /**
  * Created by arcuri82 on 06-Sep-17.
  */
-public class RedBlackTreeMapTest extends MyMapTestTemplate {
+public class MyRedBlackTreeMapTest extends MyMapTestTemplate {
 
     protected <K extends Comparable<K>, V> MyTreeBasedMap<K, V> getTreeInstance() {
-        return new RedBlackTreeMap<>();
+        return new MyRedBlackTreeMap<>();
     }
 
     @Override

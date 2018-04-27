@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by arcuri82 on 15-Sep-17.
  */
-public class IterableLinkedListTest {
+public class MyIterableLinkedListTest {
 
     @Test
     public void testBaseIterator(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
         data.add("a");
         data.add("b");
         data.add("c");
@@ -37,7 +37,7 @@ public class IterableLinkedListTest {
     @Test
     public void testIterable(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
         data.add("a");
         data.add("b");
         data.add("c");
@@ -54,7 +54,7 @@ public class IterableLinkedListTest {
     @Test
     public void testModifications(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
         data.add("a");
 
         Iterator<String> iterator = data.iterator();
@@ -71,7 +71,7 @@ public class IterableLinkedListTest {
     @Test
     public void testEmpty(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
 
         //a newly created container should be empty
         assertEquals(0, data.size());
@@ -81,7 +81,7 @@ public class IterableLinkedListTest {
     @Test
     public void testAddOneElement(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
 
         int n = data.size();
 
@@ -93,7 +93,7 @@ public class IterableLinkedListTest {
     @Test
     public void testAddAndRetrieveElement() {
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
 
         String value = "foo";
 
@@ -110,7 +110,7 @@ public class IterableLinkedListTest {
     @Test
     public void testAdd5Elements(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
 
         assertEquals(0, data.size());
         String a = "a";
@@ -133,7 +133,7 @@ public class IterableLinkedListTest {
     @Test
     public void testOutOfIndex(){
 
-        IterableLinkedList<String> data = new IterableLinkedList<>();
+        MyIterableLinkedList<String> data = new MyIterableLinkedList<>();
 
         assertThrows(IndexOutOfBoundsException.class,
                 () -> data.get(-5));
@@ -145,7 +145,7 @@ public class IterableLinkedListTest {
     @Test
     public void testDeleteOne(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
 
         data.add(1);
 
@@ -159,7 +159,7 @@ public class IterableLinkedListTest {
     @Test
     public void testDeleteFirst(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
         data.add(7);
         data.add(31);
         data.add(0);
@@ -178,7 +178,7 @@ public class IterableLinkedListTest {
     @Test
     public void testDeleteLast(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
         data.add(7);
         data.add(31);
         data.add(0);
@@ -195,7 +195,7 @@ public class IterableLinkedListTest {
     @Test
     public void testDeleteMiddle(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
         data.add(7);
         data.add(31);
         data.add(0);
@@ -213,7 +213,7 @@ public class IterableLinkedListTest {
     @Test
     public void testDeleteAll(){
 
-        IterableLinkedList<Integer> data = new IterableLinkedList<>();
+        MyIterableLinkedList<Integer> data = new MyIterableLinkedList<>();
         data.add(7);
         data.add(31);
         data.add(0);

@@ -1,17 +1,17 @@
 package org.pg4200.les07.set;
 
-import org.pg4200.les06.ChainingHashMap;
+import org.pg4200.les06.MyHashMapWithLists;
 import org.pg4200.les06.MyHashMap;
 
 /**
  * Created by arcuri82 on 14-Sep-17.
  */
-public class HashMapSet<E> implements MySet<E> {
+public class MySetHashMap<E> implements MySet<E> {
 
     /*
         We use a map to represent a set.
      */
-    private MyHashMap<E, Object> map = new ChainingHashMap<>();
+    private MyHashMap<E, Object> map = new MyHashMapWithLists<>();
 
     /**
      * We do not care about the values in the map.
