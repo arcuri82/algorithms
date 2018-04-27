@@ -1,10 +1,11 @@
 package org.pg4200.sol02;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pg4200.les02.queue.MyQueue;
 import org.pg4200.les02.queue.MyQueueTestTemplate;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 /**
  * Created by arcuri82 on 16-Aug-17.
@@ -19,11 +20,7 @@ public class RingArrayQueueTest extends MyQueueTestTemplate{
     @Test
     public void testFailToPeekOnEmpty(){
 
-        try{
-            queue.peek();
-            fail();
-        } catch (RuntimeException e){
-            //expected
-        }
+        assertThrows(RuntimeException.class,
+                () -> queue.peek());
     }
 }

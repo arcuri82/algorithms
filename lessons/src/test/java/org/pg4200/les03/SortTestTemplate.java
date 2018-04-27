@@ -1,14 +1,15 @@
 package org.pg4200.les03;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.pg4200.les03.MySort;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by arcuri82 on 21-Aug-17.
@@ -19,7 +20,7 @@ public abstract class SortTestTemplate {
 
     protected MySort sorter;
 
-    @Before
+    @BeforeEach
     public void init(){
         sorter = getInstance();
     }
@@ -102,7 +103,7 @@ public abstract class SortTestTemplate {
                 are independent of the input, like [j] <= [j+1].
              */
             for(int j=0; j<array.length-1; j++){
-                assertTrue(Arrays.toString(array), array[j] <= array[j+1]);
+                assertTrue(array[j] <= array[j+1], Arrays.toString(array));
             }
 
             /*

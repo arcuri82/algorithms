@@ -1,8 +1,9 @@
 package org.pg4200.les12;
 
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by arcuri82 on 30-Oct-17.

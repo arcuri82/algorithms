@@ -1,12 +1,13 @@
 package org.pg4200.sol10;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pg4200.les09.queens.QueensProblem;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by arcuri82 on 25-Oct-17.

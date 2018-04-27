@@ -1,10 +1,11 @@
 package org.pg4200.les01;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.pg4200.les01.StringContainerWithIndex;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 /**
  *  Because this class is abstract, we cannot run its tests directly.
@@ -24,7 +25,7 @@ public abstract class StringContainerWithIndexTestTemplate {
 
     private StringContainerWithIndex data;
 
-    @Before
+    @BeforeEach
     public void initTest(){
         //before each test is executed, create a new
         data = getNewInstance();

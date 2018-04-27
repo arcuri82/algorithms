@@ -1,9 +1,9 @@
 package org.pg4200.les07.set;
 
-import org.junit.Test;
-import org.pg4200.les07.set.*;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by arcuri82 on 14-Sep-17.

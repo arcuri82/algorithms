@@ -1,13 +1,14 @@
 package org.pg4200.les09.queens;
 
-import org.junit.Test;
-import org.pg4200.les09.queens.HillClimbingForQueens;
-import org.pg4200.les09.queens.QueensProblem;
-import org.pg4200.les09.queens.RandomForQueens;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by arcuri82 on 09-Oct-17.

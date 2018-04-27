@@ -1,9 +1,12 @@
 package org.pg4200.les02.queue;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by arcuri82 on 16-Aug-17.
@@ -14,7 +17,7 @@ public abstract class MyQueueTestTemplate {
 
     protected MyQueue<Integer> queue;
 
-    @Before
+    @BeforeEach
     public void init(){
         queue = getNewInstance(Integer.class);
     }
@@ -38,12 +41,8 @@ public abstract class MyQueueTestTemplate {
     @Test
     public void testFailToDequeueOnEmpty(){
 
-        try{
-            queue.dequeue();
-            fail();
-        } catch (RuntimeException e){
-            //expected
-        }
+        assertThrows(RuntimeException.class,
+                () -> queue.dequeue());
     }
 
 

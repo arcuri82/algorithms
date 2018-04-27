@@ -1,11 +1,10 @@
 package org.pg4200.les07.stream;
 
-import org.junit.Test;
-import org.pg4200.les07.stream.StreamHashMap;
-import org.pg4200.les07.stream.StreamList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by arcuri82 on 04-Oct-17.

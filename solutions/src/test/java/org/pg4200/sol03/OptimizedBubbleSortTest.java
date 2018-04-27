@@ -1,10 +1,13 @@
 package org.pg4200.sol03;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by arcuri82 on 21-Aug-17.

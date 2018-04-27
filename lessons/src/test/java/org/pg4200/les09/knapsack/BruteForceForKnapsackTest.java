@@ -1,11 +1,10 @@
 package org.pg4200.les09.knapsack;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.pg4200.les09.knapsack.BruteForceForKnapsack;
-import org.pg4200.les09.knapsack.KnapsackInstanceWithSolution;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by arcuri82 on 09-Oct-17.
@@ -43,7 +42,7 @@ public class BruteForceForKnapsackTest {
         test(KnapsackInstanceWithSolution.problemP24(), 13549094d);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void testP100(){
 

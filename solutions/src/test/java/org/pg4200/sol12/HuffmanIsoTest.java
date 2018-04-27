@@ -1,13 +1,15 @@
 package org.pg4200.sol12;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.pg4200.les12.Huffman;
 import org.pg4200.les12.HuffmanTest;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * Created by arcuri82 on 06-Nov-17.

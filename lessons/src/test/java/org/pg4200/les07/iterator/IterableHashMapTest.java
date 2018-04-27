@@ -1,14 +1,15 @@
 package org.pg4200.les07.iterator;
 
-import org.junit.Test;
-import org.pg4200.les07.iterator.IterableHashMap;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Created by arcuri82 on 03-Oct-17.
@@ -74,12 +75,8 @@ public class IterableHashMapTest {
 
         map.put(1, "b");
 
-        try{
-            iterator.hasNext();
-            fail();
-        }catch (RuntimeException e){
-            //expected
-        }
+        assertThrows(RuntimeException.class,
+                () -> iterator.hasNext());
     }
 
 
@@ -218,7 +215,7 @@ public class IterableHashMapTest {
                 map.delete(key);
                 assertNull(map.get(key));
                 size--;
-                assertEquals("" + keys, size, map.size());
+                assertEquals(size, map.size(), "" + keys);
             }
         }
     }

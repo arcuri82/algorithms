@@ -1,8 +1,9 @@
 package org.pg4200.sol07;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by arcuri82 on 04-Oct-17.

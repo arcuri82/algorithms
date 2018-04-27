@@ -1,11 +1,12 @@
 package org.pg4200.les07.set;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.pg4200.les07.set.HashMapSet;
-import org.pg4200.les07.set.MySet;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by arcuri82 on 14-Sep-17.
@@ -15,7 +16,7 @@ public class HashMapSetTest {
 
     private MySet<String> set;
 
-    @Before
+    @BeforeEach
     public void initTest() {
         set = new HashMapSet<>();
     }

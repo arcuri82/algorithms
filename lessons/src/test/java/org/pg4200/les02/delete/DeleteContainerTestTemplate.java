@@ -1,8 +1,10 @@
 package org.pg4200.les02.delete;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
@@ -80,19 +82,11 @@ public abstract class DeleteContainerTestTemplate {
 
         DeleteContainer<String> data = getNewInstance(String.class);
 
-        try {
-            assertNull(data.get(-5));
-            fail();
-        } catch (IndexOutOfBoundsException e){
-            //expected
-        }
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> data.get(-5));
 
-        try {
-            assertNull(data.get(42));
-            fail();
-        } catch (IndexOutOfBoundsException e){
-            //expected
-        }
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> data.get(42));
     }
 
     @Test

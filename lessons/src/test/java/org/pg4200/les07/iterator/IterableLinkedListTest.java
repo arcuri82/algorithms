@@ -1,11 +1,13 @@
 package org.pg4200.les07.iterator;
 
-import org.junit.Test;
-import org.pg4200.les07.iterator.IterableLinkedList;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by arcuri82 on 15-Sep-17.
@@ -60,12 +62,8 @@ public class IterableLinkedListTest {
 
         data.add("b");
 
-        try{
-            iterator.hasNext();
-            fail();
-        }catch (RuntimeException e){
-            //expected
-        }
+        assertThrows(RuntimeException.class,
+                () -> iterator.hasNext());
     }
 
     // test for base functionality of list
@@ -137,19 +135,11 @@ public class IterableLinkedListTest {
 
         IterableLinkedList<String> data = new IterableLinkedList<>();
 
-        try {
-            assertNull(data.get(-5));
-            fail();
-        } catch (IndexOutOfBoundsException e){
-            //expected
-        }
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> data.get(-5));
 
-        try {
-            assertNull(data.get(42));
-            fail();
-        } catch (IndexOutOfBoundsException e){
-            //expected
-        }
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> data.get(42));
     }
 
     @Test

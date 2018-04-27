@@ -1,14 +1,14 @@
 package org.pg4200.les05;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.pg4200.les05.MyMap;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Created by arcuri82 on 22-Aug-17.
@@ -19,7 +19,7 @@ public abstract class MyMapTestTemplate {
 
     private MyMap<String, Integer> map;
 
-    @Before
+    @BeforeEach
     public void initTest() {
         map = getInstance();
     }
@@ -145,7 +145,7 @@ public abstract class MyMapTestTemplate {
                 map.delete(key);
                 assertNull(map.get(key));
                 size--;
-                assertEquals("" + keys, size, map.size());
+                assertEquals(size, map.size(), "" + keys);
             }
         }
     }

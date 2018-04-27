@@ -1,9 +1,10 @@
 package org.pg4200.les05;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by arcuri82 on 23-Aug-17.
@@ -31,7 +32,7 @@ public class BinaryTreeMapTest extends MyMapTestTemplate {
         it will be overwritten, and all the tests in superclass will fail, as their
         "map" field would not be initialized
      */
-    @Before
+    @BeforeEach
     public void initMyTreeBasedMapTestTemplateTest() {
         map = getTreeInstance();
     }

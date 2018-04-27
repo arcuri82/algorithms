@@ -1,12 +1,12 @@
 package org.pg4200.les05;
 
-import org.junit.Test;
-import org.pg4200.les05.Search;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by arcuri82 on 21-Aug-17.

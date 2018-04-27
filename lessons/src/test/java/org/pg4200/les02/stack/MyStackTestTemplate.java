@@ -1,9 +1,12 @@
 package org.pg4200.les02.stack;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public abstract class MyStackTestTemplate {
 
@@ -11,7 +14,7 @@ public abstract class MyStackTestTemplate {
 
     private MyStack<Integer> stack;
 
-    @Before
+    @BeforeEach
     public void init(){
         stack = getInstance(Integer.class);
     }
@@ -25,12 +28,8 @@ public abstract class MyStackTestTemplate {
     @Test
     public void testFailToPopOnEmpty(){
 
-        try{
-            stack.pop();
-            fail();
-        } catch (RuntimeException e){
-            //expected
-        }
+        assertThrows(RuntimeException.class,
+                () -> stack.pop());
     }
 
     @Test

@@ -1,14 +1,14 @@
 package org.pg4200.les03;
 
-import org.junit.Test;
-import org.pg4200.les03.Song;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * Created by arcuri82 on 21-Aug-17.

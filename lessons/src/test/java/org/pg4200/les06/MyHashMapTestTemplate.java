@@ -1,14 +1,13 @@
 package org.pg4200.les06;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.pg4200.les06.MyHashMap;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by arcuri82 on 14-Sep-17.
@@ -19,7 +18,7 @@ public abstract class MyHashMapTestTemplate {
 
     private MyHashMap<String, Integer> map;
 
-    @Before
+    @BeforeEach
     public void initTest() {
         map = getInstance();
     }
@@ -150,7 +149,7 @@ public abstract class MyHashMapTestTemplate {
                 map.delete(key);
                 assertNull(map.get(key));
                 size--;
-                assertEquals("" + keys, size, map.size());
+                assertEquals(size, map.size(), "" + keys);
             }
         }
     }

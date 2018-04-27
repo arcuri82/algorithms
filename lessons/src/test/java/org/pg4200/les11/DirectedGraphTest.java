@@ -1,10 +1,13 @@
 package org.pg4200.les11;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 /**
  * Created by arcuri82 on 26-Oct-17.
