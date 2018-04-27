@@ -27,10 +27,10 @@ public class AllPathsGraphTest {
 
 
         List<List<String>> paths = graph.findAllPaths("X","5");
-        Assert.assertEquals(4, paths.size());
-        Assert.assertTrue(paths.stream().anyMatch(p -> p.size() == 4));
-        Assert.assertTrue(paths.stream().anyMatch(p -> p.size() == 5));
-        Assert.assertTrue(paths.stream().anyMatch(p -> p.size() == 6));
-        Assert.assertTrue(paths.stream().anyMatch(p -> p.size() == 7));
+        assertEquals(4, paths.size());
+        assertTrue(paths.stream().anyMatch(p -> p.size() == 4));
+        assertTrue(paths.stream().anyMatch(p -> p.size() == 5));
+        assertTrue(paths.stream().anyMatch(p -> p.size() == 6));
+        assertTrue(paths.stream().anyMatch(p -> p.size() == 7));
     }
 }

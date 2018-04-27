@@ -20,7 +20,7 @@ public class HuffmanIsoTest {
 
         String res = huffman.decompress(compressed);
 
-        Assert.assertEquals(text, res);
+        assertEquals(text, res);
 
         System.out.println(huffman.getTrieStatistics(text));
 
@@ -46,9 +46,9 @@ public class HuffmanIsoTest {
         double r16 = checkCompressAndDecompress(h16, text, "utf-8");
         double riso = checkCompressAndDecompress(hiso, text, "utf-8");
 
-        Assert.assertTrue(riso < r16);
-        Assert.assertTrue(r16 > 1);
-        Assert.assertTrue(riso < 1);
+        assertTrue(riso < r16);
+        assertTrue(r16 > 1);
+        assertTrue(riso < 1);
     }
 
 
@@ -63,9 +63,9 @@ public class HuffmanIsoTest {
         double r16 = checkCompressAndDecompress(h16, text, "utf-8");
         double riso = checkCompressAndDecompress(hiso, text, "utf-8");
 
-        Assert.assertTrue(riso < r16);
+        assertTrue(riso < r16);
 
         double diff = r16 - riso;
-        Assert.assertTrue(diff < 0.001);
+        assertTrue(diff < 0.001);
     }
 }

@@ -19,8 +19,8 @@ public class SteepestAscentHCforQueensTest {
 
         int fitness = QueensProblem.evaluate(positions);
 
-        Assert.assertEquals(0, fitness);
-        Assert.assertTrue(QueensProblem.isCorrect(positions));
+        assertEquals(0, fitness);
+        assertTrue(QueensProblem.isCorrect(positions));
 
         System.out.println(Arrays.toString(positions));
     }

@@ -27,7 +27,7 @@ public class AnotherStreamTest {
 
         int res = list.stream().count();
 
-        Assert.assertEquals(list.size(), res);
+        assertEquals(list.size(), res);
     }
 
     @Test
@@ -35,12 +35,12 @@ public class AnotherStreamTest {
 
         AnotherStreamList<String> list = getData();
 
-        Assert.assertEquals(5, list.stream().skip(0).count());
-        Assert.assertEquals(4, list.stream().skip(1).count());
-        Assert.assertEquals(3, list.stream().skip(2).count());
-        Assert.assertEquals(2, list.stream().skip(3).count());
-        Assert.assertEquals(1, list.stream().skip(4).count());
-        Assert.assertEquals(0, list.stream().skip(5).count());
+        assertEquals(5, list.stream().skip(0).count());
+        assertEquals(4, list.stream().skip(1).count());
+        assertEquals(3, list.stream().skip(2).count());
+        assertEquals(2, list.stream().skip(3).count());
+        assertEquals(1, list.stream().skip(4).count());
+        assertEquals(0, list.stream().skip(5).count());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class AnotherStreamTest {
 
         int res = list.stream().distinct().count();
 
-        Assert.assertEquals(3, res);
+        assertEquals(3, res);
     }
 
     @Test
@@ -63,14 +63,14 @@ public class AnotherStreamTest {
                 .distinct()
                 .count();
 
-        Assert.assertEquals(3, res);
+        assertEquals(3, res);
 
         res = list.stream()
                 .distinct()
                 .skip(1)
                 .count();
 
-        Assert.assertEquals(2, res);
+        assertEquals(2, res);
     }
 
 

@@ -29,11 +29,11 @@ public class OptimizedBubbleSortTest {
 
         int comparisons = sorter.sort(array, new StringComparator(), false);
 
-        Assert.assertEquals(3, comparisons);
-        Assert.assertEquals("a", array[0]);
-        Assert.assertEquals("b", array[1]);
-        Assert.assertEquals("c", array[2]);
-        Assert.assertEquals("d", array[3]);
+        assertEquals(3, comparisons);
+        assertEquals("a", array[0]);
+        assertEquals("b", array[1]);
+        assertEquals("c", array[2]);
+        assertEquals("d", array[3]);
     }
 
 
@@ -44,11 +44,11 @@ public class OptimizedBubbleSortTest {
 
         int comparisons = sorter.sort(array, new StringComparator(), false);
 
-        Assert.assertEquals(12, comparisons);
-        Assert.assertEquals("a", array[0]);
-        Assert.assertEquals("b", array[1]);
-        Assert.assertEquals("c", array[2]);
-        Assert.assertEquals("d", array[3]);
+        assertEquals(12, comparisons);
+        assertEquals("a", array[0]);
+        assertEquals("b", array[1]);
+        assertEquals("c", array[2]);
+        assertEquals("d", array[3]);
     }
 
 
@@ -59,10 +59,10 @@ public class OptimizedBubbleSortTest {
 
         sorter.sort(array, new StringComparator(), false);
 
-        Assert.assertEquals("a", array[0]);
-        Assert.assertEquals("b", array[1]);
-        Assert.assertEquals("c", array[2]);
-        Assert.assertEquals("d", array[3]);
+        assertEquals("a", array[0]);
+        assertEquals("b", array[1]);
+        assertEquals("c", array[2]);
+        assertEquals("d", array[3]);
     }
 
 
@@ -75,15 +75,15 @@ public class OptimizedBubbleSortTest {
         array = new String[]{"c", "b", "a", "d", "e", "f"};
         int base = sorter.sort(array, new StringComparator(), false);
 
-        Assert.assertTrue(optimized < base);
-        Assert.assertTrue(optimized < base/2);
+        assertTrue(optimized < base);
+        assertTrue(optimized < base/2);
 
-        Assert.assertEquals("a", array[0]);
-        Assert.assertEquals("b", array[1]);
-        Assert.assertEquals("c", array[2]);
-        Assert.assertEquals("d", array[3]);
-        Assert.assertEquals("e", array[4]);
-        Assert.assertEquals("f", array[5]);
+        assertEquals("a", array[0]);
+        assertEquals("b", array[1]);
+        assertEquals("c", array[2]);
+        assertEquals("d", array[3]);
+        assertEquals("e", array[4]);
+        assertEquals("f", array[5]);
     }
 
 }

@@ -21,7 +21,7 @@ public class RingArrayQueueTest extends MyQueueTestTemplate{
 
         try{
             queue.peek();
-            Assert.fail();
+            fail();
         } catch (RuntimeException e){
             //expected
         }

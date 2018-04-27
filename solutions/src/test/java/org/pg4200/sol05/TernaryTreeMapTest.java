@@ -43,17 +43,17 @@ public class TernaryTreeMapTest extends MyMapTestTemplate {
     @Test
     public void testDepthZero() {
 
-        Assert.assertEquals(0, map.getMaxTreeDepth());
+        assertEquals(0, map.getMaxTreeDepth());
     }
 
     @Test
     public void testBalanced2() {
 
         map.put(0, "a");
-        Assert.assertEquals(1, map.getMaxTreeDepth());
+        assertEquals(1, map.getMaxTreeDepth());
 
         map.put(5, "b");
-        Assert.assertEquals(1, map.getMaxTreeDepth());
+        assertEquals(1, map.getMaxTreeDepth());
     }
 
 
@@ -61,13 +61,13 @@ public class TernaryTreeMapTest extends MyMapTestTemplate {
     public void testWorstCaseFor3() {
 
         map.put(0, "b");
-        Assert.assertEquals(1, map.getMaxTreeDepth());
+        assertEquals(1, map.getMaxTreeDepth());
 
         map.put(-5, "a");
-        Assert.assertEquals(2, map.getMaxTreeDepth());
+        assertEquals(2, map.getMaxTreeDepth());
 
         map.put(-10, "c");
-        Assert.assertEquals(3, map.getMaxTreeDepth());
+        assertEquals(3, map.getMaxTreeDepth());
     }
 
 
@@ -83,7 +83,7 @@ public class TernaryTreeMapTest extends MyMapTestTemplate {
         map.put(11, "a");
         map.put(12, "a");
 
-        Assert.assertEquals(2, map.getMaxTreeDepth());
+        assertEquals(2, map.getMaxTreeDepth());
     }
 
 }
