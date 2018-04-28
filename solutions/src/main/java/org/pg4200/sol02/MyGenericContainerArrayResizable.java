@@ -5,13 +5,13 @@ import org.pg4200.les02.generic.MyGenericContainerArray;
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyArrayList<T> extends MyGenericContainerArray<T> {
+public class MyGenericContainerArrayResizable<T> extends MyGenericContainerArray<T> {
 
-    public MyArrayList(){
+    public MyGenericContainerArrayResizable(){
         super();
     }
 
-    public MyArrayList(int capacity){
+    public MyGenericContainerArrayResizable(int capacity){
         super(capacity);
     }
 
