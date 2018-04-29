@@ -2,6 +2,7 @@ package org.pg4200.sol03;
 
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.ex03.GameUser;
 
 import java.util.Comparator;
 
@@ -16,7 +17,7 @@ public class OptimizedBubbleSortTest {
 
     private OptimizedBubbleSort sorter = new OptimizedBubbleSort();
 
-    class StringComparator implements Comparator<String>{
+    private class StringComparator implements Comparator<String>{
 
         @Override
         public int compare(String s1, String s2) {
@@ -24,6 +25,14 @@ public class OptimizedBubbleSortTest {
         }
     }
 
+
+    @Test
+    public void testNull(){
+
+        int comparisons = sorter.sort(null, new StringComparator(), false);
+
+        assertEquals(0, comparisons);
+    }
 
     @Test
     public void testAlreadySorted(){
@@ -89,4 +98,21 @@ public class OptimizedBubbleSortTest {
         assertEquals("f", array[5]);
     }
 
+    @Test
+    public void testGameUsers(){
+
+        GameUser a = new GameUser("a", 10);
+        GameUser b = new GameUser("b", 5);
+        GameUser c = new GameUser("c", 2);
+        GameUser d = new GameUser("d", 5);
+
+        GameUser[] array = {a,b,c,d};
+
+        sorter.sort(array, new GameUserComparator(), true);
+
+        assertEquals("c", array[0].getUserId());
+        assertEquals("b", array[1].getUserId());
+        assertEquals("d", array[2].getUserId());
+        assertEquals("a", array[3].getUserId());
+    }
 }
