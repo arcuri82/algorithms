@@ -1,6 +1,6 @@
 package org.pg4200.les07.iterator;
 
-import org.pg4200.les06.MyHashMap;
+import org.pg4200.les06.hash.MyHashMap;
 
 import java.util.ArrayList;
 import java.util.Iterator;

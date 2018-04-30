@@ -1,7 +1,8 @@
-package org.pg4200.les06;
+package org.pg4200.les06.hash;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.pg4200.les06.hash.MyHashMap;
 
 import java.util.ArrayList;
 import java.util.Collections;

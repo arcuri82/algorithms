@@ -1,6 +1,6 @@
 package org.pg4200.sol07;
 
-import org.pg4200.les07.set.MySetHashMap;
+import org.pg4200.les06.set.MySetHashMap;
 
 import java.util.Iterator;
 import java.util.Objects;

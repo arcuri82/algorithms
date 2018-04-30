@@ -1,4 +1,4 @@
-package org.pg4200.les07.set;
+package org.pg4200.les06.set;
 
 /**
  * In mathematics, a Set is a collection of unique elements,

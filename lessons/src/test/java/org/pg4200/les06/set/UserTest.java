@@ -1,7 +1,8 @@
-package org.pg4200.les07.set;
+package org.pg4200.les06.set;
 
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les06.set.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

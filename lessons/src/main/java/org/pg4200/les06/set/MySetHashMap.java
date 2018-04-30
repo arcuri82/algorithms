@@ -1,7 +1,7 @@
-package org.pg4200.les07.set;
+package org.pg4200.les06.set;
 
-import org.pg4200.les06.MyHashMapWithLists;
-import org.pg4200.les06.MyHashMap;
+import org.pg4200.les06.hash.MyHashMapWithLists;
+import org.pg4200.les06.hash.MyHashMap;
 
 /**
  * Created by arcuri82 on 14-Sep-17.

@@ -1,4 +1,4 @@
-package org.pg4200.les07.set;
+package org.pg4200.les06.set;
 
 /**
  * Created by arcuri82 on 14-Sep-17.

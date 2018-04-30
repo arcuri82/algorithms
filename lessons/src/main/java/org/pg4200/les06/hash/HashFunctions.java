@@ -1,4 +1,4 @@
-package org.pg4200.les06;
+package org.pg4200.les06.hash;
 
 /**
  * A "hash" function "h" is used to map data of arbitrary size (eg string text) to

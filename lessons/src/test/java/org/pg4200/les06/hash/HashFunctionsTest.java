@@ -1,7 +1,8 @@
-package org.pg4200.les06;
+package org.pg4200.les06.hash;
 
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les06.hash.HashFunctions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

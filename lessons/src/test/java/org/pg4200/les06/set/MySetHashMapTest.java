@@ -1,8 +1,10 @@
-package org.pg4200.les07.set;
+package org.pg4200.les06.set;
 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.pg4200.les06.set.MySet;
+import org.pg4200.les06.set.MySetHashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

@@ -1,4 +1,4 @@
-package org.pg4200.les06;
+package org.pg4200.les06.hash;
 
 /**
  * Note: this interface does NOT extend MyMap.
