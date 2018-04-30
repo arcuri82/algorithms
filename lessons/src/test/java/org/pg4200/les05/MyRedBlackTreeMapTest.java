@@ -1,7 +1,8 @@
-package org.pg4200.les06;
+package org.pg4200.les05;
 
 import org.pg4200.les05.MyMap;
 import org.pg4200.les05.MyMapTestTemplate;
+import org.pg4200.les05.MyRedBlackTreeMap;
 import org.pg4200.les05.MyTreeBasedMap;
 
 /**

@@ -1,6 +1,6 @@
 package org.pg4200.sol06;
 
-import org.pg4200.les06.MyRedBlackTreeMap;
+import org.pg4200.les05.MyRedBlackTreeMap;
 
 /**
  * Created by arcuri82 on 06-Sep-17.

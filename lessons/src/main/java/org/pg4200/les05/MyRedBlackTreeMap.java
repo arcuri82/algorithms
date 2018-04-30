@@ -1,4 +1,4 @@
-package org.pg4200.les06;
+package org.pg4200.les05;
 
 import org.pg4200.les05.MyTreeBasedMap;
 
