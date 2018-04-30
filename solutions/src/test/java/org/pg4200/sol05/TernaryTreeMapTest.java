@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.pg4200.les05.MyMap;
 import org.pg4200.les05.MyMapTestTemplate;
-import org.pg4200.les05.MyTreeBasedMap;
+import org.pg4200.les05.MyMapTreeBased;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TernaryTreeMapTest extends MyMapTestTemplate {
 
 
-    protected <K extends Comparable<K>, V> MyTreeBasedMap<K, V> getTreeInstance() {
+    protected <K extends Comparable<K>, V> MyMapTreeBased<K, V> getTreeInstance() {
         return new TernaryTreeMap<>();
     }
 
@@ -27,7 +27,7 @@ public class TernaryTreeMapTest extends MyMapTestTemplate {
     /*
         Note: this field does NOT override the one in the super class.
      */
-    private MyTreeBasedMap<Integer, String> map;
+    private MyMapTreeBased<Integer, String> map;
 
 
     /*

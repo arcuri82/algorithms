@@ -1,11 +1,9 @@
 package org.pg4200.les05;
 
-import org.pg4200.les05.MyTreeBasedMap;
-
 /**
  * Created by arcuri82 on 24-Aug-17.
  */
-public class MyRedBlackTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
+public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeBased<K, V> {
 
     protected class TreeNode {
         public K key;

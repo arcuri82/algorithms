@@ -3,25 +3,25 @@ package org.pg4200.les05;
 /**
  * Created by arcuri82 on 22-Aug-17.
  */
-public class MyBinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
+public class MyMapBinaryTree<K extends Comparable<K>, V> implements MyMapTreeBased<K, V> {
 
     protected class TreeNode {
-        K key;
-        V value;
+        public K key;
+        public V value;
 
         /**
          * Pointer to the root of the subtree containing the values lower than this.value
          */
-        TreeNode left;
+        public TreeNode left;
 
         /**
          * Pointer to the root of the subtree containing the values larger than this.value
          */
-        TreeNode right;
+        public TreeNode right;
     }
 
     /**
-     * From the root of the tree, we can access all thennodes
+     * From the root of the tree, we can access all the nodes
      */
     protected TreeNode root;
 
@@ -75,7 +75,7 @@ public class MyBinaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedM
      *  Delete the V from the subtree, based on its K.
      *  Returns the (possibly new) root of this subtree
      */
-    private TreeNode delete(K key, TreeNode subtreeRoot) {
+    protected TreeNode delete(K key, TreeNode subtreeRoot) {
 
         if (subtreeRoot == null) {
             return null;

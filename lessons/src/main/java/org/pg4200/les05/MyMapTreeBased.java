@@ -12,7 +12,7 @@ import org.pg4200.les05.MyMap;
  *
  * Created by arcuri82 on 22-Aug-17.
  */
-public interface MyTreeBasedMap<K extends Comparable<K>, V> extends MyMap<K,V> {
+public interface MyMapTreeBased<K extends Comparable<K>, V> extends MyMap<K,V> {
 
     int getMaxTreeDepth();
 

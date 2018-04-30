@@ -1,11 +1,11 @@
 package org.pg4200.sol05;
 
-import org.pg4200.les05.MyTreeBasedMap;
+import org.pg4200.les05.MyMapTreeBased;
 
 /**
  * Created by arcuri82 on 23-Aug-17.
  */
-public class TernaryTreeMap<K extends Comparable<K>, V> implements MyTreeBasedMap<K, V> {
+public class TernaryTreeMap<K extends Comparable<K>, V> implements MyMapTreeBased<K, V> {
 
 
     private class TreeNode {
