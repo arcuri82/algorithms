@@ -1,4 +1,4 @@
-package org.pg4200.sol06;
+package org.pg4200.sol05;
 
 import org.pg4200.les05.MyMapRedBlackTree;
 
