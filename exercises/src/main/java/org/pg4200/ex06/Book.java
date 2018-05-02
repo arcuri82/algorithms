@@ -14,6 +14,15 @@ public class Book {
 
     private List<Author> authors;
 
+    public Book(){
+    }
+
+    public Book(String title, int year, List<Author> authors) {
+        this.title = title;
+        this.year = year;
+        this.authors = authors;
+    }
+
     public String getTitle() {
         return title;
     }

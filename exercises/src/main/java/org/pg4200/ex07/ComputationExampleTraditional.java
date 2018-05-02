@@ -35,7 +35,7 @@ public class ComputationExampleTraditional implements ComputationExample{
                     continue;
                 }
 
-                String value = author.getName() + author.getSurname();
+                String value = author.getName() + " " + author.getSurname();
                 results.add(value);
             }
         }
