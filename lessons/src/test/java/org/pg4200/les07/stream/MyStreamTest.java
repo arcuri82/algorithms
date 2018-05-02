@@ -171,7 +171,7 @@ public class MyStreamTest {
         assertEquals(5, surnames.size());
         /*
             Note: due to iteration on a hash map,
-            cannot guarantee the order of those surname
+            cannot guarantee the order of those surnames
             in the list
          */
         assertTrue(surnames.contains("Hansen"));
