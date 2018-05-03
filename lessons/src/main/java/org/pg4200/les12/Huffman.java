@@ -5,9 +5,9 @@ import java.util.*;
 /**
  * Created by arcuri82 on 01-Nov-17.
  */
-public class Huffman {
+public class Huffman implements TextCompression  {
 
-
+    @Override
     public  byte[] compress(String text) {
 
         Objects.requireNonNull(text);
@@ -34,6 +34,7 @@ public class Huffman {
         return buffer.extract();
     }
 
+    @Override
     public  String decompress(byte[] data) {
 
         BitReader reader = new BitReader(data);
@@ -225,10 +226,9 @@ public class Huffman {
 
     //---------------------------------------------------------------------
 
-    /**
-     * Get some statistics as a String with several lines.
-     */
-    public  String getTrieStatistics(String text) {
+
+    @Override
+    public  String getStatistics(String text) {
 
         Node root = buildTrie(text);
         Map<Character, String> codes = new HashMap<>();

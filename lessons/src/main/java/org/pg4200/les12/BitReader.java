@@ -11,16 +11,19 @@ public class BitReader {
 
     private final byte[] data;
 
-    int bit = 0;
+    /**
+     * Number of bits read so far from the data buffer
+     */
+    private int bits = 0;
 
     public BitReader(byte[] data) {
         this.data = Objects.requireNonNull(data);
     }
 
     public byte readByte(){
-        if(bit % 8 == 0){
-            int i = bit / 8;
-            bit += 8;
+        if(bits % 8 == 0){
+            int i = bits / 8;
+            bits += 8;
             return data[i];
         }
 
@@ -40,7 +43,7 @@ public class BitReader {
 
     public boolean readBoolean(){
 
-        int i = bit / 8;
+        int i = bits / 8;
 
         if(i >= data.length){
             throw new IllegalStateException("No more data to read");
@@ -48,12 +51,14 @@ public class BitReader {
 
         byte b = data[i];
 
-        int k = bit % 8;
+        int k = bits % 8;
 
-        bit++;
+        bits++;
 
         return ((b >>> (8 - k - 1)) & 1) == 1;
     }
+
+
 
     public int readInt(){
 
@@ -73,6 +78,24 @@ public class BitReader {
         byte d = readByte();
         x = x << 8;
         x |= (d & 0xFF);
+
+        return x;
+    }
+
+    public int readInt(int nbits){
+        if (nbits <= 0 || nbits > 32) {
+            throw new IllegalArgumentException("Invalid number of bits: " + nbits);
+        }
+
+        int x = 0;
+        for(int i=0; i<nbits; i++){
+
+            x <<= 1;
+            boolean one = readBoolean();
+            if(one){
+                x = x | 1;
+            }
+        }
 
         return x;
     }

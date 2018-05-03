@@ -7,20 +7,20 @@ import java.util.List;
  * Programs and CPUs work at byte (8 bits) level.
  * Even a boolean in Java takes actually 8 bits (eg, in
  * an array of booleans).
- *
+ * <p>
  * However, for compression, we need to work at bit level, to
  * exploit all the available space.
  * For example, we want to use a single bit for representing
  * a boolean, and not 8.
- *
+ * <p>
  * So, in this class, we create a data structure that can be
  * considered like a list of bits, where we can add data
  * in chunks of bits, ie at a finer granularity than
  * working with bytes.
- *
+ * <p>
  * But there is no silver bullet: the downside here is that
  * reading/parsing such data at bit level is much more expensive
- *
+ * <p>
  * Note: to be precise, the situation is even more complex.
  * The type boolean is the only one whose size is not actually
  * defined, as JVM implementation dependent (although usually 1 byte).
@@ -28,14 +28,14 @@ import java.util.List;
  * so types "byte" and "boolean" actually consumes 32 bits on the instruction
  * execution stack. But that is not the case for when storing arrays in the heap,
  * in which the granularity is at byte level.
- *
+ * <p>
  * Created by arcuri82 on 30-Oct-17.
  */
 public class BitWriter {
 
     /**
-     *  It contains the actual data, in bytes.
-     *  Note: there is no primitive type for "bit".
+     * It contains the actual data, in bytes.
+     * Note: there is no primitive type for "bit".
      */
     private List<Byte> data;
 
@@ -60,7 +60,6 @@ public class BitWriter {
      * Once closed, we cannot add any more bits to it.
      */
     private boolean closed;
-
 
 
     public BitWriter() {
@@ -164,7 +163,7 @@ public class BitWriter {
         writeBit(x);
     }
 
-    public void write(byte b){
+    public void write(byte b) {
         writeByte(b & 0xFF);
     }
 
@@ -204,23 +203,59 @@ public class BitWriter {
             00...00 00000000 wwwwwwww
          */
         writeByte((x >>> 16) & 0xFF); //2nd byte
-        writeByte((x >>>  8) & 0xFF); //3rd byte
-        writeByte(x  & 0xFF); // 4th, rightmost byte
+        writeByte((x >>> 8) & 0xFF); //3rd byte
+        writeByte(x & 0xFF); // 4th, rightmost byte
     }
 
-    public void write(String s){
-        for(int i=0; i<s.length(); i++){
+    /**
+     * Write the rightmost nbits of the input integer.
+     * The info about the leftmost "32 - nbits" is lost.
+     */
+    public void write(int x, int nbits) {
+        if (nbits <= 0 || nbits > 32) {
+            throw new IllegalArgumentException("Invalid number of bits: " + nbits);
+        }
+        if (nbits == 32) {
+            //simple case
+            write(x);
+            return;
+        }
+
+        for(int j = nbits-1; j >=0; j--){
+            boolean bit = getBitAt(x, j);
+            writeBit(bit);
+        }
+    }
+
+    /**
+     * Position is from right to left.
+     */
+    protected boolean getBitAt(int x, int position) {
+        if (position < 0 || position >= 32) {
+            throw new IllegalArgumentException("Invalid position: " + position);
+        }
+
+        //make sure the ith position is shifted to position 0
+        x = x >> position;
+
+        boolean bit  = (x & 1) > 0;
+
+        return bit;
+    }
+
+    public void write(String s) {
+        for (int i = 0; i < s.length(); i++) {
             write(s.charAt(i));
         }
     }
 
-    public void write(char c){
+    public void write(char c) {
         //chars are 2 bytes in Java, as using UTF-16 encoding
-        writeByte((c >>>  8) & 0xFF);
-        writeByte(c  & 0xFF);
+        writeByte((c >>> 8) & 0xFF);
+        writeByte(c & 0xFF);
     }
 
-    private void writeByte(int x){
+    private void writeByte(int x) {
         assert x >= 0 && x < 256;
 
         if (n == 0) {
@@ -229,7 +264,7 @@ public class BitWriter {
                 so we can write directly without
                 considering it
              */
-            data.add((byte)x);
+            data.add((byte) x);
             return;
         }
 
@@ -258,7 +293,7 @@ public class BitWriter {
         close();
         byte[] result = new byte[data.size()];
 
-        for(int i=0; i<data.size(); i++){
+        for (int i = 0; i < data.size(); i++) {
             result[i] = data.get(i);
         }
 
@@ -272,7 +307,6 @@ public class BitWriter {
         clearBuffer();
         closed = true;
     }
-
 
 
     private void checkClosed() {

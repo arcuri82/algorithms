@@ -199,4 +199,25 @@ public class BitWriterTest {
         assertEquals(0, res[0]);
         assertEquals('a', res[1]);
     }
+
+    @Test
+    public void testWritePartsOfInt(){
+
+        for(int nbits=1; nbits<=12; nbits++){
+
+            int max = (int) Math.pow(2, nbits);
+            BitWriter writer = new BitWriter();
+
+            for(int i=0; i<max; i++){
+                writer.write(i, nbits);
+            }
+
+            BitReader reader = new BitReader(writer.extract());
+
+            for(int i=0; i<max; i++){
+               int x = reader.readInt(nbits);
+               assertEquals(i, x);
+            }
+        }
+    }
 }
