@@ -1,6 +1,9 @@
 package org.pg4200.les12;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Created by arcuri82 on 03-May-18.
@@ -18,9 +21,12 @@ public class LZW implements TextCompression {
     @Override
     public byte[] compress(String text) {
 
-        Objects.requireNonNull(text);
-
         MyTernarySearchTrie<Integer> trie = new MyTernarySearchTrie<>();
+        return compress(text, trie);
+    }
+
+    private byte[] compress(String text, MyTernarySearchTrie<Integer> trie) {
+        Objects.requireNonNull(text);
 
         for (int i = 0; i < ASCII_LIMIT; i++) {
             trie.put("" + (char) i, i);
@@ -105,6 +111,33 @@ public class LZW implements TextCompression {
 
     @Override
     public String getStatistics(String text) {
-        return null; //TODO
+
+        MyTernarySearchTrie<Integer> trie = new MyTernarySearchTrie<>();
+        byte[] data = compress(text, trie);
+        BitReader reader = new BitReader(data);
+
+        //map from tokencode to its number of usages
+        Map<Integer, Integer> map = new HashMap<>();
+
+        while (true) {
+            int tokenCode = reader.readInt(CODEWORD_BITS);
+            if (tokenCode == EOF) {
+                break;
+            }
+
+            /*
+             * If key not present, it gets value 1.
+             * Otherwise, add 1 to previous old value.
+             */
+            map.merge(tokenCode, 1, (old, delta) -> old + delta);
+        }
+
+        return trie.entrySet().stream()
+                .filter(p -> map.containsKey(p.getValue()))
+                .sorted((a, b) -> map.get(b.getValue()) - map.get(a.getValue()))
+                .map(t -> "occurrences=" + map.get(t.getValue()) +
+                        " , code=" + t.getValue() +
+                        " , token='" + t.getKey().replace("\n","\\n").replace("\r","") + "'")
+                .collect(Collectors.joining("\n"));
     }
 }

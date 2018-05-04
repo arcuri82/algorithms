@@ -1,5 +1,9 @@
 package org.pg4200.les12;
 
+import javafx.util.Pair;
+
+import java.util.*;
+
 /**
  * Created by arcuri82 on 03-May-18.
  */
@@ -103,4 +107,29 @@ public class MyTernarySearchTrie<T> {
         return input.substring(0, length);
     }
 
+    public Set<Pair<String, T>> entrySet(){
+
+        Set<Pair<String, T>> set = new HashSet<>();
+        collect(set, root, "");
+
+        return set;
+    }
+
+
+    private void collect(Set<Pair<String, T>> set, Node node, String prefix){
+
+        if(node.value != null){
+            set.add(new Pair<>(prefix + node.ch, node.value));
+        }
+
+        if(node.left != null){
+            collect(set, node.left, prefix);
+        }
+        if(node.right != null){
+            collect(set, node.right, prefix);
+        }
+        if(node.middle != null){
+            collect(set, node.middle, prefix + node.ch);
+        }
+    }
 }

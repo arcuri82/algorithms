@@ -56,4 +56,11 @@ public class LZWTest extends TextCompressionTestTemplate {
         assertTrue(ratio8 < huffman);
     }
 
+    @Test
+    public void testInvalid(){
+
+        String text = "私はアンドレアです";
+
+        assertThrows(IllegalArgumentException.class, () -> checkCompressAndDecompress(text, "utf-8"));
+    }
 }
