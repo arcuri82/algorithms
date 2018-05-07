@@ -62,4 +62,10 @@ public interface Graph<V> {
      *  Given a vertex X, return all vertices that have a path reaching them from X.
      */
     Set<V> findConnected(V vertex);
+
+    /**
+     *  Given a collection of vertices, return all vertices that have a path reaching
+     *  them from any vertex in the input collection
+     */
+    Set<V> findConnected(Iterable<V> vertices);
 }

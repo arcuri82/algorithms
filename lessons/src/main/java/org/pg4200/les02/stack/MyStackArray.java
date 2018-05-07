@@ -4,6 +4,13 @@ import org.pg4200.les02.generic.MyGenericContainerArray;
 
 public class MyStackArray<T> extends MyGenericContainerArray<T> implements MyStack<T>{
 
+    public MyStackArray() {
+    }
+
+    public MyStackArray(int capacity) {
+        super(capacity);
+    }
+
     @Override
     public void push(T value) {
         //pushing is like adding at the end

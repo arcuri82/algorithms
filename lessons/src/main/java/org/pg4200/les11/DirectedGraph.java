@@ -58,8 +58,7 @@ public class DirectedGraph<V> extends UndirectedGraph<V> {
             return;
         }
 
-        graph.values()
-                .forEach(c -> c.remove(vertex));
+        graph.values().forEach(c -> c.remove(vertex));
 
         graph.remove(vertex);
     }

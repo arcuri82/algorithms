@@ -262,6 +262,24 @@ public class UndirectedGraph<V> implements  Graph<V>{
         return connected;
     }
 
+    @Override
+    public Set<V> findConnected(Iterable<V> vertices) {
+
+        Set<V> connected = new HashSet<>();
+        if(vertices==null){
+            return connected;
+        }
+
+        for(V vertex : vertices) {
+            if(! graph.containsKey(vertex)){
+                continue;
+            }
+            findConnected(connected, vertex);
+        }
+
+        return connected;
+    }
+
     private void findConnected(Set<V> connected, V vertex){
         if(connected.contains(vertex)){
             return;
