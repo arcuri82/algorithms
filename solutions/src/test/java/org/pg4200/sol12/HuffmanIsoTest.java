@@ -24,7 +24,7 @@ public class HuffmanIsoTest {
 
         assertEquals(text, res);
 
-        System.out.println(huffman.getTrieStatistics(text));
+        System.out.println(huffman.getStatistics(text));
 
         int originalLength = text.getBytes(Charset.forName(charset)).length;
 
