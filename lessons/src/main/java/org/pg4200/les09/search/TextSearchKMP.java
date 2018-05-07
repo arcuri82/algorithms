@@ -6,7 +6,7 @@ package org.pg4200.les09.search;
 public class TextSearchKMP implements TextSearch {
 
     private final int[][] backtrace;
-    private final String defaultToken;
+    protected final String defaultToken;
 
     public TextSearchKMP() {
         backtrace = null;
