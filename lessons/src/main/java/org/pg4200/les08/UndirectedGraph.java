@@ -97,8 +97,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
         }
 
         //remove all other connections to vertex
-        graph.get(vertex)
-                .forEach(s -> graph.get(s).remove(vertex));
+        graph.get(vertex).forEach(s -> graph.get(s).remove(vertex));
 
         graph.remove(vertex);
     }
