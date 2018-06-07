@@ -9,6 +9,7 @@ public class ArrayUtilsImp implements ArrayUtils {
         checkArray(array);
 
         int min = array[0];
+
         for(int i=1; i<array.length; i++){
             int val = array[i];
             if(val < min){
@@ -23,6 +24,7 @@ public class ArrayUtilsImp implements ArrayUtils {
         checkArray(array);
 
         int max = array[0];
+
         for(int i=1; i<array.length; i++){
             int val = array[i];
             if(val > max){
@@ -37,6 +39,7 @@ public class ArrayUtilsImp implements ArrayUtils {
         checkArray(array);
 
         double sum = 0;
+
         for(int i=0; i<array.length; i++){
             sum += array[i];
         }
