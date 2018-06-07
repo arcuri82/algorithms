@@ -1,6 +1,11 @@
 package org.pg4200.les02.stack;
 
 /**
+ * Code here ends up in a infinite loop, where a new method call is done
+ * while the current one is not completed yet.
+ * As each call push a new frame on the method-call-stack, the JVM process
+ * will run out of memory on the stack, and throw an error
+ *
  * Created by arcuri82 on 23-Aug-17.
  */
 public class StackOverflow {
