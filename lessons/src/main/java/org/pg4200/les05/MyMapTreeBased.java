@@ -1,7 +1,5 @@
 package org.pg4200.les05;
 
-import org.pg4200.les05.MyMap;
-
 /**
  * We are going to show a few implementations of maps using trees.
  * An important aspect of a tree that does impact its performance is
