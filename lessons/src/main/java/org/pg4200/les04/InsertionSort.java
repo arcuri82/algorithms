@@ -3,6 +3,7 @@ package org.pg4200.les04;
 import org.pg4200.les03.MySort;
 
 public class InsertionSort implements MySort {
+
     @Override
     public <T extends Comparable<T>> void sort(T[] array) {
 
@@ -15,6 +16,16 @@ public class InsertionSort implements MySort {
             or 1 is sorted by definition
          */
         for(int i=1; i<array.length; i++){
+
+            /*
+                At each step, the elements before "i" are sorted,
+                but "i" itself might be of lower value.
+                In such latter case, the value at "i" need to be inserted
+                in the right order between the previous ones.
+                This is done by comparing two elements at a time,
+                from right to left, until the element is greater than
+                what is on its left-side, ie no more swapping is necessary.
+             */
 
             for(int j=i-1; j>=0; j--){
                 if (array[j].compareTo(array[j+1]) > 0) {
