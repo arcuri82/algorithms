@@ -15,15 +15,12 @@ import java.util.function.Predicate;
  * A stream will be closed by a terminal operation, which will
  * specify what to do with the values coming from the stream.
  *
+ * Note: here we are only having a few examples of methods available
+ * for streams. The collections in the JDK API have many more.
+ *
  * Created by arcuri82 on 03-Oct-17.
  */
 public interface MyStream<T> {
-
-    /**
-     * Provide an iterator for the data of the collection this stream
-     * belongs to
-     */
-    Iterator<T> iterator();
 
     /**
      * Pipeline current stream into a new stream where elements are skipped
@@ -36,7 +33,7 @@ public interface MyStream<T> {
      * type T are transformed into new values of type R, according to the
      * given mapping function.
      *
-     * Note: the term "map" here is not related to the Map collection type.
+     * Note: the term "map" here is NOT related to the Map collection type.
      */
     <R> MyStream<R> map(Function<T, R> mapper);
 
