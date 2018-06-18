@@ -64,7 +64,7 @@ public class MyStreamSupport {
          * A reference to an iterator on the original collection.
          * Note: the type of collection (eg String or Integer) could
          * have nothing to do with the current IN and OUT of the current
-         * pipe, because types can be transformed/changed throughout the pipe
+         * pipe, because types can be transformed/changed throughout the pipeline
          */
         protected final Iterator<T> iterator;
 
@@ -121,7 +121,7 @@ public class MyStreamSupport {
                 We start from last stream (ie the terminal operation),
                 which is the current one.
                 It has the highest/deepest depth value, and we go backward to the
-                source, pipelining all those streams in between by
+                source, piping all those streams in between by
                 following the previousStage reference.
                 How they are actually pipelined depend on the kind
                 of stream, which is defined in the chainConsumerToCurrentPipe
@@ -131,13 +131,13 @@ public class MyStreamSupport {
 
                 Also notice the type _erasure_ here.
                 Pipeline is not declared with generics <X,Y>.
-                This important, as there can be many different types
+                This important, as there can be many different type
                 changes between IN and OUT in the whole pipeline.
                 In this case, the compiler does not complain, and
                 treats those as Object references.
 
                 Side-effect though is that, in the end, we need to force
-                a cast to Consumer<T> for the first consumer in the pipe,
+                a cast to Consumer<T> for the first consumer in the pipeline,
                 reading data (of type T) directly from the collection
              */
 
@@ -149,10 +149,10 @@ public class MyStreamSupport {
             }
 
             /*
-                Assume a pipe
+                Assume a pipeline
                 A -> B -> C
 
-                what we get back is a Consumer for A that, every type we call it on an input,
+                what we get back is a Consumer for A that, every time we call it on an input,
                 it will call the Consumer for B.
                 This latter will call the Consumer for C.
              */
