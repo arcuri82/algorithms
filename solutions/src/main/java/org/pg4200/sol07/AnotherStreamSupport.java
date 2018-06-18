@@ -12,17 +12,17 @@ import java.util.function.Consumer;
 public class AnotherStreamSupport {
 
     public static <T, C extends Iterable<T>> AnotherStream<T> createStream(C collection) {
-        return new Pipeline<T, T>(collection.iterator());
+        return new Pipeline<T, T, T>(collection.iterator());
     }
 
 
-    protected static class Pipeline<IN, OUT>  implements AnotherStream<OUT> {
+    protected static class Pipeline<IN, OUT, T>  implements AnotherStream<OUT> {
 
-        protected final Iterator<OUT> iterator;
+        protected final Iterator<T> iterator;
         protected final Pipeline previousStage;
         protected final int depth;
 
-        protected Pipeline(Iterator<OUT> iterator) {
+        protected Pipeline(Iterator<T> iterator) {
             this.iterator = iterator;
             this.previousStage = null;
             this.depth = 0;
@@ -34,28 +34,23 @@ public class AnotherStreamSupport {
             this.depth = previousStage.depth + 1;
         }
 
-        protected Consumer<IN> opWrapConsumer(Consumer<OUT> consumer) {
+        protected ChainedReference<IN, OUT> chainConsumerToCurrentPipe(Consumer<OUT> consumer) {
             throw new IllegalStateException();
         }
 
-        protected <T> Consumer<T> wrapConsumer(Consumer<OUT> consumer) {
+        protected Consumer<T> chainAllConsumersInThePipeline(Consumer<OUT> consumer) {
             Objects.requireNonNull(consumer);
 
             Pipeline p = this;
 
             while (p.depth > 0) {
-                consumer = p.opWrapConsumer(consumer);
+                consumer = p.chainConsumerToCurrentPipe(consumer);
                 p = p.previousStage;
             }
 
             return (Consumer<T>) consumer;
         }
 
-
-        @Override
-        public Iterator<OUT> iterator() {
-            return iterator;
-        }
 
         @Override
         public int count() {
@@ -92,12 +87,10 @@ public class AnotherStreamSupport {
                 }
             };
 
-            Consumer<OUT> chain = wrapConsumer(collectingConsumer);
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
 
-            Iterator<OUT> iter = iterator();
-
-            while (iter.hasNext()) {
-                OUT element = iter.next();
+            while (iterator.hasNext()) {
+                T element = iterator.next();
                 chain.accept(element);
             }
 
@@ -106,10 +99,10 @@ public class AnotherStreamSupport {
 
         @Override
         public AnotherStream<OUT> distinct() {
-            return new Pipeline<OUT, OUT>(this) {
+            return new Pipeline<OUT, OUT, T>(this) {
 
                 @Override
-                public Consumer<OUT> opWrapConsumer(Consumer<OUT> consumer) {
+                public ChainedReference<OUT, OUT> chainConsumerToCurrentPipe(Consumer<OUT> consumer) {
 
                     return new ChainedReference<OUT, OUT>(consumer) {
 
@@ -151,10 +144,10 @@ public class AnotherStreamSupport {
         @Override
         public AnotherStream<OUT> skip(int n) {
 
-            return new Pipeline<OUT, OUT>(this) {
+            return new Pipeline<OUT, OUT, T>(this) {
 
                 @Override
-                public Consumer<OUT> opWrapConsumer(Consumer<OUT> consumer) {
+                public ChainedReference<OUT, OUT> chainConsumerToCurrentPipe(Consumer<OUT> consumer) {
 
                     return new ChainedReference<OUT, OUT>(consumer) {
 

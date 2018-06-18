@@ -1,13 +1,9 @@
 package org.pg4200.sol07;
 
-import java.util.Iterator;
-
 /**
  * Created by arcuri82 on 04-Oct-17.
  */
 public interface AnotherStream<T> {
-
-    Iterator<T> iterator();
 
     /**
      * Terminal operation. Count number
