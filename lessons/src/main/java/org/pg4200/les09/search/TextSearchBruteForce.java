@@ -16,7 +16,7 @@ public class TextSearchBruteForce implements TextSearch {
     }
 
     @Override
-    public int findFirst(String text) {
+    public int findFirst(String text) throws IllegalStateException{
         if(defaultToken == null){
             throw new IllegalStateException("No default token specified");
         }
@@ -36,11 +36,17 @@ public class TextSearchBruteForce implements TextSearch {
             return -1;
         }
 
-        outer:
-        for (int i = 0; i < text.length(); i++) {
+        //check each position in text as starting point for token
+        outer: for (int i = 0; i < text.length(); i++) {
 
+            //check chars of token based on current starting point in text
             for (int j = 0; j < token.length(); j++) {
                 if (text.charAt(i + j) != token.charAt(j)) {
+                    /*
+                        this will jump out of this "for",
+                        and continue to the next step in the
+                        "for" labelled with "outer"
+                      */
                     continue outer;
                 }
             }
@@ -48,6 +54,7 @@ public class TextSearchBruteForce implements TextSearch {
             return i;
         }
 
+        //found nothing
         return -1;
     }
 }

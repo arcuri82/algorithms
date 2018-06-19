@@ -60,6 +60,13 @@ public abstract class TextSearchTestTemplate {
     }
 
     @Test
+    public void testSimplePartialMatchWithShift(){
+        int res = ts.findFirst("ababac", "abac");
+
+        assertEquals(2, res);
+    }
+
+    @Test
     public void testWorstCaseForBruteForce(){
         int res = ts.findFirst("aaaaaaaaab", "aab");
 

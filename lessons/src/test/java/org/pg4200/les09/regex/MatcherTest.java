@@ -36,6 +36,38 @@ public class MatcherTest {
     }
 
     @Test
+    public void testMultiLetterOr(){
+
+        Matcher matcher = new Matcher("(ab|cd)");
+
+        assertFalse(matcher.match(""));
+        assertFalse(matcher.match("a"));
+        assertFalse(matcher.match("b"));
+        assertFalse(matcher.match("c"));
+        assertFalse(matcher.match("d"));
+        assertFalse(matcher.match("abd"));
+        assertFalse(matcher.match("acd"));
+
+        assertTrue(matcher.match("ab"));
+        assertTrue(matcher.match("cd"));
+    }
+
+    @Test
+    public void testMultipleOr(){
+
+        Matcher matcher = new Matcher("((a|b)|c)");
+
+        assertFalse(matcher.match(""));
+        assertFalse(matcher.match("ab"));
+        assertFalse(matcher.match("ac"));
+        assertFalse(matcher.match("bc"));
+
+        assertTrue(matcher.match("a"));
+        assertTrue(matcher.match("b"));
+        assertTrue(matcher.match("c"));
+    }
+
+    @Test
     public void testOrWithFollowing(){
 
         Matcher matcher = new Matcher("(a|b)c");
