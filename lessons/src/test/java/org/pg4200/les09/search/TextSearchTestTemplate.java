@@ -12,7 +12,7 @@ public abstract class TextSearchTestTemplate {
 
     protected abstract TextSearch getNewInstance();
 
-    protected abstract TextSearch getNewInstance(String token);
+    protected abstract TextSearch getNewInstance(String target);
 
     private TextSearch ts;
 
@@ -67,14 +67,21 @@ public abstract class TextSearchTestTemplate {
     }
 
     @Test
-    public void testWorstCaseForBruteForce(){
-        int res = ts.findFirst("aaaaaaaaab", "aab");
+    public void testWorstCaseForBruteForceFound(){
+        int res = ts.findFirst("aaaaaaaaab", "aaab");
 
-        assertEquals(7, res);
+        assertEquals(6, res);
     }
 
     @Test
-    public void testDefaultToken(){
+    public void testWorstCaseForBruteForceFoundNot(){
+        int res = ts.findFirst("aaaaaaaaab", "aaac");
+
+        assertTrue(res < 0);
+    }
+
+    @Test
+    public void testDefaultTarget(){
 
         TextSearch x = getNewInstance("aacaa");
 

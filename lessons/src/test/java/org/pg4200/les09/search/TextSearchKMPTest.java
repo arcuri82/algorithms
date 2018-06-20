@@ -11,7 +11,7 @@ public class TextSearchKMPTest extends TextSearchTestTemplate{
     }
 
     @Override
-    protected TextSearch getNewInstance(String token) {
-        return new TextSearchKMP(token);
+    protected TextSearch getNewInstance(String target) {
+        return new TextSearchKMP(target);
     }
 }

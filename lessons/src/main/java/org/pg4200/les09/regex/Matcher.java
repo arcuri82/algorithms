@@ -37,7 +37,7 @@ public class Matcher {
         this.nfsm = buildNonDeterministicFiniteStateMachine();
     }
 
-    protected DirectedGraph<Integer> buildNonDeterministicFiniteStateMachine() {
+    private DirectedGraph<Integer> buildNonDeterministicFiniteStateMachine() {
 
         /*
             To build the graph, we need a stack as a supporting data structure
@@ -144,7 +144,7 @@ public class Matcher {
              */
         }
 
-        if (operations.size() != 0) {
+        if (! operations.isEmpty()) {
             //there should be the right number of ( matched by ), in the right order
             throw new IllegalArgumentException("Invalid regular expression: not closed parentheses '('");
         }
@@ -228,8 +228,8 @@ public class Matcher {
 
         /*
             this is checked only when the whole text has been read.
-            If when we are read the whole text we have at least one path
-            that is in the acceptance state, when the text does match the regex.
+            If when we have read the whole text we have at least one path
+            that is in the acceptance state, then the text does match the regex.
          */
         return vertices.contains(acceptanceState);
     }

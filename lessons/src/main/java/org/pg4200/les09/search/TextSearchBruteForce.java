@@ -18,30 +18,30 @@ public class TextSearchBruteForce implements TextSearch {
     @Override
     public int findFirst(String text) throws IllegalStateException{
         if(defaultToken == null){
-            throw new IllegalStateException("No default token specified");
+            throw new IllegalStateException("No default target specified");
         }
 
         return findFirst(text, defaultToken);
     }
 
     @Override
-    public int findFirst(String text, String token) {
+    public int findFirst(String text, String target) {
 
-        if (text == null || token == null || token.isEmpty()) {
+        if (text == null || target == null || target.isEmpty()) {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        if (token.length() > text.length()) {
+        if (target.length() > text.length()) {
             //simple case
             return -1;
         }
 
-        //check each position in text as starting point for token
+        //check each position in text as starting point for target
         outer: for (int i = 0; i < text.length(); i++) {
 
-            //check chars of token based on current starting point in text
-            for (int j = 0; j < token.length(); j++) {
-                if (text.charAt(i + j) != token.charAt(j)) {
+            //check chars of target based on current starting point in text
+            for (int j = 0; j < target.length(); j++) {
+                if (text.charAt(i + j) != target.charAt(j)) {
                     /*
                         this will jump out of this "for",
                         and continue to the next step in the

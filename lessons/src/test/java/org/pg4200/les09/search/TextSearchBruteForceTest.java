@@ -12,7 +12,7 @@ public class TextSearchBruteForceTest extends TextSearchTestTemplate{
     }
 
     @Override
-    protected TextSearch getNewInstance(String token) {
-        return new TextSearchBruteForce(token);
+    protected TextSearch getNewInstance(String target) {
+        return new TextSearchBruteForce(target);
     }
 }
