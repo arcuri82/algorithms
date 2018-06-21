@@ -44,7 +44,8 @@ public class Matcher {
             to handle parentheses () and the "or |" operator.
             We need to keep track of currently opened (.
             As we can have nesting, eg ((()())), we need to use a stack, as
-            we can open a new ( before closing the previous ones.
+            we can open a new ( before closing the previous ones, and we
+            should not lose info on the those previous ones.
 
             Notice also how, to handle the algorithm of doing string regular
             expression matching, we deal with two data structures (graph and stack)

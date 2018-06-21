@@ -74,10 +74,10 @@ public class MatcherTest {
 
         assertFalse(matcher.match("ab"));
         assertFalse(matcher.match("c"));
+        assertFalse(matcher.match(""));
 
         assertTrue(matcher.match("ac"));
         assertTrue(matcher.match("bc"));
-        assertFalse(matcher.match(""));
     }
 
     @Test
@@ -162,5 +162,25 @@ public class MatcherTest {
 
         assertTrue(matcher.match("abd"));
         assertTrue(matcher.match("abccbd"));
+    }
+
+    @Test
+    public void testSlideExample(){
+
+        Matcher matcher = new Matcher("(a*|(bc)*)z");
+
+        assertFalse(matcher.match(""));
+        assertFalse(matcher.match("a"));
+        assertFalse(matcher.match("bc"));
+        assertFalse(matcher.match("bz"));
+        assertFalse(matcher.match("cz"));
+        assertFalse(matcher.match("abcz"));
+        assertFalse(matcher.match("bcaz"));
+
+        assertTrue(matcher.match("z"));
+        assertTrue(matcher.match("az"));
+        assertTrue(matcher.match("aaaaaaz"));
+        assertTrue(matcher.match("bcz"));
+        assertTrue(matcher.match("bcbcbcbcz"));
     }
 }
