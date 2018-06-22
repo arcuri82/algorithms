@@ -1,28 +1,52 @@
 # PG4200
-Code examples and exercises for the PG4200 course: Algoritmer og datastrukturer
+Slides, code examples and exercises for the PG4200 course: 
+Algoritmer og datastrukturer (Algorithms and Data Structures).
 
+
+## Slides
+
+* [Lesson01](docs/slides/01/01_intro.pdf): Introduction
+* [Lesson02](docs/slides/02/02_stack_queue.pdf): Stack and Queue
+* [Lesson03](docs/slides/03/03_analysis_sort.pdf): Runtime Analysis and Sorting
+* [Lesson04](docs/slides/04/04_sort_tdd.pdf): Advanced Sorting and Test Driven Development (TDD)
+* [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
+* [Lesson06](docs/slides/06/06_hash_maps.pdf): Hash Maps and Sets
+* [Lesson07](docs/slides/07/07_streams.pdf): Iterators, Lambdas and Streams
+* [Lesson08](docs/slides/08/08_graphs.pdf): Graphs
+* [Lesson09](docs/slides/09/09_regex.pdf): Text Search and Regular Expressions
+* [Lesson10](docs/slides/10/10_optimization.pdf): Decision and Optimization Problems
+* [Lesson11](docs/slides/11/11_genetic.pdf): Genetic Algorithms and Randomness
+* [Lesson12](): TODO (Data Compression)
+
+## Code
+
+The code is written in Java, and it is divided into 3 Maven modules:
+* `/lessons`: code for each lesson, divided in one package per lesson.
+* `/exercises`: starting code used in some of the exercises (when applicable). 
+* `/solutions`: code of the solutions of the exercises. 
 
 ## Exercises
-* [Ex01](docs/exercises/ex01.md)
-* [Ex02](docs/exercises/ex02.md)
-* [Ex03](docs/exercises/ex03.md)
-* [Ex04](docs/exercises/ex04.md)
-* [Ex05](docs/exercises/ex05.md)
-* [Ex06](docs/exercises/ex06.md)
-* [Ex07](docs/exercises/ex07.md)
-* [Ex08](docs/exercises/ex08.md)
-* [Ex09](docs/exercises/ex09.md)
-* [Ex10](docs/exercises/ex10.md)
-* [Ex11](docs/exercises/ex11.md)
-* [Ex12](docs/exercises/ex12.md)
+* [Exercise01](docs/exercises/ex01.md)
+* [Exercise02](docs/exercises/ex02.md)
+* [Exercise03](docs/exercises/ex03.md)
+* [Exercise04](docs/exercises/ex04.md)
+* [Exercise05](docs/exercises/ex05.md)
+* [Exercise06](docs/exercises/ex06.md)
+* [Exercise07](docs/exercises/ex07.md)
+* [Exercise08](docs/exercises/ex08.md)
+* [Exercise09](docs/exercises/ex09.md)
+* [Exercise10](docs/exercises/ex10.md)
+* [Exercise11](docs/exercises/ex11.md)
+* [Exercise12](docs/exercises/ex12.md)
 
 
 
 ### License & Copyright
 
-The materials herein are all (c) 2017-now [Andrea Arcuri](http://www.arcuriandrea.org) 
+The materials herein are all copyright of [Andrea Arcuri](http://www.arcuriandrea.org) 
 and [contributors](https://github.com/arcuri82/pg4200/graphs/contributors).
-The material was/is produced while working at Westerdals Oslo ACT.
+The material was/is produced while working at Westerdals Oslo ACT
+and Høyskolen Kristiania.
 
 All the source code in this repository is released under 
 [LGPL version 3 license](LICENSE).
