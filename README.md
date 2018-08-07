@@ -16,7 +16,7 @@ Algoritmer og datastrukturer (Algorithms and Data Structures).
 * [Lesson09](docs/slides/09/09_regex.pdf): Text Search and Regular Expressions
 * [Lesson10](docs/slides/10/10_optimization.pdf): Decision and Optimization Problems
 * [Lesson11](docs/slides/11/11_genetic.pdf): Genetic Algorithms and Randomness
-* [Lesson12](): TODO (Data Compression)
+* [Lesson12](docs/slides/12/12_compression.pdf): Data Compression
 
 ## Code
 
