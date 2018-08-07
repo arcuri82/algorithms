@@ -39,7 +39,11 @@ The code is written in Java, and it is divided into 3 Maven modules:
 * [Exercise11](docs/exercises/ex11.md)
 * [Exercise12](docs/exercises/ex12.md)
 
+## Exams
 
+To have an idea of what to expect in the exam, and how the questions might be
+formulated, here the [pdf](docs/exams/exam_example_0.pdf)
+of a former exam. 
 
 ### License & Copyright
 
