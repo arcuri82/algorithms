@@ -23,7 +23,7 @@ public class TextSearchKMPCached extends TextSearchKMP {
     @Override
     public int findFirst(String text, String token) {
 
-        if(defaultToken != null && defaultToken.equals(token)){
+        if(defaultTarget != null && defaultTarget.equals(token)){
             return findFirst(text);
         }
 
