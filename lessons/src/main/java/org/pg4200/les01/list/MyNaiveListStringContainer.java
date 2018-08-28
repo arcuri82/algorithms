@@ -10,7 +10,13 @@ public class MyNaiveListStringContainer implements MyStringContainerWithIndex {
     /*
         For each "value" in the container, we create a Node object to contain it.
         Each node object will have a pointer to the next one in the list, apart
-        from the last one (which will have "null")
+        from the last one (which will have "null").
+
+        Because this is just an internal detail of the container, and it
+        is of no use out of it, this class is declared 'private' here.
+        This also means that we can access its fields directly instead of
+        using getters/setters, as this class can only be used here, so
+        no need to worry about OO encapsulation.
      */
     private class ListNode{
         String value;
