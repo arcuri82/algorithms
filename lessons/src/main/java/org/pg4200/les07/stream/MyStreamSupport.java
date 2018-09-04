@@ -171,7 +171,7 @@ public class MyStreamSupport {
            Point is, when the Consumer for OUT pulls data from current pipe,
            the current pipe needs to pull from its upstream (unless it is
            the source directly on the collection).
-           So, here we to create a Consumer representing the current pipe
+           So, here we need to create a Consumer representing the current pipe
            which will take data of type IN from the upstream.
            When such data is read, it will do some computation (depending on
            the kind of pipe), create some data of type OUT, and call the input
