@@ -24,6 +24,12 @@ public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeB
         root.is_red = false;
     }
 
+    /**
+     * Every time we insert an element in a subtree, due
+     * to rotations the root of such subtree might change.
+     * So we return it, so that the parent can update its
+     * link to this subtree
+     */
     private TreeNode put(K key, V value, TreeNode subtreeRoot) {
 
         if (subtreeRoot == null) {
