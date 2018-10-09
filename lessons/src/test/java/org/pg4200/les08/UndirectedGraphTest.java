@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UndirectedGraphTest {
 
     /*
-        1 -- 2 -- 3 -       9
+        1 -- 2 -- 3-        9
              |    |         |
              |    |         |
              4    |        10

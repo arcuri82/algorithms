@@ -96,8 +96,14 @@ public class UndirectedGraph<V> implements  Graph<V>{
             return;
         }
 
-        //remove all other connections to vertex
-        graph.get(vertex).forEach(s -> graph.get(s).remove(vertex));
+        /*
+            Before we can remove the vertex, we have to
+            remove all other connections to such vertex in the
+            other vertices.
+            Note: we can call "forEach" directly on a collection
+            without opening a stream() first.
+         */
+        graph.get(vertex).forEach(v -> graph.get(v).remove(vertex));
 
         graph.remove(vertex);
     }
@@ -113,7 +119,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
     @Override
     public List<V> findPathDFS(V start, V end) {
 
-        if(! graph.containsKey(start) && ! graph.containsKey(end)){
+        if(! graph.containsKey(start) || ! graph.containsKey(end)){
             /*
                 no point in searching if either start or end are not
                 in the graph.
@@ -190,7 +196,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
         // same initial checks as in DFS
 
-        if(! graph.containsKey(start) && ! graph.containsKey(end)){
+        if(! graph.containsKey(start) || ! graph.containsKey(end)){
             return null;
         }
 

@@ -16,7 +16,7 @@ public class DirectedGraphTest {
 
 
      /*
-        1 == 2 -> 3 =       9
+        1 == 2 -> 3=        9
              ^    ||        ||
              |    ||        ||
              4    ||        10
