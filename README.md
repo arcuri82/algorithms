@@ -47,8 +47,11 @@ The code is written in Java, and it is divided into 3 Maven modules:
 ## Exams
 
 To have an idea of what to expect in the exam, and how the questions might be
-formulated, here the [pdf](docs/exams/exam_example_0.pdf)
-of a former exam. 
+formulated, some PDFs of former exams can be found
+[here](docs/exams/exam_example_0.pdf)
+and
+[here](docs/exams/exam_example_1.pdf)
+.
 
 ### License & Copyright
 
