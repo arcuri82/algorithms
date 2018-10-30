@@ -62,7 +62,12 @@ public class GeneticAlgorithmForKnapsack {
 
             List<Individual> next = new ArrayList<>(populationSize);
 
-            // let's save 10% of the population
+            /*
+                Let's save 10% of the population.
+                You can think of them like Vampires, forever young, living throughout
+                different generations without changing (and occasionally mating with
+                the "humans", ie the other individuals in the population).
+              */
             elitism(next, population, populationSize / 10);
 
             //next generation
