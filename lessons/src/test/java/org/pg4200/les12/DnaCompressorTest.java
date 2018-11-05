@@ -59,7 +59,7 @@ public class DnaCompressorTest {
 
         assertTrue(ratio < 0.33);
 
-        //can't bit 1/4 ratio
+        //can't beat 1/4 ratio
         assertTrue(ratio >= 0.25);
     }
 
@@ -68,7 +68,7 @@ public class DnaCompressorTest {
 
         /*
             Compressing a single char make the data larger, as we still
-            have to store the trie and 32 bits for the size "1"
+            have to store at least 1 byte for the data plus 32 bits for the size "1"
          */
 
         String dna = "A";
