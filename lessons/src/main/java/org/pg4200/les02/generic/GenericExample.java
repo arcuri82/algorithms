@@ -1,8 +1,8 @@
 package org.pg4200.les02.generic;
 
 /**
- * The name chosen for the generic types does not really matter, but T is
- * a common choice.
+ * The name chosen for the generic types does not really matter, but T (for "Type")
+ * is a common choice.
  *
  * Here, the class is associated with a generic type T that I can use for
  * all of the methods
@@ -19,7 +19,12 @@ public class GenericExample<T> {
         return x;
     }
 
-
+    /*
+        Besides declaring a generic type for the whole class, we can also have it
+        explicitly on the methods.
+        This is done by declaring them (eg, "<Z>") between the access-right keyword (eg, "public")
+        and the return type of the function (eg, "Z").
+     */
     public <Z> Z identityGenericOnMethod(T t, Z z){
         return z;
     }

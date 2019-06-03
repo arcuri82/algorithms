@@ -16,7 +16,7 @@ usages of the algorithms.
 ## Slides
 
 * [Lesson01](docs/slides/01/01_intro.pdf): Introduction
-* [Lesson02](docs/slides/02/02_stack_queue.pdf): Stacks and Queues
+* [Lesson02](docs/slides/02/02_stack_queue.pdf): Generics, Stacks and Queues
 * [Lesson03](docs/slides/03/03_analysis_sort.pdf): Runtime Analysis and Sorting
 * [Lesson04](docs/slides/04/04_sort_tdd.pdf): Advanced Sorting and Test Driven Development (TDD)
 * [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
@@ -31,7 +31,7 @@ usages of the algorithms.
 ## Code
 
 The code is written in Java, and it is divided into 3 Maven modules:
-* `/lessons`: code for each lesson, divided in one package per lesson.
+* `/lessons`: code for each lesson, divided into one package per lesson.
 * `/exercises`: starting code used in some of the exercises (when applicable). 
 * `/solutions`: code of the solutions of the exercises. 
 
