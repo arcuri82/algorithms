@@ -1,17 +1,22 @@
 
-# PG4200
+# Algorithms and Data Structures
 
 [![Build Status](https://travis-ci.org/arcuri82/pg4200.svg?branch=master)](https://travis-ci.org/arcuri82/pg4200)
 
 
-Slides, code examples and exercises for the PG4200 course: 
+Slides, code examples and exercises (with solutions) for the PG4200 course: 
 Algoritmer og datastrukturer (Algorithms and Data Structures).
+This course is taught at Kristiania University College, Oslo, Norway.
 
+There are plenty of resources online to learn about algorithms and data structures in Java.
+However, one key aspect in this course is a strong emphasis on software testing.
+Furthermore, the _math_ is kept to a minimum, whereas more focus is given to the practical 
+usages of the algorithms.   
 
 ## Slides
 
 * [Lesson01](docs/slides/01/01_intro.pdf): Introduction
-* [Lesson02](docs/slides/02/02_stack_queue.pdf): Stack and Queue
+* [Lesson02](docs/slides/02/02_stack_queue.pdf): Stacks and Queues
 * [Lesson03](docs/slides/03/03_analysis_sort.pdf): Runtime Analysis and Sorting
 * [Lesson04](docs/slides/04/04_sort_tdd.pdf): Advanced Sorting and Test Driven Development (TDD)
 * [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
