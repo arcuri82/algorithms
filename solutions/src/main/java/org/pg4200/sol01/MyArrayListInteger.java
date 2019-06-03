@@ -1,16 +1,16 @@
 package org.pg4200.sol01;
 
-public class MyArrayIntegerContainer {
+public class MyArrayListInteger {
 
     private Integer[] data;
 
     private int size = 0;
 
-    public MyArrayIntegerContainer(){
+    public MyArrayListInteger(){
         this(10);
     }
 
-    public MyArrayIntegerContainer(int maxSize){
+    public MyArrayListInteger(int maxSize){
         data = new Integer[maxSize];
     }
 

@@ -1,11 +1,11 @@
-package org.pg4200.les01.array;
+package org.pg4200.les01.arraylist;
 
-import org.pg4200.les01.MyStringContainerWithIndex;
+import org.pg4200.les01.MyListString;
 
 /**
  * Created by arcuri82 on 14-Aug-17.
  */
-public class MyArrayStringContainer implements MyStringContainerWithIndex {
+public class MyArrayListString implements MyListString {
 
     /**
      * Here we use an array to backup the data we insert in the container.
@@ -18,12 +18,12 @@ public class MyArrayStringContainer implements MyStringContainerWithIndex {
      */
     private int size = 0;
 
-    public MyArrayStringContainer(){
+    public MyArrayListString(){
         //call the other constructor with "10" as default max size.
         this(10);
     }
 
-    public MyArrayStringContainer(int maxSize){
+    public MyArrayListString(int maxSize){
         data = new String[maxSize];
     }
 

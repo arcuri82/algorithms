@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
  *  Because this class is abstract, we cannot run its tests directly.
  *  We need to extend it first, and implement all of its abstract methods.
  */
-public abstract class MyStringContainerWithIndexTestTemplate {
+public abstract class MyListStringTestTemplate {
 
     /**
      * All tests here are based on an interface.
@@ -20,10 +20,10 @@ public abstract class MyStringContainerWithIndexTestTemplate {
      * class that will extend this one must provide the chosen implementation
      * here.
      */
-    protected abstract MyStringContainerWithIndex getNewInstance();
+    protected abstract MyListString getNewInstance();
 
 
-    private MyStringContainerWithIndex data;
+    private MyListString data;
 
     @BeforeEach
     public void initTest(){

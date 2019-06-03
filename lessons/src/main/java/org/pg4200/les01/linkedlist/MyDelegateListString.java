@@ -1,14 +1,14 @@
-package org.pg4200.les01.list;
+package org.pg4200.les01.linkedlist;
 
-import org.pg4200.les01.MyStringContainerWithIndex;
+import org.pg4200.les01.MyListString;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyDelegateListContainer implements MyStringContainerWithIndex {
+public class MyDelegateListString implements MyListString {
 
     /*
         The Java API provides many implementations for containers, eg in
@@ -26,8 +26,9 @@ public class MyDelegateListContainer implements MyStringContainerWithIndex {
         In the exercises in this course (and the exam), you are NOT allowed to write this kind
         of delegate code, unless otherwise specified.
         Even worse, do NOT do it in a job interview...
+        Note: we will looking into "Generics" (eg, "<String>") next class.
      */
-    private List<String> delegate = new ArrayList<>();
+    private List<String> delegate = new LinkedList<>();
 
     @Override
     public String get(int index) {

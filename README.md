@@ -15,7 +15,7 @@ usages of the algorithms.
 
 ## Slides
 
-* [Lesson01](docs/slides/01/01_intro.pdf): Introduction
+* [Lesson01](docs/slides/01/01_intro.pdf): Arrays, Lists, and Unit Tests 
 * [Lesson02](docs/slides/02/02_stack_queue.pdf): Generics, Stacks and Queues
 * [Lesson03](docs/slides/03/03_analysis_sort.pdf): Runtime Analysis and Sorting
 * [Lesson04](docs/slides/04/04_sort_tdd.pdf): Advanced Sorting and Test Driven Development (TDD)

@@ -2,18 +2,17 @@ package org.pg4200.sol01;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.pg4200.les01.MyStringContainerWithIndex;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MyArrayIntegerContainerTest {
+public class MyArrayListIntegerTest {
 
-    private MyArrayIntegerContainer data;
+    private MyArrayListInteger data;
 
     @BeforeEach
     public void initTest(){
         //before each test is executed, create a new
-        data = new MyArrayIntegerContainer(10);
+        data = new MyArrayListInteger(10);
     }
 
 
