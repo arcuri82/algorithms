@@ -1,5 +1,8 @@
 package org.pg4200.les02.list;
 
+// WARNING: this is one of the 12 classes you need to study and know by heart
+
+
 /**
  * Created by arcuri82 on 15-Aug-17.
  */

@@ -1,5 +1,8 @@
 package org.pg4200.les09.search;
 
+// WARNING: this is one of the 12 classes you need to study and know by heart
+
+
 /**
  * Knuth-Morris-Pratt substring search
  * <p>

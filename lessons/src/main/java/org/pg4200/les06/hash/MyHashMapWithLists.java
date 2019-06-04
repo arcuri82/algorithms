@@ -1,5 +1,8 @@
 package org.pg4200.les06.hash;
 
+// WARNING: this is one of the 12 classes you need to study and know by heart
+
+
 import java.util.ArrayList;
 import java.util.List;
 

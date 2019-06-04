@@ -1,5 +1,8 @@
 package org.pg4200.les07.stream;
 
+// WARNING: this is one of the 12 classes you need to study and know by heart
+
+
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Consumer;
