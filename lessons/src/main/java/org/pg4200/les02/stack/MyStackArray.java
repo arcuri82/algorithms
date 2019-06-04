@@ -1,8 +1,8 @@
 package org.pg4200.les02.stack;
 
-import org.pg4200.les02.generic.MyGenericContainerArray;
+import org.pg4200.les02.list.MyArrayList;
 
-public class MyStackArray<T> extends MyGenericContainerArray<T> implements MyStack<T>{
+public class MyStackArray<T> extends MyArrayList<T> implements MyStack<T>{
 
     public MyStackArray() {
     }
@@ -10,6 +10,11 @@ public class MyStackArray<T> extends MyGenericContainerArray<T> implements MySta
     public MyStackArray(int capacity) {
         super(capacity);
     }
+
+    /*
+        Here, we can simply extend MyArrayList, and define the stack operations
+        based on the methods in the list
+     */
 
     @Override
     public void push(T value) {

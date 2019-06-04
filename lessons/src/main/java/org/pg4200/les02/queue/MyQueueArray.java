@@ -5,6 +5,14 @@ package org.pg4200.les02.queue;
  */
 public class MyQueueArray<T> implements MyQueue<T>{
 
+    /*
+        Here, we shouldn't just extend MyArrayList.
+        It would work, but it would be very inefficient, as each
+        dequeue operation would always force a full left-shift of the whole
+        array-list (recall that a dequeue would be equivalent to a delete at
+        index 0 in the array-list).
+     */
+
     protected Object[] data;
 
     /*

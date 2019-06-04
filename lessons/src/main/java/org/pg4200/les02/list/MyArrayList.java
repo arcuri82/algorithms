@@ -1,18 +1,18 @@
-package org.pg4200.les02.generic;
+package org.pg4200.les02.list;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyGenericContainerArray<T> implements MyGenericContainer<T> {
+public class MyArrayList<T> implements MyList<T> {
 
     protected Object[] data;
     protected int size = 0;
 
-    public MyGenericContainerArray(){
+    public MyArrayList(){
         this(10);
     }
 
-    public MyGenericContainerArray(int capacity){
+    public MyArrayList(int capacity){
         data = new Object[capacity];
     }
 
@@ -61,8 +61,29 @@ public class MyGenericContainerArray<T> implements MyGenericContainer<T> {
     }
 
     @Override
-    public void add(T value) {
-        data[size] = value;
+    public void add(int index, T value) {
+
+        if(index < 0 || index > size){
+            //note that here "size" is a valid index
+            throw new IndexOutOfBoundsException();
+        }
+
+        /*
+            First we need to shift-right all elements starting from index.
+            However, we need to make sure to do not overwrite existing elements
+            before we shift. That is the reason why we must start from the end
+            of the the list
+         */
+        for(int j=size-1; j>=index; j--){
+            data[j+1] = data[j];
+        }
+
+        /*
+            What if index >= data.length???
+            This will be addressed in the exercises.
+         */
+
+        data[index] = value;
         size++;
     }
 

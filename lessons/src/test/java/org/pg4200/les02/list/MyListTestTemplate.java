@@ -1,6 +1,7 @@
-package org.pg4200.les02.generic;
+package org.pg4200.les02.list;
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les02.list.MyList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,18 +10,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public abstract class MyGenericContainerTestTemplate {
+public abstract class MyListTestTemplate {
 
-    protected abstract <T> MyGenericContainer<T> getNewInstance(Class<T> klass);
+    protected abstract <T> MyList<T> getNewInstance(Class<T> klass);
 
 
 
     @Test
     public void testEmpty(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
 
-        //a newly created container should be empty
+        //a newly created list should be empty
         assertEquals(0, data.size());
     }
 
@@ -28,7 +29,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testAddOneElement(){
 
-        MyGenericContainer<String> data = getNewInstance(String.class);
+        MyList<String> data = getNewInstance(String.class);
 
         int n = data.size();
 
@@ -40,7 +41,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testAddAndRetrieveElement() {
 
-        MyGenericContainer<String> data = getNewInstance(String.class);
+        MyList<String> data = getNewInstance(String.class);
 
         String value = "foo";
 
@@ -57,7 +58,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testAdd5Elements(){
 
-        MyGenericContainer<String> data = getNewInstance(String.class);
+        MyList<String> data = getNewInstance(String.class);
 
         assertEquals(0, data.size());
         String a = "a";
@@ -80,7 +81,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testOutOfIndex(){
 
-        MyGenericContainer<String> data = getNewInstance(String.class);
+        MyList<String> data = getNewInstance(String.class);
 
         assertThrows(IndexOutOfBoundsException.class,
                 () -> data.get(-5));
@@ -92,7 +93,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testDeleteOne(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
 
         data.add(1);
 
@@ -106,7 +107,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testDeleteFirst(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -125,7 +126,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testDeleteLast(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -142,7 +143,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testDeleteMiddle(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -160,7 +161,7 @@ public abstract class MyGenericContainerTestTemplate {
     @Test
     public void testDeleteAll(){
 
-        MyGenericContainer<Integer> data = getNewInstance(Integer.class);
+        MyList<Integer> data = getNewInstance(Integer.class);
         data.add(7);
         data.add(31);
         data.add(0);
@@ -184,5 +185,59 @@ public abstract class MyGenericContainerTestTemplate {
         }
 
         assertTrue(data.isEmpty());
+    }
+
+    @Test
+    public void testInsertFirst(){
+
+        MyList<String> data = getNewInstance(String.class);
+        data.add("a");
+        data.add("b");
+        data.add("c");
+
+        String value = "foo";
+        data.add(0, value);
+
+        assertEquals(4, data.size());
+        assertEquals(value, data.get(0));
+        assertEquals("a", data.get(1));
+        assertEquals("b", data.get(2));
+        assertEquals("c", data.get(3));
+    }
+
+    @Test
+    public void testInsertLast(){
+
+        MyList<String> data = getNewInstance(String.class);
+        data.add("a");
+        data.add("b");
+        data.add("c");
+
+        String value = "foo";
+        data.add(3, value);
+
+        assertEquals(4, data.size());
+        assertEquals("a", data.get(0));
+        assertEquals("b", data.get(1));
+        assertEquals("c", data.get(2));
+        assertEquals(value, data.get(3));
+    }
+
+    @Test
+    public void testInsertMiddle(){
+
+        MyList<String> data = getNewInstance(String.class);
+        data.add("a");
+        data.add("b");
+        data.add("c");
+
+        String value = "foo";
+        data.add(1, value);
+
+        assertEquals(4, data.size());
+        assertEquals("a", data.get(0));
+        assertEquals(value, data.get(1));
+        assertEquals("b", data.get(2));
+        assertEquals("c", data.get(3));
     }
 }

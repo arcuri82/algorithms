@@ -1,46 +1,20 @@
 package org.pg4200.les02.queue;
 
+import org.pg4200.les02.list.MyLinkedList;
+
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
-public class MyQueueLinkedList<T> implements MyQueue<T> {
-
-    private class BiDirectionalNode{
-        T value;
-        BiDirectionalNode next;
-        BiDirectionalNode previous;
-    }
+public class MyQueueLinkedList<T> extends MyLinkedList<T> implements MyQueue<T> {
 
     /*
-        Note: in contrast to stack in which we only needed the
-        tail, here we also need the head
+        Here, we can simply extend MyLinkedList, and define the queue methods using it.
+        This is not inefficient, in contrast to MyArrayList which would have awful performance.
      */
-    private BiDirectionalNode head;
-    private BiDirectionalNode tail;
-
-    private int size;
 
     @Override
     public void enqueue(T value) {
-
-        BiDirectionalNode node = new BiDirectionalNode();
-        node.value = value;
-        size++;
-
-        if(head == null){
-            head = node;
-            tail = node;
-            return;
-        }
-
-        /*
-            We insert the new element after the tail.
-         */
-        BiDirectionalNode oldTail = tail;
-        tail = node;
-
-        tail.previous = oldTail;
-        oldTail.next = tail;
+        add(value);
     }
 
     @Override
@@ -49,17 +23,8 @@ public class MyQueueLinkedList<T> implements MyQueue<T> {
             throw new RuntimeException();
         }
 
-        T value = head.value;
-
-        if(size == 1){
-            head = null;
-            tail = null;
-        } else {
-            head = head.next;
-            head.previous = null;
-        }
-
-        size--;
+        T value = get(0);
+        delete(0);
 
         return value;
     }
@@ -70,11 +35,11 @@ public class MyQueueLinkedList<T> implements MyQueue<T> {
             throw new RuntimeException();
         }
 
-        return head.value;
+        return get(0);
     }
 
     @Override
-    public int size() {
-        return size;
+    public boolean isEmpty() {
+        return size() == 0;
     }
 }

@@ -28,7 +28,7 @@ public class MyLinkedListString implements MyListString {
     private ListNode tail;
 
     /**
-     *  The number of elements contained in this container
+     *  The number of elements contained in this list
      */
     private int size;
 

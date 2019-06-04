@@ -19,6 +19,9 @@ public interface MyQueue<T> {
      */
     T dequeue();
 
+    /**
+     * Look at the head of the queue/line, without removing it
+     */
     T peek();
 
     int size();

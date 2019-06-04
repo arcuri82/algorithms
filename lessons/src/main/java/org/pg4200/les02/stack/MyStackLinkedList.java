@@ -9,7 +9,11 @@ public class MyStackLinkedList<T> implements MyStack<T>{
         StackNode previous;
     }
 
-    //Note: for a stack, we don't need a head
+    /*
+        We could extend MyLinkedList (which would had been fine).
+        But, for a stack, we don't need a head.
+        So, here we just implement it directly.
+     */
     private StackNode tail;
 
     private int size;

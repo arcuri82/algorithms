@@ -1,18 +1,35 @@
-package org.pg4200.les02.generic;
+package org.pg4200.les02.list;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
  */
-public class MyGenericContainerList<T> implements MyGenericContainer<T> {
+public class MyLinkedList<T> implements MyList<T> {
 
+    /*
+        For each "value" in the container, we create a Node object to contain it.
+        Each node object will have a pointer to the next one in the list, apart
+        from the last one (which will have "null")
+     */
     private class ListNode{
         T value;
         ListNode next;
     }
 
+    /**
+     * The first element in the list
+     */
     private ListNode head;
+
+    /**
+     *  The last element in the list
+     */
     private ListNode tail;
+
+    /**
+     *  The number of elements contained in this container
+     */
     private int size;
+
 
     @Override
     public void delete(int index) {
@@ -68,7 +85,7 @@ public class MyGenericContainerList<T> implements MyGenericContainer<T> {
 
     /*
         Is the above implementation of "delete()" better or worse than in
-        ArrayDeleteContainer?
+        MyArrayList?
         It depends...
         If we delete the first element, the list is very quick, whereas with
         array we need to shift left the entire collection.
@@ -111,20 +128,69 @@ public class MyGenericContainerList<T> implements MyGenericContainer<T> {
     }
 
     @Override
-    public void add(T value) {
+    public void add(int index, T value) {
+
+        if(index < 0 || index > size){
+            //note that here "size" is a valid index
+            throw new IndexOutOfBoundsException();
+        }
 
         ListNode node = new ListNode();
         node.value = value;
-        size++;
 
         if(head == null){
+            //add on empty list
+            assert size == 0;
             head = node;
             tail = node;
-            return;
-        }
 
-        tail.next = node;
-        tail = node;
+        } else if(index == 0){
+            //add at beginning of non-empty list
+            node.next = head;
+            head = node;
+
+        } else if(index == size) {
+            /*
+                Add at the end of non-empty list.
+                Note: using "tail" allows us for an efficient implementation
+                of "add(value)", as we do not need to traverse the whole list
+                to append at the end.
+             */
+            tail.next = node;
+            tail = node;
+
+        } else {
+            //insertion in the middle of the list
+            int counter = index-1;
+            ListNode previous = head;
+
+            while(counter > 0){
+                previous = previous.next;
+                counter--;
+            }
+
+            node.next = previous.next;
+            previous.next = node;
+            /*
+                We are in the case of
+
+                ... -> A -> B -> ...
+
+                and we want to insert X at the position of B, resulting in
+
+                ... -> A -> X -> B -> ...
+
+                this means that A.next will have to point to X,
+                whereas X.next would be B. We do not need to modify B.
+                As we need to iterate from the head, we stop at A, as we need
+                to change its A.next value.
+                We do not have B if we stop at A. But B can be read by simply
+                noticing that B == A.next.
+                Therefore, we can iterate with a "previous" variable until we reach
+                A, which would be at position index-1.
+             */
+        }
+        size++;
     }
 
     @Override
