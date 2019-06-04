@@ -1,7 +1,7 @@
 
 # Algorithms and Data Structures
 
-[![Build Status](https://travis-ci.org/arcuri82/pg4200.svg?branch=master)](https://travis-ci.org/arcuri82/pg4200)
+[![Build Status](https://travis-ci.org/arcuri82/algorithms.svg?branch=master)](https://travis-ci.org/arcuri82/pg4200)
 
 
 Slides, code examples and exercises (with solutions) for the PG4200 course: 
@@ -18,7 +18,7 @@ usages of the algorithms.
 * [Lesson01](docs/slides/01/01_intro.pdf): Arrays, Lists, and Unit Tests 
 * [Lesson02](docs/slides/02/02_stack_queue.pdf): Generics, Stacks and Queues
 * [Lesson03](docs/slides/03/03_analysis_sort.pdf): Runtime Analysis and Sorting
-* [Lesson04](docs/slides/04/04_sort_tdd.pdf): Advanced Sorting and Test Driven Development (TDD)
+* [Lesson04](docs/slides/04/04_sort_tdd.pdf): Recursion and Test Driven Development (TDD)
 * [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
 * [Lesson06](docs/slides/06/06_hash_maps.pdf): Hash Maps and Sets
 * [Lesson07](docs/slides/07/07_streams.pdf): Iterators, Lambdas and Streams
