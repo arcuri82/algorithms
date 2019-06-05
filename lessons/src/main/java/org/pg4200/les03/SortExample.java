@@ -30,6 +30,7 @@ public class SortExample {
          *
          * How is sorting implemented? What is its complexity?
          * Ie, if I double the size, will it take twice as long to sort?
+         * (Answer: no, likely it will take more than twice as long)
          */
         Arrays.sort(names);
 
