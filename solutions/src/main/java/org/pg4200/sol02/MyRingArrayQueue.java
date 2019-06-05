@@ -5,7 +5,7 @@ import org.pg4200.les02.queue.MyQueue;
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
-public class RingArrayQueue<T> implements MyQueue<T>{
+public class MyRingArrayQueue<T> implements MyQueue<T>{
 
     protected Object[] data;
 
@@ -16,11 +16,11 @@ public class RingArrayQueue<T> implements MyQueue<T>{
     private int head = -1;
     private int tail = -1;
 
-    public RingArrayQueue(){
+    public MyRingArrayQueue(){
         this(10);
     }
 
-    public RingArrayQueue(int capacity){
+    public MyRingArrayQueue(int capacity){
         data = new Object[capacity];
     }
 

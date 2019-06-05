@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Created by arcuri82 on 16-Aug-17.
  */
-public class RingArrayQueueTest extends MyQueueTestTemplate{
+public class MyRingArrayQueueTest extends MyQueueTestTemplate{
 
     @Override
     protected <T> MyQueue<T> getNewInstance(Class<T> klass) {
-        return new RingArrayQueue<>();
+        return new MyRingArrayQueue<>();
     }
 
     @Test

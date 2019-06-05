@@ -141,6 +141,28 @@ public abstract class MyListTestTemplate {
     }
 
     @Test
+    public void testDeleteSecondLast(){
+
+        MyList<Integer> data = getNewInstance(Integer.class);
+        data.add(7);
+        data.add(31);
+        data.add(0);
+        data.add(1); //delete this one
+        data.add(2);
+
+
+        assertEquals(5, data.size());
+
+        data.delete(3);
+
+        assertEquals(4, data.size());
+        assertEquals(7, data.get(0).intValue());
+        assertEquals(31, data.get(1).intValue());
+        assertEquals(0, data.get(2).intValue());
+        assertEquals(2, data.get(3).intValue());
+    }
+
+    @Test
     public void testDeleteMiddle(){
 
         MyList<Integer> data = getNewInstance(Integer.class);
