@@ -1,4 +1,4 @@
-package org.pg4200.les03;
+package org.pg4200.les03.sort;
 
 // WARNING: this is one of the 12 classes you need to study and know by heart
 

@@ -1,8 +1,9 @@
-package org.pg4200.les03;
+package org.pg4200.les03.sort;
 
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.pg4200.les03.sort.MySort;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,6 +1,7 @@
-package org.pg4200.les03;
+package org.pg4200.les03.sort;
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les03.sort.Song;
 
 import java.util.ArrayList;
 import java.util.Collections;

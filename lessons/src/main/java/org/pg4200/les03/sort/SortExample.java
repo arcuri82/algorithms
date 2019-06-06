@@ -1,4 +1,4 @@
-package org.pg4200.les03;
+package org.pg4200.les03.sort;
 
 import java.util.Arrays;
 
