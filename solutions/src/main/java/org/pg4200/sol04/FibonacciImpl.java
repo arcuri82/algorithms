@@ -1,12 +1,15 @@
-package org.pg4200.les04.recursion;
+package org.pg4200.sol04;
+
+import org.pg4200.ex04.Fibonacci;
 
 /**
  * Created by arcuri82 on 07-Jun-19.
  */
-public class Fibonacci {
+public class FibonacciImpl implements Fibonacci {
 
-    public static int fibonacci(int n){
 
+    @Override
+    public int compute(int n) {
         if(n < 0){
             throw new IllegalArgumentException("Invalid negative value: " + n);
         }
@@ -19,6 +22,6 @@ public class Fibonacci {
         }
 
         //there can be more than a recursive call
-        return fibonacci(n-1) + fibonacci(n-2);
+        return compute(n-1) + compute(n-2);
     }
 }
