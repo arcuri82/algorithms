@@ -3,10 +3,10 @@ package org.pg4200.les05;
 /**
  * Created by arcuri82 on 22-Aug-17.
  */
-public class MyMapBinarySearchTest extends MyMapTestTemplate{
+public class MyMapLinearSearchArrayTest extends MyMapTestTemplate{
 
     @Override
     protected <K extends Comparable<K>, V> MyMap<K, V> getInstance() {
-        return new MyMapBinarySearch<>();
+        return new MyMapLinearSearchArray<>();
     }
 }

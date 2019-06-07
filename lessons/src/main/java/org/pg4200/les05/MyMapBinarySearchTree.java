@@ -6,7 +6,7 @@ package org.pg4200.les05;
 /**
  * Created by arcuri82 on 22-Aug-17.
  */
-public class MyMapBinaryTree<K extends Comparable<K>, V> implements MyMapTreeBased<K, V> {
+public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapTreeBased<K, V> {
 
     protected class TreeNode {
         public K key;

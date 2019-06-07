@@ -1,11 +1,11 @@
 package org.pg4200.sol05;
 
-import org.pg4200.les05.MyMapBinaryTree;
+import org.pg4200.les05.MyMapBinarySearchTree;
 
 /**
  * Created by arcuri82 on 30-Apr-18.
  */
-public class BinaryTreeLeftMaxDelete<K extends Comparable<K>, V> extends MyMapBinaryTree<K,V> {
+public class BinaryTreeLeftMaxDelete<K extends Comparable<K>, V> extends MyMapBinarySearchTree<K,V> {
 
     @Override
     protected TreeNode delete(K key, TreeNode subtreeRoot) {

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by arcuri82 on 22-Aug-17.
  */
-public class MyMapBinarySearch<K extends Comparable<K>,V> implements MyMap<K,V> {
+public class MyMapBinarySearchArray<K extends Comparable<K>,V> implements MyMap<K,V> {
 
 
     private class Entry<K extends Comparable<K>,V> implements Comparable<Entry<K,V>>{
