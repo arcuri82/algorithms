@@ -51,6 +51,9 @@ public abstract class ExtendedListTestTemplate {
         assertEquals(2, longAtLeastThree.size());
         assertEquals("foo", longAtLeastThree.get(0));
         assertEquals("bar", longAtLeastThree.get(1));
+
+        //no side effect on original list
+        assertEquals(5, list.size());
     }
 
     private class User {
@@ -102,6 +105,9 @@ public abstract class ExtendedListTestTemplate {
         assertEquals(2, names.size());
         assertEquals("Foo", names.get(0));
         assertEquals("Bar", names.get(1));
+
+        //no side effect on original list
+        assertEquals(4, list.size());
     }
 
 
@@ -138,5 +144,8 @@ public abstract class ExtendedListTestTemplate {
         assertTrue(surnames.isPresent("Smith"));
         assertTrue(surnames.isPresent("Black"));
         assertTrue(surnames.isPresent("Rossi"));
+
+        //no side effect on original list
+        assertEquals(3, all.size());
     }
 }
