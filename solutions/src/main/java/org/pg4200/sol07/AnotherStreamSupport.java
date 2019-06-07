@@ -1,10 +1,12 @@
 package org.pg4200.sol07;
 
+import org.pg4200.ex07.AnotherStream;
 import org.pg4200.les06.set.MySetHashMap;
 
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 /**
  * Created by arcuri82 on 04-Oct-17.
@@ -95,6 +97,71 @@ public class AnotherStreamSupport {
             }
 
             return counter[0];
+        }
+
+        @Override
+        public String joinToString(String separator) {
+
+            StringBuffer buffer = new StringBuffer();
+            boolean[] first = {true};
+
+            Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
+                @Override
+                public void accept(OUT out) {
+
+                    if(!first[0]){
+                        buffer.append(separator);
+                    } else {
+                        first[0] = false;
+                    }
+
+                    String value = "";
+                    if(out != null){
+                        value = out.toString();
+                    }
+                    buffer.append(value);
+                }
+            };
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()) {
+                T element = iterator.next();
+                chain.accept(element);
+            }
+
+            return buffer.toString();
+        }
+
+        @Override
+        public boolean any(Predicate<OUT> predicate) {
+
+            if(predicate == null){
+                return false;
+            }
+
+            boolean[] result = {false};
+
+            Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
+                @Override
+                public void accept(OUT out) {
+                    result[0] = predicate.test(out);
+                }
+            };
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()) {
+                T element = iterator.next();
+                chain.accept(element);
+
+                if(result[0]){
+                    //can stop as soon as we find one
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         @Override

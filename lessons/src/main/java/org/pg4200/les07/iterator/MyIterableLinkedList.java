@@ -8,14 +8,13 @@ import java.util.NoSuchElementException;
  */
 public class MyIterableLinkedList<T> implements Iterable<T> {
 
-    private class BiDirectionalNode {
+    private class ListNode {
         T value;
-        BiDirectionalNode next;
-        BiDirectionalNode previous;
+        ListNode next;
     }
 
-    private BiDirectionalNode head;
-    private BiDirectionalNode tail;
+    private ListNode head;
+    private ListNode tail;
 
     private int size;
 
@@ -41,7 +40,7 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
 
             private int initialCounter = modificationCounter;
 
-            private BiDirectionalNode next = head;
+            private ListNode next = head;
 
             @Override
             public boolean hasNext() {
@@ -56,7 +55,7 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
                     throw new NoSuchElementException();
                 }
 
-                BiDirectionalNode res = next;
+                ListNode res = next;
                 next = next.next;
                 return res.value;
             }
@@ -80,14 +79,13 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
         if (index == 0) {
             if (head.next != null) {
                 head = head.next;
-                head.previous = null;
             } else {
                 head = null;
                 tail = null;
             }
         } else {
 
-            BiDirectionalNode current = head;
+            ListNode current = head;
             int counter = 0;
             while (counter != index - 1) {
                 current = current.next;
@@ -100,12 +98,10 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
             }
 
             current.next = current.next.next;
-            if(current.next != null) {
-                current.next.previous = current;
-            }
         }
 
         size--;
+        //List has been modified
         modificationCounter++;
     }
 
@@ -116,7 +112,7 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
         }
 
 
-        BiDirectionalNode current = head;
+        ListNode current = head;
         int counter = 0;
 
         while (current != null) {
@@ -135,9 +131,10 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
 
     public void add(T value) {
 
-        BiDirectionalNode node = new BiDirectionalNode();
+        ListNode node = new ListNode();
         node.value = value;
         size++;
+        //List has been modified
         modificationCounter++;
 
         if (head == null) {
@@ -147,7 +144,6 @@ public class MyIterableLinkedList<T> implements Iterable<T> {
         }
 
         tail.next = node;
-        node.previous = tail;
         tail = node;
     }
 

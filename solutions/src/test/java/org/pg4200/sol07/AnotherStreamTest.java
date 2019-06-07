@@ -3,7 +3,7 @@ package org.pg4200.sol07;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by arcuri82 on 04-Oct-17.
@@ -74,5 +74,25 @@ public class AnotherStreamTest {
         assertEquals(2, res);
     }
 
+    @Test
+    public void testJoinToString(){
 
+        AnotherStreamList<String> list = getData();
+        list.add(null);
+        list.add("z");
+
+        String res = list.stream().joinToString(",");
+
+        assertEquals("a,a,b,c,c,,z", res);
+    }
+
+    @Test
+    public void testAny(){
+
+        AnotherStreamList<String> list = getData();
+
+        assertTrue(list.stream().any(it -> it!=null));
+        assertTrue(list.stream().any(it -> it.equals("a")));
+        assertFalse(list.stream().any(it -> it.equals("k")));
+    }
 }
