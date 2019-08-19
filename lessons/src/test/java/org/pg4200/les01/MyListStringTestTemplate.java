@@ -23,12 +23,12 @@ public abstract class MyListStringTestTemplate {
     protected abstract MyListString getNewInstance();
 
 
-    private MyListString data;
+    private MyListString list;
 
     @BeforeEach
     public void initTest(){
         //before each test is executed, create a new container
-        data = getNewInstance();
+        list = getNewInstance();
     }
 
 
@@ -36,18 +36,18 @@ public abstract class MyListStringTestTemplate {
     public void testEmpty(){
 
         //a newly created container should be empty
-        assertEquals(0, data.size());
+        assertEquals(0, list.size());
     }
 
 
     @Test
     public void testAddOneElement(){
 
-        int n = data.size();
+        int n = list.size();
 
-        data.add("foo");
+        list.add("foo");
 
-        assertEquals(n + 1, data.size());
+        assertEquals(n + 1, list.size());
 
         /*
             An option here would have to be to test if size is just 1, as
@@ -66,12 +66,12 @@ public abstract class MyListStringTestTemplate {
 
         String value = "foo";
 
-        data.add(value);
+        list.add(value);
 
         /*
             As the container is empty, I m expecting to have it in position 0
          */
-        String res = data.get(0);
+        String res = list.get(0);
 
         assertEquals(value, res);
     }
@@ -79,28 +79,28 @@ public abstract class MyListStringTestTemplate {
     @Test
     public void testAdd5Elements(){
 
-        assertEquals(0, data.size());
+        assertEquals(0, list.size());
         String a = "a";
         String b = "b";
         String c = "c";
 
-        data.add(a);
-        data.add(b);
-        data.add(c);
-        data.add(a);
-        data.add(a);
+        list.add(a);
+        list.add(b);
+        list.add(c);
+        list.add(a);
+        list.add(a);
 
-        assertEquals(a, data.get(0));
-        assertEquals(b, data.get(1));
-        assertEquals(c, data.get(2));
-        assertEquals(a, data.get(3));
-        assertEquals(a, data.get(4));
+        assertEquals(a, list.get(0));
+        assertEquals(b, list.get(1));
+        assertEquals(c, list.get(2));
+        assertEquals(a, list.get(3));
+        assertEquals(a, list.get(4));
     }
 
     @Test
     public void testOutOfIndex(){
 
-        assertNull(data.get(-5));
-        assertNull(data.get(42));
+        assertNull(list.get(-5));
+        assertNull(list.get(42));
     }
 }
