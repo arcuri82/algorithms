@@ -115,5 +115,12 @@ public class GenericExampleTest {
             and the compiler would not be able to solve which method
             to use when having a call on (int, Integer)
          */
+
+        /*
+            As we called the method with Integer, we can call it with any class
+            that implements Comparable, like for example String.
+         */
+        String resultString = example.maxWithGenerics("foo", "bar");
+        assertEquals("foo", resultString);
     }
 }
