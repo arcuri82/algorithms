@@ -112,8 +112,10 @@ public class GenericExampleTest {
             Reason is that there is both:
             - assertEquals(int, int)
             - assertEquals(Object, Object)
-            and the compiler would not be able to solve which method
-            to use when having a call on (int, Integer)
+            and the compiler would not be able to resolve which method
+            to use when having a call on (int, Integer): should the compiler box
+            the int to have (Integer, Integer)? or rather unbox Integer
+            to have (int, int)? As it is ambiguous, we must do the boxing explicitly.
          */
 
         /*
