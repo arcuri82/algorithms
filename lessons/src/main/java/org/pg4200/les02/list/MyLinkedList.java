@@ -61,7 +61,7 @@ public class MyLinkedList<T> implements MyList<T> {
             }
             /*
                 at this point, "current" point to the node BEFORE the one we want to delete, as
-                the loop has condition "current != index - 1".
+                the loop has condition "counter != index - 1".
                 Assume for example you want to delete the element at position index=4.
                 The element before it is index=3. So, the "current" variable will point the element
                 which is at position 3, and not 4. I.e., "current == list.get(3)".
