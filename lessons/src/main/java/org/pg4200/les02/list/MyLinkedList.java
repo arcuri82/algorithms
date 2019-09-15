@@ -171,12 +171,12 @@ public class MyLinkedList<T> implements MyList<T> {
 
         } else {
             //insertion in the middle of the list
-            int counter = index-1;
+            int counter = 0;
             ListNode previous = head;
 
-            while(counter > 0){
+            while(counter != index - 1){
                 previous = previous.next;
-                counter--;
+                counter++;
             }
 
             node.next = previous.next;
