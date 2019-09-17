@@ -1,7 +1,5 @@
 package org.pg4200.ex01;
 
-import org.pg4200.ex01.ArrayUtils;
-
 class ArrayUtilsImp implements ArrayUtils {
     public int min(int[] array) throws IllegalArgumentException{
 

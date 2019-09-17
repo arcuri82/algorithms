@@ -1,6 +1,6 @@
 package org.pg4200.ex01;
 
-public class MyArrayListInteger {
+class MyArrayListInteger {
 
     /**
      * Here we use an array to backup the data we insert in the container.
@@ -18,7 +18,7 @@ public class MyArrayListInteger {
         this(10);
     }
 
-    public MyArrayListInteger(int maxSize){
+    private MyArrayListInteger(int maxSize){
         data = new int[maxSize];
     }
 
