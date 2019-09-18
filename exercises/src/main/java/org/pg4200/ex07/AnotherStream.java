@@ -47,7 +47,7 @@ public interface AnotherStream<T> {
     /**
      * Sort the whole incoming stream, and propagate each value to the
      * downstream in such order.
-     * Will throw an exception if elements are not implementing {@ Comparable<T>}
+     * Will throw an exception if elements are not implementing {@code Comparable<T>}
      */
     AnotherStream<T> sorted();
 }
