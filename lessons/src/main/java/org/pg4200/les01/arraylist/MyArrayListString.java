@@ -13,7 +13,7 @@ public class MyArrayListString implements MyListString {
     private String[] data;
 
     /**
-     * The "size" of the container is not going to be necessarily equal to the length
+     * The "size" of the container is not going to be necessarily equal to the len gth
      * of the "data" array.
      */
     private int size = 0;
