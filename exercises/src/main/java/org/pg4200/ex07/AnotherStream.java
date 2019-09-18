@@ -43,4 +43,11 @@ public interface AnotherStream<T> {
      * the first n elements coming from the stream.
      */
     AnotherStream<T> skip(int n);
+
+    /**
+     * Sort the whole incoming stream, and propagate each value to the
+     * downstream in such order.
+     * Will throw an exception if elements are not implementing {@ Comparable<T>}
+     */
+    AnotherStream<T> sorted();
 }
