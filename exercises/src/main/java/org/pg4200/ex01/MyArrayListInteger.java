@@ -1,6 +1,6 @@
 package org.pg4200.ex01;
 
-class MyArrayListInteger {
+public class MyArrayListInteger {
 
     /**
      * Here we use an array to backup the data we insert in the container.
@@ -26,7 +26,7 @@ class MyArrayListInteger {
     public int get(int index) {
         if(index < 0 || index >= size){
             //some input validation
-            return Integer.parseInt(null);
+            return size;
         }
         return data[index];
     }
