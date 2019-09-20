@@ -57,7 +57,7 @@ public class MyNaiveLinkedListString implements MyListString {
     }
 
     @Override
-    public void add(String value) {
+    public void add(int value) {
 
         ListNode node = new ListNode();
         node.value = value;

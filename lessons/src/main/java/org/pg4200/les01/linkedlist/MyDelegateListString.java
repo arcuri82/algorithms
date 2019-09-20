@@ -45,7 +45,7 @@ public class MyDelegateListString implements MyListString {
     }
 
     @Override
-    public void add(String value) {
+    public void add(int value) {
         delegate.add(value);
     }
 

@@ -38,8 +38,9 @@ public interface MyListString {
     /**
      * Add a new value to the list, in the smaller available index (starting from 0).
      * Ie, append the value at the end of the list.
+     * @param value
      */
-    void add(String value);
+    void add(int value);
 
     /**
      * Get how many elements this list has.
