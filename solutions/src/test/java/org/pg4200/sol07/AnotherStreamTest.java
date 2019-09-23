@@ -95,4 +95,54 @@ public class AnotherStreamTest {
         assertTrue(list.stream().any(it -> it.equals("a")));
         assertFalse(list.stream().any(it -> it.equals("k")));
     }
+
+
+    @Test
+    public void testSorting(){
+
+        AnotherStreamList<String> list = new AnotherStreamList<>();
+        list.add("e");
+        list.add("a");
+        list.add("b");
+        list.add("d");
+        list.add("c");
+
+        String res = list.stream().sorted().joinToString("");
+
+        assertEquals("abcde", res);
+    }
+
+
+    @Test
+    public void testSortedCombination(){
+
+        AnotherStreamList<String> list = new AnotherStreamList<>();
+        list.add("e");
+        list.add("a");
+        list.add("b");
+        list.add("d");
+        list.add("c");
+
+        String res = list.stream()
+                .skip(2)
+                .sorted()
+                .skip(1)
+                .joinToString("");
+
+        assertEquals("cd", res);
+    }
+
+
+    private class Foo{}
+
+    @Test
+    public void testSortedFailed(){
+
+        AnotherStreamList<Foo> list = new AnotherStreamList<>();
+        list.add(new Foo());
+        list.add(new Foo());
+        list.add(new Foo());
+
+        assertThrows(RuntimeException.class, () -> list.stream().sorted().count());
+    }
 }

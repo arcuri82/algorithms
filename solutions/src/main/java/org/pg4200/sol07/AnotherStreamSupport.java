@@ -3,8 +3,7 @@ package org.pg4200.sol07;
 import org.pg4200.ex07.AnotherStream;
 import org.pg4200.les06.set.MySetHashMap;
 
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -236,6 +235,40 @@ public class AnotherStreamSupport {
                     };
                 }
             };
+        }
+
+        @Override
+        public AnotherStream<OUT> sorted() {
+
+            List<OUT> list = new ArrayList<>();
+
+            /*
+                Custom action in which we add all inputs to a
+                given list.
+             */
+            Consumer<OUT> collectingConsumer = out -> list.add(out);
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()) {
+                T element = iterator.next();
+                chain.accept(element);
+            }
+
+            //this might throw an exception if elements do not implement Comparable
+            Collections.sort(list, (a, b) -> ((Comparable)a).compareTo(b));
+
+            /*
+                we could have used streamList directly instead of a Java API list.
+                Problems is, that then we would had needed our own function to sort the
+                AnotherStreamList instead of relying on the existing Collections.sort
+             */
+            AnotherStreamList<OUT> streamList = new AnotherStreamList<>();
+            for(OUT value : list){
+                streamList.add(value);
+            }
+
+            return streamList.stream();
         }
     }
 
