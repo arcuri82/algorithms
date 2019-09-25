@@ -138,6 +138,14 @@ public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
     @Override
     public int size() {
 
+        /*
+            Note: it would had been more efficient to keep track of the size
+            in a variable, updated at each put/delete.
+            However, for didactic reasons here I just show how the size relates
+            to the size of each list in the array.
+            This is inefficient, as it would cost O(n) instead of O(1)
+         */
+
         int size = 0;
         for(int i=0; i<data.length; i++){
             if(data[i] != null){

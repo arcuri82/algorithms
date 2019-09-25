@@ -25,6 +25,9 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
 
     private Entry[] data = (Entry[]) Array.newInstance(Entry.class, M);
 
+    private int size = 0;
+
+
     private int findKey(int i, K key) {
 
         int k = i;
@@ -96,6 +99,7 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
 
         if (data[position] == null) {
             data[position] = new Entry(key, value);
+            size++;
         } else {
             Entry entry = data[position];
             entry.key = key;
@@ -130,6 +134,7 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
         if(entry != null){
             entry.key = null;
             entry.value = null;
+            size--;
         }
     }
 
@@ -147,14 +152,6 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
 
     @Override
     public int size() {
-
-        int size = 0;
-        for (int i = 0; i < data.length; i++) {
-            if (!isMissing(i)) {
-                size++;
-            }
-        }
-
         return size;
     }
 }
