@@ -1,6 +1,7 @@
-package org.pg4200.les12;
+package org.pg4200.les12.lzw;
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les12.lzw.MyTernarySearchTrie;
 
 import static org.junit.jupiter.api.Assertions.*;
 

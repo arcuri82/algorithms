@@ -1,4 +1,4 @@
-package org.pg4200.les12;
+package org.pg4200.les12.lzw;
 
 
 import java.util.*;

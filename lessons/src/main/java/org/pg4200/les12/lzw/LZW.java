@@ -1,4 +1,8 @@
-package org.pg4200.les12;
+package org.pg4200.les12.lzw;
+
+import org.pg4200.les12.BitReader;
+import org.pg4200.les12.BitWriter;
+import org.pg4200.les12.TextCompression;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,9 @@
-package org.pg4200.les12;
+package org.pg4200.les12.lzw;
 
 import org.junit.jupiter.api.Test;
+import org.pg4200.les12.Huffman;
+import org.pg4200.les12.TextCompressionTestTemplate;
+import org.pg4200.les12.lzw.LZW;
 
 import static org.junit.jupiter.api.Assertions.*;
 
