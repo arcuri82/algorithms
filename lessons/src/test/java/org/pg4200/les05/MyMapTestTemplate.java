@@ -173,4 +173,26 @@ public abstract class MyMapTestTemplate {
     }
 
 
+    @Test
+    public void testSearchNullOnNonEmpty(){
+
+        map.put("foo", 1);
+
+        assertThrows(NullPointerException.class, () -> map.get(null));
+    }
+
+    @Test
+    public void testSearchNull(){
+        assertThrows(NullPointerException.class, () -> map.get(null));
+    }
+
+    @Test
+    public void testDeleteNull(){
+        assertThrows(NullPointerException.class, () -> map.delete(null));
+    }
+
+    @Test
+    public void testPutNull(){
+        assertThrows(NullPointerException.class, () -> map.put(null,42));
+    }
 }

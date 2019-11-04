@@ -2,6 +2,7 @@ package org.pg4200.les05;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by arcuri82 on 22-Aug-17.
@@ -35,6 +36,8 @@ public class MyMapBinarySearchArray<K extends Comparable<K>,V> implements MyMap<
 
     @Override
     public void put(K key, V value) {
+
+        Objects.requireNonNull(key);
 
         Entry entry = new Entry<>(key, value);
 
@@ -84,6 +87,8 @@ public class MyMapBinarySearchArray<K extends Comparable<K>,V> implements MyMap<
     @Override
     public void delete(K key) {
 
+        Objects.requireNonNull(key);
+
         int index = Search.findInSorted(sortedData, new Entry<>(key, null));
 
         if(index >= 0){
@@ -105,6 +110,8 @@ public class MyMapBinarySearchArray<K extends Comparable<K>,V> implements MyMap<
 
     @Override
     public V get(K key) {
+
+        Objects.requireNonNull(key);
 
         //O(log n) complexity
         int index = Search.findInSorted(sortedData, new Entry<>(key, null));

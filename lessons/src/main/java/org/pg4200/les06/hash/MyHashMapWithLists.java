@@ -5,6 +5,7 @@ package org.pg4200.les06.hash;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by arcuri82 on 14-Sep-17.
@@ -34,6 +35,8 @@ public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
 
     @Override
     public void put(K key, V value) {
+
+        Objects.requireNonNull(key);
 
         int i = index(key);
 
@@ -98,6 +101,8 @@ public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
     @Override
     public void delete(K key) {
 
+        Objects.requireNonNull(key);
+
         int i = index(key);
 
         if(data[i] == null){
@@ -117,6 +122,9 @@ public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
 
     @Override
     public V get(K key) {
+
+        Objects.requireNonNull(key);
+
         int i = index(key);
 
         if(data[i] == null){

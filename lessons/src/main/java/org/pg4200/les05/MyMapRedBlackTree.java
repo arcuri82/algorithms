@@ -1,5 +1,7 @@
 package org.pg4200.les05;
 
+import java.util.Objects;
+
 /**
  * Created by arcuri82 on 24-Aug-17.
  */
@@ -19,6 +21,8 @@ public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeB
 
     @Override
     public void put(K key, V value) {
+
+        Objects.requireNonNull(key);
 
         root = put(key, value, root);
         root.is_red = false;
@@ -107,6 +111,8 @@ public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeB
     @Override
     public V get(K key) {
 
+        Objects.requireNonNull(key);
+
         return get(key, root);
     }
 
@@ -169,6 +175,9 @@ public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeB
 
     @Override
     public void delete(K key) {
+
+        Objects.requireNonNull(key);
+
         if (!isRed(root.left) && !isRed(root.right)) {
             root.is_red = true;
         }

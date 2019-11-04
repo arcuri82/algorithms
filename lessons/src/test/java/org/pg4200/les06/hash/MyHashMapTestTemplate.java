@@ -176,4 +176,19 @@ public abstract class MyHashMapTestTemplate {
             assertEquals(size, map.size());
         }
     }
+
+    @Test
+    public void testSearchNull(){
+        assertThrows(NullPointerException.class, () -> map.get(null));
+    }
+
+    @Test
+    public void testDeleteNull(){
+        assertThrows(NullPointerException.class, () -> map.delete(null));
+    }
+
+    @Test
+    public void testPutNull(){
+        assertThrows(NullPointerException.class, () -> map.put(null,42));
+    }
 }
