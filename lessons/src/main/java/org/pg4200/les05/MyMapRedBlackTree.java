@@ -126,10 +126,10 @@ public class MyMapRedBlackTree<K extends Comparable<K>, V> implements MyMapTreeB
 
         if (cmp == 0) {
             return subtreeRoot.value;
-        } else if (cmp > 0 && subtreeRoot.right != null) {
+        } else if (cmp > 0) {
             //look at greater values in the right subtree
             return get(key, subtreeRoot.right);
-        } else if (cmp < 0 && subtreeRoot.left != null) {
+        } else if (cmp < 0) {
             //look at smaller values in the left subtree
             return get(key, subtreeRoot.left);
         }
