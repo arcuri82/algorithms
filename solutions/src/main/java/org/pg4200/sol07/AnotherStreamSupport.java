@@ -101,6 +101,9 @@ public class AnotherStreamSupport {
         @Override
         public String joinToString(String separator) {
 
+            /*
+                Note: code here could be simplified with StringJoiner
+             */
             StringBuffer buffer = new StringBuffer();
             boolean[] first = {true};
 
