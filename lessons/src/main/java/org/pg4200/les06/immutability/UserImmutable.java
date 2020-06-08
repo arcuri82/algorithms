@@ -1,4 +1,4 @@
-package org.pg4200.les06.set;
+package org.pg4200.les06.immutability;
 
 /**
  * If for any reason you use an object in a set, or as a key in a map,

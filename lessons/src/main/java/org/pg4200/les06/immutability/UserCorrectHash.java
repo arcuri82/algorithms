@@ -1,4 +1,4 @@
-package org.pg4200.les06.set;
+package org.pg4200.les06.immutability;
 
 /**
  * Created by arcuri82 on 14-Sep-17.

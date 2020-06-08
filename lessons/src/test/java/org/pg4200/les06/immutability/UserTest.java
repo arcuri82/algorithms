@@ -1,8 +1,9 @@
-package org.pg4200.les06.set;
+package org.pg4200.les06.immutability;
 
 
 import org.junit.jupiter.api.Test;
-import org.pg4200.les06.set.*;
+import org.pg4200.les06.set.MySet;
+import org.pg4200.les06.set.MySetHashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
