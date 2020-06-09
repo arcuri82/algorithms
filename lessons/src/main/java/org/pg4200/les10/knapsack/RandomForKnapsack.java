@@ -9,7 +9,7 @@ import java.util.Random;
 public class RandomForKnapsack {
 
 
-    public boolean[] solve(int maxIterations, KnapsackProblem problem){
+    public static boolean[] solve(int maxIterations, KnapsackProblem problem){
 
         if(maxIterations < 1){
             throw new IllegalArgumentException("Invalid number of iterations");
@@ -37,8 +37,16 @@ public class RandomForKnapsack {
         return solution;
     }
 
-    private boolean[] sample(int n, Random random){
+    private static boolean[] sample(int n, Random random){
 
+        /*
+            Note: the code here is not particularly good... as we are
+            instantiating a new array on the heap at each step.
+            Even if we store only the best array, we are still polluting
+            the heap, increasing the number of invocations of the
+            JVM Garbage Collector.
+            How to fix is given as exercise.
+         */
         boolean[] solution = new boolean[n];
         for(int i=0; i<solution.length; i++){
             solution[i] = random.nextBoolean();
