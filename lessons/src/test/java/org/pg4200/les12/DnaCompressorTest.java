@@ -4,6 +4,7 @@ package org.pg4200.les12;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -45,7 +46,7 @@ public class DnaCompressorTest {
         String dna = "AAAGTACCTGAGTAAAGTACCTGAGTAAAGTACCTGAGTTTTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTTTTTTT";
         checkPreserveInformation(dna);
 
-        int nonCompressedSize = dna.getBytes(Charset.forName("utf-8")).length;
+        int nonCompressedSize = dna.getBytes(StandardCharsets.UTF_8).length;
 
         byte[] compressed = DnaCompressor.compress(dna);
 
@@ -74,7 +75,7 @@ public class DnaCompressorTest {
         String dna = "A";
         checkPreserveInformation(dna);
 
-        int nonCompressedSize = dna.getBytes(Charset.forName("utf-8")).length;
+        int nonCompressedSize = dna.getBytes(StandardCharsets.UTF_8).length;
 
         byte[] compressed = DnaCompressor.compress(dna);
 
