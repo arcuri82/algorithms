@@ -18,7 +18,7 @@ public class MyDelegateListString implements MyListString {
         The point is that, to properly choose which container to use, you need
         to understand how they work internally.
 
-        Technically, to fulfil the contract of the StringContainerWithIndex interface,
+        Technically, to fulfil the contract of the MyListString interface,
         I could use internally an actual list from the Java API, and "delegate" all the
         methods on such list.
 
