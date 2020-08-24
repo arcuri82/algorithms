@@ -115,6 +115,13 @@ public class MyQueueArray<T> implements MyQueue<T>{
             head = -1;
             tail = -1;
         } else {
+            /*
+                Removing this line will still make all tests pass, as it
+                is not a functional bug: it only impacts performance.
+                It is done to avoid "memory leaks" in which we keep unused
+                objects that cannot be garbage-collected.
+             */
+            data[head] = null;
             head++;
         }
 
