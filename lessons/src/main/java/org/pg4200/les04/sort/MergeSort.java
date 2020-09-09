@@ -17,6 +17,27 @@ public class MergeSort implements MySort {
             return;
         }
 
+        /*
+            Here we create a buffer as a local variable, and pass it
+            around at each recursive mergesort(...) call.
+            It might be tempting to rather put it in a field, eg
+            "private T[] buffer;"
+            to avoid having to pass it around at each call.
+            However, that would not be "thread-safe", ie two (or more)
+            threads trying to sort different arrays at the same time using
+            the same MergeSort object would
+            end-up overriding such same buffer, leading to bugs.
+            Multi-threading is something we do not see in details in this
+            course, though.
+            Furthermore, you should consider that usually a sorting algorithm
+            would not need for an object instance, and so could be in a "static"
+            method. Here we use regular methods to be able to ovverride from an
+            interface (so we can re-use the same test cases for all the different
+            implementations of MySort; recall you cannot override static methods).
+            When using static methods, could still have something like:
+            "private static T[] buffer;"
+            which would lead to those mentioned multi-threading issues.
+         */
         T[] buffer = (T[]) new Comparable[array.length];
 
         mergesort(0, array.length - 1, array, buffer);
