@@ -37,6 +37,10 @@ public class MergeSort implements MySort {
             When using static methods, could still have something like:
             "private static T[] buffer;"
             which would lead to those mentioned multi-threading issues.
+
+            Note that, besides the "buffer" array, also the input "array" array
+            could be saved in a private field. But that would lead to exactly the
+            same problem with multi-threading.
          */
         T[] buffer = (T[]) new Comparable[array.length];
 
