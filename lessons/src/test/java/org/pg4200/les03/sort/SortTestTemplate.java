@@ -33,6 +33,12 @@ public abstract class SortTestTemplate {
     }
 
     @Test
+    public void testEmpty(){
+        //should not throw an exception
+        sorter.sort(new String[]{});
+    }
+
+    @Test
     public void testOne(){
 
         String[] array = {"a"};

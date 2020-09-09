@@ -13,7 +13,7 @@ public class QuickSort implements MySort {
 
     @Override
     public <T extends Comparable<T>> void sort(T[] array) {
-        if(array == null){
+        if(array == null || array.length <= 1){
             return;
         }
 
