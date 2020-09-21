@@ -30,6 +30,13 @@ public class MyHashMapWithLists<K,V> implements MyHashMap<K,V> {
         }
     }
 
+    /*
+     * This is going to be an array [].
+     * What is the type of objects contained in such array?
+     * It is "List<Entry>".
+     * As an array can contain objects, those objects can be
+     * collections... because collections are objects
+     */
     private List<Entry>[] data = new ArrayList[M];
 
 
