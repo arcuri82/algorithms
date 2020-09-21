@@ -18,6 +18,11 @@ public class ImmutableBookImp implements ImmutableBook {
 
     private final List<ImmutableAuthor> authors;
 
+    /**
+     * Default constructor, with no input parameters.
+     * As the fields are final, we still need to initialize them
+     * with some values, otherwise it will not compile.
+     */
     public ImmutableBookImp() {
         this(null, -1, null);
     }
