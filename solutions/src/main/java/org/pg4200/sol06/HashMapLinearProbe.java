@@ -32,23 +32,25 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
 
         int k = i;
 
-        while (data[i] != null && !key.equals(data[i].key) && k < data.length) {
+        while (isPresentButNotMatching(k, key) && k < data.length) {
             k++;
         }
 
         if (k < data.length) {
-            if(data[i] == null){
+            if(data[k] == null){
                 return -1;
             }
+            assert key.equals(data[k].key);
             return k;
         }
 
         k = 0;
-        while (data[i] != null && !key.equals(data[i].key) && k < i) {
+        while (isPresentButNotMatching(k, key) && k < i) {
             k++;
         }
 
-        if (k < i && data[i] != null) {
+        if (k < i && data[k] != null) {
+            assert key.equals(data[k].key);
             return k;
         } else {
             return -1;
@@ -115,9 +117,12 @@ public class HashMapLinearProbe<K, V> implements MyHashMap<K, V> {
     }
 
     private boolean isMissing(int i) {
-        return data[i] == null || data[i].key == null;
+        return i >= data.length || data[i] == null || data[i].key == null;
     }
 
+    private boolean isPresentButNotMatching(int i, K key) {
+       return i < data.length && data[i] != null && !key.equals(data[i].key);
+    }
 
     @Override
     public void delete(K key) {

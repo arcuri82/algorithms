@@ -2,11 +2,14 @@ package org.pg4200.les06.hash;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.pg4200.les06.hash.MyHashMap;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -190,5 +193,53 @@ public abstract class MyHashMapTestTemplate {
     @Test
     public void testPutNull(){
         assertThrows(NullPointerException.class, () -> map.put(null,42));
+    }
+
+
+    private class Item{
+
+        public final String value;
+        public final int code;
+
+        public Item(String value, int code) {
+            this.value = value;
+            this.code = code;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Item item = (Item) o;
+            return code == item.code &&
+                    Objects.equals(value, item.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return code;
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 42, 996})
+    public void testCollision(int code){
+
+        Item a = new Item("foo", code);
+        Item b = new Item("bar", code);
+        assertEquals(a.hashCode(), b.hashCode());
+        assertFalse(a.equals(b));
+
+        MyHashMap<Item, String> m = getInstance();
+        m.put(a, a.value);
+        m.put(b, b.value);
+        assertEquals(2, m.size());
+
+        assertEquals(a.value, m.get(a));
+        assertEquals(b.value, m.get(b));
+
+        m.delete(a);
+
+        assertEquals(b.value, m.get(b));
     }
 }
