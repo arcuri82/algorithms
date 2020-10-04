@@ -32,7 +32,7 @@ public class AllPathsGraph<V> extends UndirectedGraph<V> {
 
     private void dfs(List<List<V>> paths, Deque<V> stack, V current, V end) {
 
-        stack.addFirst(current);
+        stack.push(current);
 
         if (isPathTo(stack, end)) {
             List<V> path = new ArrayList<>(stack);
@@ -48,7 +48,7 @@ public class AllPathsGraph<V> extends UndirectedGraph<V> {
 
             dfs(paths, stack, connected, end);
             //backtrack
-            stack.removeFirst();
+            stack.pop();
         }
     }
 }

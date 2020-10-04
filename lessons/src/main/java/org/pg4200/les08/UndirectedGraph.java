@@ -143,10 +143,6 @@ public class UndirectedGraph<V> implements  Graph<V>{
             To represent a stack, we need to use Deque (double ended queue).
             See the JavaDocs, eg
             https://docs.oracle.com/javase/9/docs/api/java/util/Deque.html
-
-            push(e)	-> addFirst(e)
-            pop()	-> removeFirst()
-            peek()	-> peekFirst()
          */
         Deque<V> stack = new ArrayDeque<>();
 
@@ -164,7 +160,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
     private void dfs(Set<V> alreadyVisited, Deque<V> stack, V current, V end){
 
         alreadyVisited.add(current);
-        stack.addFirst(current);
+        stack.push(current);
 
         if(isPathTo(stack, end)){
             return;
@@ -183,7 +179,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
 
             if(! isPathTo(stack, end)){
                 //backtrack
-                stack.removeFirst();
+                stack.pop();
             } else {
                 return;
             }
@@ -191,7 +187,7 @@ public class UndirectedGraph<V> implements  Graph<V>{
     }
 
     protected boolean isPathTo(Deque<V> stack, V vertex){
-        return !stack.isEmpty() && stack.peekFirst().equals(vertex);
+        return !stack.isEmpty() && stack.peek().equals(vertex);
     }
 
     @Override
