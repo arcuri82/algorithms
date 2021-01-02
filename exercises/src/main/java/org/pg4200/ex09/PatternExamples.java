@@ -30,4 +30,15 @@ public interface PatternExamples {
      * - a final domain code, which is at least 2 letters (upper or lower case), and no digits
      */
     String emailRegex();
+
+    /**
+     * Need match the following sentence:
+     *
+     * Is this an out of season april fools joke?
+     *
+     * However, the regex should be general enough to also match for further string variants following these properties:
+     * a)	there can  be any number of spaces between the words
+     * b)	each letter can be either in lower or upper case
+     */
+    String isItAJoke();
 }

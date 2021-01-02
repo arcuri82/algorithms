@@ -262,4 +262,18 @@ public abstract class MyListTestTemplate {
         assertEquals("b", data.get(2));
         assertEquals("c", data.get(3));
     }
+
+    @Test
+    public void testInsertAndGetMany(){
+
+        MyList<Integer> data = getNewInstance(Integer.class);
+
+        for(int i=0; i<100; i++){
+            data.add(i*2);
+        }
+
+        for(int i=0; i<100; i++){
+            assertEquals(i*2, data.get(i));
+        }
+    }
 }
