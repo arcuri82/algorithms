@@ -1,8 +1,7 @@
 
 # Algorithms and Data Structures
 
-[![Build Status](https://travis-ci.org/arcuri82/algorithms.svg?branch=master)](https://travis-ci.org/arcuri82/pg4200)
-
+![CI](https://github.com/arcuri82/algorithms/workflows/CI/badge.svg)
 
 Slides, code examples and exercises (with solutions) for the PG4200 course: 
 Algoritmer og datastrukturer (Algorithms and Data Structures).

@@ -4,6 +4,7 @@ import org.pg4200.ex07.AnotherStream;
 import org.pg4200.les06.set.MySetHashMap;
 
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -164,6 +165,35 @@ public class AnotherStreamSupport {
             }
 
             return false;
+        }
+
+        @Override
+        public Optional<OUT> reduce(BinaryOperator<OUT> accumulator) {
+
+            Boolean[] foundAny = {false};
+            OUT[] result = (OUT[]) new Object[]{null};
+
+            Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
+                @Override
+                public void accept(OUT out) {
+                    if (!foundAny[0]) {
+                        foundAny[0] = true;
+                        result[0] = out;
+                    }
+                    else {
+                        result[0] = accumulator.apply(result[0], out);
+                    }
+                }
+            };
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()) {
+                T element = iterator.next();
+                chain.accept(element);
+            }
+
+            return foundAny[0] ? Optional.of(result[0]) : Optional.empty();
         }
 
         @Override

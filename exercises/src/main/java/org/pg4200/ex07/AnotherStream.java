@@ -1,5 +1,7 @@
 package org.pg4200.ex07;
 
+import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 
 /**
@@ -29,6 +31,14 @@ public interface AnotherStream<T> {
      *  Check if the given predicate is true for any element in the stream.
      */
     boolean any(Predicate<T> predicate);
+
+    /**
+     *  Performs a reduction on the elements of this stream, using an associative accumulation function,
+     *  and returns an Optional describing the reduced value, if any (ie, if the stream as at least one element).
+     *  This is equivalent to take the first element, apply accumulator with second element, get result
+     *  and apply accumulator with 3rd element, then take this result and accumulate with 4th element, and so on.
+     */
+    Optional<T> reduce(BinaryOperator<T> accumulator);
 
     /**
      * Filtering operation that only let pass an element
