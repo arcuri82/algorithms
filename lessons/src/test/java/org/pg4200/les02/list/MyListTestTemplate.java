@@ -6,6 +6,8 @@ import org.pg4200.les02.list.MyList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 /**
  * Created by arcuri82 on 15-Aug-17.
@@ -265,6 +267,9 @@ public abstract class MyListTestTemplate {
 
     @Test
     public void testInsertAndGetMany(){
+
+        //skip running this test on that class, due to limited length
+        assumeFalse(this.getClass().getSimpleName().equals("MyArrayListTest"));
 
         MyList<Integer> data = getNewInstance(Integer.class);
 
