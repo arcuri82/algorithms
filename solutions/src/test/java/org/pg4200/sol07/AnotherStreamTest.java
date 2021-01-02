@@ -3,6 +3,8 @@ package org.pg4200.sol07;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -145,4 +147,42 @@ public class AnotherStreamTest {
 
         assertThrows(RuntimeException.class, () -> list.stream().sorted().count());
     }
+
+    @Test
+    public void testReduce(){
+
+        AnotherStreamList<Integer> list = new AnotherStreamList<>();
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        int sum = list.stream().reduce( (a,b) -> a+b).get();
+        assertEquals(6, sum);
+
+        int multiply = list.stream().reduce((a,b) -> a*b).get();
+        assertEquals(0, multiply);
+    }
+
+    @Test
+    public void testReduceEmpty(){
+
+        AnotherStreamList<Integer> list = new AnotherStreamList<>();
+        Optional<Integer> opt = list.stream().reduce( (a,b) -> a+b);
+        assertTrue(opt.isEmpty());
+    }
+
+    @Test
+    public void testReduceWithSkip(){
+
+        AnotherStreamList<Integer> list = new AnotherStreamList<>();
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        int sum = list.stream().skip(3).reduce( (a,b) -> a+b).get();
+        assertEquals(3, sum);
+    }
+
 }
