@@ -27,4 +27,4 @@ steepest ascent version on boards of size 8, 16, 20 and 100.
 ## Solutions
 
 Solutions to this exercise can be found in the `solutions`
-module, under the `org.pg4200.sol10` package.
+module, under the `org.pg4200.oldsol10` package.

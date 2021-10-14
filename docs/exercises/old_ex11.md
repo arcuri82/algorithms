@@ -14,4 +14,4 @@ to solve.
 ## Solutions
 
 Solutions to this exercise can be found in the `solutions`
-module, under the `org.pg4200.sol11` package.
+module, under the `org.pg4200.oldsol11` package.
