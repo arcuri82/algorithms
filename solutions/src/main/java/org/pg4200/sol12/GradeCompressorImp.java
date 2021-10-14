@@ -1,6 +1,6 @@
 package org.pg4200.sol12;
 
-import org.pg4200.ex12.GradeCompressor;
+import org.pg4200.ex11.GradeCompressor;
 import org.pg4200.les12.BitReader;
 import org.pg4200.les12.BitWriter;
 

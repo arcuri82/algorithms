@@ -1,6 +1,6 @@
 package org.pg4200.sol07;
 
-import org.pg4200.ex07.AnotherStream;
+import org.pg4200.ex08.AnotherStream;
 import org.pg4200.les06.set.MySetHashMap;
 
 import java.util.*;

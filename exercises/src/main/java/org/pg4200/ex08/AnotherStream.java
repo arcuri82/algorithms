@@ -1,4 +1,4 @@
-package org.pg4200.ex07;
+package org.pg4200.ex08;
 
 import java.util.Optional;
 import java.util.function.BinaryOperator;

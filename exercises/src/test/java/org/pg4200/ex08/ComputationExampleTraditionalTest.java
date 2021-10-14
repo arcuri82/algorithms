@@ -1,6 +1,4 @@
-package org.pg4200.ex07;
-
-import static org.junit.jupiter.api.Assertions.*;
+package org.pg4200.ex08;
 
 public class ComputationExampleTraditionalTest extends ComputationExampleTestTemplate{
 

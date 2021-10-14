@@ -1,7 +1,7 @@
 package org.pg4200.sol07;
 
 import org.pg4200.ex06.Book;
-import org.pg4200.ex07.ComputationExample;
+import org.pg4200.ex08.ComputationExample;
 
 import java.util.List;
 import java.util.stream.Collectors;

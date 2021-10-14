@@ -1,4 +1,4 @@
-package org.pg4200.ex07;
+package org.pg4200.ex08;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

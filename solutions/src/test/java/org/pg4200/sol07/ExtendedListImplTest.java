@@ -1,9 +1,7 @@
 package org.pg4200.sol07;
 
-import org.pg4200.ex07.ExtendedList;
-import org.pg4200.ex07.ExtendedListTestTemplate;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.pg4200.ex08.ExtendedList;
+import org.pg4200.ex08.ExtendedListTestTemplate;
 
 /**
  * Created by arcuri82 on 07-Jun-19.

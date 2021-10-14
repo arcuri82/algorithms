@@ -1,9 +1,7 @@
 package org.pg4200.sol07;
 
-import org.pg4200.ex07.ComputationExample;
-import org.pg4200.ex07.ComputationExampleTestTemplate;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.pg4200.ex08.ComputationExample;
+import org.pg4200.ex08.ComputationExampleTestTemplate;
 
 public class ComputationExampleStreamTest extends ComputationExampleTestTemplate {
 

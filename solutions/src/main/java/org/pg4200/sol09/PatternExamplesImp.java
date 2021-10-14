@@ -1,6 +1,6 @@
 package org.pg4200.sol09;
 
-import org.pg4200.ex09.PatternExamples;
+import org.pg4200.ex10.PatternExamples;
 
 /**
  * Created by arcuri82 on 07-May-18.

@@ -1,6 +1,6 @@
 package org.pg4200.sol07;
 
-import org.pg4200.ex07.ExtendedList;
+import org.pg4200.ex08.ExtendedList;
 import org.pg4200.les02.list.MyArrayList;
 import org.pg4200.les06.set.MySet;
 import org.pg4200.les06.set.MySetHashMap;
