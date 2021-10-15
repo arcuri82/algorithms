@@ -20,12 +20,12 @@ usages of the algorithms.
 * [Lesson04](docs/slides/04/04_recursion_tdd.pdf): Recursion and Test Driven Development (TDD)
 * [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
 * [Lesson06](docs/slides/06/06_hash_maps.pdf): Hash Maps and Sets
-* [Lesson07](docs/slides/07/07_streams.pdf): Iterators, Lambdas and Streams
-* [Lesson08](docs/slides/08/08_graphs.pdf): Graphs
-* [Lesson09](docs/slides/09/09_regex.pdf): Text Search and Regular Expressions
-* [Lesson10](docs/slides/10/10_optimization.pdf): Decision and Optimization Problems
-* [Lesson11](docs/slides/11/11_genetic.pdf): Genetic Algorithms and Randomness
-* [Lesson12](docs/slides/12/12_compression.pdf): Data Compression
+* [Lesson07](docs/slides/08/07_streams.pdf): Iterators, Lambdas and Streams
+* [Lesson08](docs/slides/09/09_graphs.pdf): Graphs
+* [Lesson09](docs/slides/10/10_regex.pdf): Text Search and Regular Expressions
+* [Lesson10](docs/slides/old10/10_optimization.pdf): Decision and Optimization Problems
+* [Lesson11](docs/slides/old11/11_genetic.pdf): Genetic Algorithms and Randomness
+* [Lesson12](docs/slides/11/11_compression.pdf): Data Compression
 
 ## Code
 
@@ -41,12 +41,12 @@ The code is written in Java, and it is divided into 3 Maven modules:
 * [Exercise04](docs/exercises/ex04.md)
 * [Exercise05](docs/exercises/ex05.md)
 * [Exercise06](docs/exercises/ex06.md)
-* [Exercise07](docs/exercises/ex07.md)
-* [Exercise08](docs/exercises/ex08.md)
-* [Exercise09](docs/exercises/ex09.md)
-* [Exercise10](docs/exercises/ex10.md)
-* [Exercise11](docs/exercises/ex11.md)
-* [Exercise12](docs/exercises/ex12.md)
+* [Exercise07](docs/exercises/ex08.md)
+* [Exercise08](docs/exercises/ex09.md)
+* [Exercise09](docs/exercises/ex10.md)
+* [Exercise10](docs/exercises/old_ex10.md)
+* [Exercise11](docs/exercises/old_ex11.md)
+* [Exercise12](docs/exercises/ex11.md)
 
 ## Exams
 
