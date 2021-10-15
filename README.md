@@ -20,12 +20,12 @@ usages of the algorithms.
 * [Lesson04](docs/slides/04/04_recursion_tdd.pdf): Recursion and Test Driven Development (TDD)
 * [Lesson05](docs/slides/05/05_tree_maps.pdf): Tree Maps
 * [Lesson06](docs/slides/06/06_hash_maps.pdf): Hash Maps and Sets
-* [Lesson07](docs/slides/08/07_streams.pdf): Iterators, Lambdas and Streams
-* [Lesson08](docs/slides/09/09_graphs.pdf): Graphs
-* [Lesson09](docs/slides/10/10_regex.pdf): Text Search and Regular Expressions
-* [Lesson10](docs/slides/old10/10_optimization.pdf): Decision and Optimization Problems
-* [Lesson11](docs/slides/old11/11_genetic.pdf): Genetic Algorithms and Randomness
-* [Lesson12](docs/slides/11/11_compression.pdf): Data Compression
+* [Lesson08](docs/slides/08/08_streams.pdf): Iterators, Lambdas and Streams
+* [Lesson09](docs/slides/09/09_graphs.pdf): Graphs
+* [Lesson10](docs/slides/10/10_regex.pdf): Text Search and Regular Expressions
+* [Lesson11](docs/slides/11/11_compression.pdf): Data Compression
+* [Supplementary Optimization](docs/slides/old10/10_optimization.pdf): Decision and Optimization Problems
+* [Supplementary Genetic Algorithms](docs/slides/old11/11_genetic.pdf): Genetic Algorithms and Randomness
 
 ## Code
 
