@@ -27,7 +27,7 @@ public class AnotherExampleStreamTest {
 
         int result = list.stream().count();
 
-        assertEquals(8, result);
+        assertEquals(list.size(), result);
     }
 
     @Test
@@ -40,5 +40,39 @@ public class AnotherExampleStreamTest {
         assertTrue(result <= nondistinct);
         assertEquals(5, result);
 
+    }
+
+    @Test
+    public void foundAnyTest(){
+        AnotherExampleStreamList<String> list = initTestData();
+
+        boolean anyEmpty = list.stream().any(s -> s.isEmpty());
+        boolean anyStream = list.stream().any(s -> s.equalsIgnoreCase("stream"));
+        boolean anyContainsStream = list.stream().any(s -> s.contains("stream"));
+
+        assertFalse(anyEmpty);
+        assertFalse(anyStream);
+        assertTrue(anyContainsStream);
+
+        assertTrue(list.stream().any(s -> s.contains("strange")));
+
+    }
+
+    @Test
+    public void testJoinToString(){
+        AnotherExampleStreamList<String> list = initTestData();
+
+        String result = list.stream().joinToString(" -> ");
+
+        String hihi = list.stream().joinToString(" . ");
+
+        assertTrue(result.contains(" -> "));
+        assertTrue(hihi.contains(" . "));
+        assertFalse(hihi.contains("->"));
+        assertFalse(result.contains("."));
+        assertEquals("a -> a -> strange -> things -> with -> streams -> streams -> streams",
+                result);
+        assertEquals("a . a . strange . things . with . streams . streams . streams",
+                hihi);
     }
 }

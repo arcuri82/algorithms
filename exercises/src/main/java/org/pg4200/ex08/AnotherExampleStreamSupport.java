@@ -79,11 +79,55 @@ public class AnotherExampleStreamSupport {
 
         @Override
         public String joinToString(String separator) {
-            return null;
+            StringBuffer buffer = new StringBuffer();
+            boolean[] first = {true};
+
+            Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
+                @Override
+                public void accept(OUT out) {
+                    if(!first[0]){
+                        buffer.append(separator);
+                    }
+                    first[0] = false;
+                    buffer.append(out.toString());
+                }
+            };
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()){
+                T element = iterator.next();
+                chain.accept(element);
+            }
+
+            return buffer.toString();
         }
 
         @Override
         public boolean any(Predicate<OUT> predicate) {
+
+            boolean[] foundAny = {false};
+
+            Consumer<OUT> collectingConsumer = new Consumer<OUT>() {
+                @Override
+                public void accept(OUT out) {
+                    if(predicate.test(out)){
+                        foundAny[0] = true;
+                    }
+                }
+            };
+
+            Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
+
+            while (iterator.hasNext()){
+                T element = iterator.next();
+                chain.accept(element);
+
+                if(foundAny[0]){
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -105,7 +149,6 @@ public class AnotherExampleStreamSupport {
                     }
                 }
             };
-
 
             Consumer<T> chain = chainAllConsumersInThePipeline(collectingConsumer);
 
