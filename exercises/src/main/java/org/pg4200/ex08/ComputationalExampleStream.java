@@ -11,7 +11,7 @@ public class ComputationalExampleStream implements ComputationExample{
     public List<String> compute(List<Book> books) {
 
         return books.stream()
-                .filter(book -> {return (book.getYear() >= 2010 && book.getYear() <= 2015); })
+                .filter(book -> (book.getYear() >= 2010 && book.getYear() <= 2015))
                 .filter(b -> {return (b.getAuthors().size() >= 2); })
                 .flatMap(book -> {return book.getAuthors().stream();} )
                 .filter(author -> {return author.getName() != null && author.getSurname() != null; })
