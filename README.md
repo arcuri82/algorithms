@@ -41,12 +41,10 @@ The code is written in Java, and it is divided into 3 Maven modules:
 * [Exercise04](docs/exercises/ex04.md)
 * [Exercise05](docs/exercises/ex05.md)
 * [Exercise06](docs/exercises/ex06.md)
-* [Exercise07](docs/exercises/ex08.md)
-* [Exercise08](docs/exercises/ex09.md)
-* [Exercise09](docs/exercises/ex10.md)
-* [Exercise10](docs/exercises/old_ex10.md)
-* [Exercise11](docs/exercises/old_ex11.md)
-* [Exercise12](docs/exercises/ex11.md)
+* [Exercise08](docs/exercises/ex08.md)
+* [Exercise09](docs/exercises/ex09.md)
+* [Exercise10](docs/exercises/ex10.md)
+* [Exercise11](docs/exercises/ex11.md)
 
 ## Exams
 
