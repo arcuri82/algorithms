@@ -1,5 +1,6 @@
 package org.pg4200.les11;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
@@ -154,7 +155,7 @@ public class Huffman implements TextCompression  {
         return list.remove(min);
     }
 
-    protected  void writeTrie(Node node, BitWriter buffer) {
+    protected void writeTrie(Node node, BitWriter buffer) {
 
         /*
             The trick here is to use 1 bit to represent whether
