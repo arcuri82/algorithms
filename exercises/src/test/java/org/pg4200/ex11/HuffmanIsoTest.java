@@ -42,6 +42,17 @@ public class HuffmanIsoTest {
         compareOnText(text);
     }
 
+    @Test
+    public void testOratory(){
+        String text = new Scanner(
+                HuffmanTest.class.getResourceAsStream("/compression/Catiline.txt"), "UTF-8")
+                .useDelimiter("\\A")
+                .next();
+
+        compareOnText(text);
+
+    }
+
     private void compareOnText(String text){
         Huffman huff = new Huffman();
         HuffmanIso huffIso = new HuffmanIso();
