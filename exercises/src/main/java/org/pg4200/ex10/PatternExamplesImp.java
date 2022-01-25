@@ -44,4 +44,38 @@ public class PatternExamplesImp implements PatternExamples{
         return joke;
 
     }
+
+
+    public String topicRubric(){
+        String topic = ".*" +
+                "(( )*" +
+                "((A|a)lgdat)|" +
+                "((A|a)lgorithms)|" +
+                "((P|p)g4200)" +
+                ")+" +
+                ".*" +
+                "(\\.|\\!|\\?){1}";
+        return topic;
+    }
+
+    public String ex1aRubric(){
+        String ex1a = "pg4200_" +
+                "([0-9]{5})" +
+                "\\.zip";
+
+        return ex1a;
+    }
+
+    // -----
+
+    public String ex1a(){
+        String ex1a = "[a-zA-Z][a-zA-Z]$1d$1d00_$1d00$1d$1d$1zip";
+
+        return ex1a;
+    }
+
+    public String topic(){
+        String topic = "[a-zA-Z][a-zA-Z]$1d$1d00_$1d00$1d$1d$1zip";
+        return topic;
+    }
 }
