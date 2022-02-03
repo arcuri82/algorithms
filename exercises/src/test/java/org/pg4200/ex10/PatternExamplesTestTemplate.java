@@ -93,8 +93,6 @@ public abstract class PatternExamplesTestTemplate {
         assertFalse("this Is an out of season april fools joke?".matches(regex));
 
         assertTrue("Is this an out of season april fools joke?".matches(regex));
-        // An extra test for the grammatically sensitive in the audience
-        assertTrue("Is this an out of season april fools' joke?".matches(regex));
         assertTrue("iS THIS          AN oUT of sEason              APRIL FOOLs joKe?".matches(regex));
     }
 }
